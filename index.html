@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="pacg-data-mode" content="static">
+  <meta name="description" content="Search the original Pathfinder Adventure Card Game card library.">
+  <title>PACG · Card library</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./card-face.css">
+  <script src="./library-data.js" defer></script>
+  <script src="./card-face.js" defer></script>
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#detail">Skip to card details</a>
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="PACG card library home"><img src="./favicon.svg" width="30" height="30" alt=""><span>PACG <span class="brand-divider">/</span> <span class="brand-sub">Card archive</span></span></a>
+    <span class="edition"><span class="edition-dot"></span>Original edition</span>
+  </header>
+  <main class="workspace">
+    <section class="library-heading" aria-labelledby="page-title">
+      <div><p class="eyebrow">PATHFINDER ADVENTURE CARD GAME</p><h1 id="page-title">Card library<span class="title-period">.</span></h1><p class="intro">Find a card. Follow the adventure.</p></div>
+      <p id="library-stats" class="library-stats" aria-live="polite">Loading your collection…</p>
+    </section>
+    <form id="filters" class="filters" role="search">
+      <div class="search-row">
+        <div class="search-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m16 16 4.5 4.5"></path></svg><label class="sr-only" for="search">Search cards</label><input id="search" name="q" type="search" maxlength="200" placeholder="Search names, traits, or card text…" autocomplete="off"><kbd aria-hidden="true">/</kbd></div>
+        <label class="mode-wrap"><span class="sr-only">Search scope</span><select id="mode" name="mode"><option value="text">Names &amp; card text</option><option value="name">Card names only</option></select></label>
+      </div>
+      <div class="filter-row">
+        <label><span>Card type</span><select id="type" name="type"><option value="">All card types</option></select></label>
+        <label><span>Adventure path</span><select id="family" name="family"><option value="">All adventure paths</option></select></label>
+        <label class="deck-filter"><span>Deck or collection</span><select id="product" name="product"><option value="">All decks &amp; collections</option></select></label>
+        <label><span>Text coverage</span><select id="status" name="status"><option value="">All records</option><option value="review">Needs review</option><option value="incomplete">Partial or missing text</option></select></label>
+        <button id="clear" class="reset-button" type="button">Reset filters</button>
+      </div>
+    </form>
+    <div class="browser-layout">
+      <section class="results-panel" aria-label="Search results">
+        <div class="results-heading"><h2 id="result-count" aria-live="polite">Loading cards</h2><span id="result-order">A–Z</span></div>
+        <div id="results" class="results" aria-busy="true"></div>
+        <nav class="pagination" aria-label="Results pages"><button id="previous" type="button" aria-label="Previous page">←</button><span id="page-label">Page 1</span><button id="next" type="button" aria-label="Next page">→</button></nav>
+      </section>
+      <article id="detail" class="detail-panel" tabindex="-1" aria-label="Card details" aria-busy="true"><div class="empty-detail"><span class="empty-diamond">◇</span><h2>Your next discovery awaits</h2><p>Select a card to see its rules and deck contents.</p></div></article>
+    </div>
+    <footer class="footer"><span>Original-edition research collection</span><span>Card text and source verification status are shown with each record.</span></footer>
+  </main>
+  <div id="announcement" class="sr-only" role="status"></div>
+  <noscript>This card browser needs JavaScript for search and card details.</noscript>
+</body>
+</html>
