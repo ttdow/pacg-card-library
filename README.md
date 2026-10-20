@@ -4,6 +4,8 @@
 
 A static, read-only reference for the original Pathfinder Adventure Card Game.
 Search runs in your browser; individual card details load when selected.
+The interface starts in dark mode, offers a remembered light-mode preference,
+and keeps additional search filters in a collapsible menu below the search bar.
 
 This repository contains only the generated website and the current JSON data
 snapshot. The SQLite database, importer, source snapshots, local dependencies,

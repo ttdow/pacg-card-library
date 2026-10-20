@@ -61,13 +61,38 @@ function updateProducts() {
 function restoreFields() {
   for (const key of filterKeys) fields[key].value = state[key];
   updateProducts();
+  updateFilterSummary();
+  if (activeFilterCount()) $('search-options').open = true;
+}
+
+function activeFilterCount() {
+  return ['type','family','product','status'].filter(key => state[key]).length + (state.mode !== 'text' ? 1 : 0);
+}
+
+function updateFilterSummary() {
+  const count = activeFilterCount();
+  $('filter-summary').textContent = count ? `Search options · ${count} active` : 'Search options';
+}
+
+function initializeTheme() {
+  const button = $('theme-toggle');
+  const update = () => {
+    const next = window.PACGTheme.get() === 'dark' ? 'light' : 'dark';
+    button.textContent = label(next) + ' mode';
+    button.setAttribute('aria-label',`Switch to ${next} mode`);
+  };
+  button.addEventListener('click',() => { window.PACGTheme.toggle(); update(); });
+  update();
 }
 
 function announce(message) { $('announcement').textContent = message; }
 
 function emptyPanel(title, message, retry) {
   const div = el('div', 'empty-detail');
-  div.append(el('span', 'empty-diamond', '◇'), el('h2', '', title), el('p', '', message));
+  const icon = el('img', 'empty-die');
+  icon.src = document.querySelector('link[rel="icon"]').href;
+  icon.alt = '';
+  div.append(icon, el('h2', '', title), el('p', '', message));
   if (retry) {
     const button = el('button', 'retry-button', 'Try again');
     button.type = 'button';
@@ -348,13 +373,13 @@ function onFilterChange() {
   state.page = 1;
   state.card = '';
   updateProducts();
+  updateFilterSummary();
   loadResults();
 }
 
 async function init() {
   try {
     meta = await dataSource.meta();
-    $('library-stats').textContent = `${number(meta.card_versions)} card versions · ${meta.standard_components} deck components`;
     setOptions($('type'), meta.types.map(type => [type,label(type)]), 'All card types');
     setOptions($('family'), meta.families.map(family => [family,family]), 'All adventure paths');
     restoreFields();
@@ -380,7 +405,6 @@ async function init() {
     });
     await loadResults({keepCard:true});
   } catch (error) {
-    $('library-stats').textContent = 'Library unavailable';
     $('results').setAttribute('aria-busy', 'false');
     $('detail').setAttribute('aria-busy', 'false');
     $('detail').replaceChildren(emptyPanel('Couldn’t open the library', error.message, () => location.reload()));
@@ -388,4 +412,5 @@ async function init() {
   }
 }
 
+initializeTheme();
 init();

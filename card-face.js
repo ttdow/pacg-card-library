@@ -8,8 +8,6 @@
     locations:'Locations', owners:'Owner', before:'Before you act', after:'After you act'};
   const omitted = new Set(['name','type','subtype','source','traits','image','template','source_association','section_association',
     'unstructured','partial','reason','faces','powers','recharge','fluff']);
-  const symbols = {weapon:'⚔', spell:'✧', armor:'◇', blessing:'✦', character:'♙', role:'♙', location:'⌖',
-    item:'◈', ally:'♧', monster:'◆', villain:'◆', henchman:'◆', barrier:'⟐', scenario:'✥', cohort:'♧'};
 
   function identity(card, context = {}) {
     const codes = card.source_codes || [];
@@ -145,7 +143,10 @@
     upper.append(left);
     const emblem = node('div','pacg-emblem');
     emblem.setAttribute('aria-hidden','true');
-    emblem.append(node('span','',symbols[card.card_type] || '◇'));
+    const die = node('img','pacg-die');
+    die.src = document.querySelector('link[rel="icon"]')?.href || './favicon.svg';
+    die.alt = '';
+    emblem.append(die);
     upper.append(emblem);
     const right = node('div','pacg-check-column');
     if (view.character && view.character.deck_list.length) {
