@@ -201,10 +201,9 @@
   function create(card, context = {}) {
     const figure = node('figure','pacg-preview');
     const available = views(card);
-    const nav = node('div','pacg-face-nav');
-    const caption = node('figcaption','pacg-preview-caption','Text layout · original artwork is not included');
     const holder = node('div','pacg-face-holder');
     if (available.length > 1) {
+      const nav = node('div','pacg-face-nav');
       nav.setAttribute('role','group');
       nav.setAttribute('aria-label',card.card_type === 'role' ? 'Role card sides' : 'Card faces');
       available.forEach((view,i) => {
@@ -218,9 +217,10 @@
         });
         nav.append(button);
       });
-    } else nav.append(node('span','pacg-preview-label','Card face'));
+      figure.append(nav);
+    }
     holder.append(createFace(card,available[0],context));
-    figure.append(nav,holder,caption);
+    figure.append(holder);
     return figure;
   }
 

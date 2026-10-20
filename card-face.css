@@ -3,10 +3,9 @@
 .card-presentation{display:flex;flex-direction:column;align-items:center;gap:24px}
 .pacg-preview{margin:0;width:100%;max-width:425px;min-width:0}
 .pacg-face-nav{min-height:34px;display:flex;align-items:center;gap:5px;flex-wrap:wrap;margin-bottom:7px}
-.pacg-preview-label,.card-information-label{font-size:10px;letter-spacing:.13em;text-transform:uppercase;font-weight:650;color:var(--muted)}
+.card-information-label{font-size:10px;letter-spacing:.13em;text-transform:uppercase;font-weight:650;color:var(--muted)}
 .pacg-face-button{padding:7px 13px;border:1px solid var(--line);border-radius:4px;background:var(--paper);font-size:11px;color:var(--green)}
 .pacg-face-button[aria-pressed=true]{background:var(--selected);border-color:var(--green);color:var(--ink)}
-.pacg-preview-caption{text-align:center;font-size:9px;line-height:1.7;color:var(--muted);margin-top:12px}
 .pacg-card{--card-accent:#666b6a;--card-light:#e8e7de;display:flex;flex-direction:column;min-height:610px;border:7px solid #242420;border-radius:12px;background:var(--card-accent);padding:4px;box-shadow:0 9px 22px #3e38241a,0 2px 3px #322d211a;color:#24221b;overflow:hidden}
 .pacg-card[data-type=weapon]{--card-accent:#686867;--card-light:#e5e4de}
 .pacg-card[data-type=spell]{--card-accent:#79628d;--card-light:#e8e0ef}
@@ -23,49 +22,49 @@
 .pacg-card[data-type=character],.pacg-card[data-type=role],.pacg-card[data-type=token]{--card-accent:#92744c;--card-light:#ece2d1}
 .pacg-card[data-type=scenario],.pacg-card[data-type=adventure],.pacg-card[data-type=adventure_path]{--card-accent:#566c70;--card-light:#dfe7e5}
 .pacg-card[data-type=scourge]{--card-accent:#6a684c;--card-light:#e8e6d4}
-.pacg-set-line{display:flex;align-items:center;gap:5px;min-height:23px;padding:1px 4px 4px;color:#fff8ed;font-family:"Arial Narrow","Segoe UI",sans-serif}
-.pacg-set-name{font-family:Georgia,serif;font-size:11px;font-variant:small-caps;font-weight:700;line-height:1.3;flex:1;min-width:0;text-shadow:0 1px 1px #0005}
-.pacg-type{font-size:9px;font-weight:700;letter-spacing:-.05em;text-transform:uppercase;line-height:1.2;text-align:right}
+.pacg-set-line{display:flex;align-items:center;gap:6px;min-height:23px;padding:1px 4px 4px;color:#fff8ed;font-family:"Segoe UI",Arial,sans-serif}
+.pacg-set-name{font-size:11px;font-weight:600;line-height:1.4;letter-spacing:.015em;flex:1;min-width:0;text-shadow:0 1px 1px #0005}
+.pacg-type{font-size:9px;font-weight:650;letter-spacing:.04em;text-transform:uppercase;line-height:1.4;text-align:right}
 .pacg-deck-number{font-size:14px;font-weight:750;line-height:1;white-space:nowrap;padding-left:2px}
-.pacg-name{font-family:"Arial Narrow","Franklin Gothic Medium","Segoe UI",sans-serif;font-stretch:condensed;text-transform:uppercase;font-weight:750;font-size:24px;letter-spacing:-.8px;line-height:1.08;text-align:center;background:var(--card-light);padding:9px 9px 10px;margin:0;border-top:1px solid #ffffff66;border-bottom:2px solid #342e2670;overflow-wrap:anywhere}
-.pacg-name-long{font-size:20px;letter-spacing:-.4px}
-.pacg-role-name{font:700 15px/1.3 "Arial Narrow","Segoe UI",sans-serif;text-transform:uppercase;text-align:center;background:var(--card-light);margin:0;padding:5px 10px 7px;border-bottom:1px solid #71695255}
+.pacg-name{font-family:"Segoe UI",Arial,sans-serif;text-transform:uppercase;font-weight:650;font-size:24px;letter-spacing:.035em;line-height:1.25;text-align:center;background:var(--card-light);padding:10px 10px 11px;margin:0;border-top:1px solid #ffffff66;border-bottom:2px solid #342e2670;overflow-wrap:anywhere}
+.pacg-name-long{font-size:20px;letter-spacing:.025em}
+.pacg-role-name{font:650 15px/1.4 "Segoe UI",Arial,sans-serif;letter-spacing:.035em;text-transform:uppercase;text-align:center;background:var(--card-light);margin:0;padding:5px 10px 7px;border-bottom:1px solid #71695255}
 .pacg-upper{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 96px;min-height:190px;padding:12px 10px;gap:15px;isolation:isolate;background-color:#f4efdc;background-image:radial-gradient(#8d744412 .7px,transparent .9px),linear-gradient(115deg,#fffdf1a1,#e5d7b63b);background-size:5px 5px,100% 100%;border-bottom:2px solid var(--card-accent)}
 .pacg-trait-column,.pacg-check-column{position:relative;z-index:1;min-width:0}
-.pacg-traits{padding:0;margin:0;list-style:none;text-transform:uppercase;font-family:"Arial Narrow","Segoe UI",sans-serif;font-size:10px;line-height:1.35;font-weight:750;max-width:160px;letter-spacing:-.15px}
+.pacg-traits{padding:0;margin:0;list-style:none;text-transform:uppercase;font-family:"Segoe UI",Arial,sans-serif;font-size:10px;line-height:1.5;font-weight:650;max-width:160px;letter-spacing:.03em}
 .pacg-traits li{margin:0 0 2px}
 .pacg-emblem{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);height:112px;width:112px;color:var(--card-accent);opacity:.16;display:flex;align-items:center;justify-content:center;z-index:0}
 .pacg-die{display:block;width:100%;height:100%}
 .pacg-check{background:var(--card-light);text-align:center;margin:0 0 7px;border:1px solid #fff9;box-shadow:0 1px 2px #4b3d2515}
-.pacg-check h3{font:750 8px/1.1 "Arial Narrow","Segoe UI",sans-serif;text-transform:uppercase;margin:0;background:var(--card-accent);color:#fff;padding:5px 3px}
+.pacg-check h3{font:650 9px/1.35 "Segoe UI",Arial,sans-serif;letter-spacing:.035em;text-transform:uppercase;margin:0;background:var(--card-accent);color:#fff;padding:5px 3px}
 .pacg-check-value{padding:6px 3px 8px}
-.pacg-check-skills{font:700 9px/1.25 "Arial Narrow","Segoe UI",sans-serif;text-transform:uppercase;overflow-wrap:anywhere}
+.pacg-check-skills{font:650 10px/1.4 "Segoe UI",Arial,sans-serif;letter-spacing:.02em;text-transform:uppercase;overflow-wrap:anywhere}
 .pacg-check-skills span{display:block}
-.pacg-difficulty{display:flex;align-items:center;justify-content:center;width:33px;height:33px;border-radius:50%;margin:6px auto 0;background:var(--card-accent);color:#fff;font:750 20px/1 "Arial Narrow","Segoe UI",sans-serif;border:2px solid #fff;outline:1px solid #6c6b5e55}
+.pacg-difficulty{display:flex;align-items:center;justify-content:center;width:33px;height:33px;border-radius:50%;margin:6px auto 0;background:var(--card-accent);color:#fff;font:650 20px/1 "Segoe UI",Arial,sans-serif;border:2px solid #fff;outline:1px solid #6c6b5e55}
 .pacg-check-or{font:italic 10px Georgia,serif;display:block;border-top:1px solid #bfb7a34d;padding-top:4px}
-.pacg-subtype{font:700 9px/1.4 "Arial Narrow","Segoe UI",sans-serif;text-transform:uppercase;margin:4px}
+.pacg-subtype{font:650 10px/1.5 "Segoe UI",Arial,sans-serif;letter-spacing:.02em;text-transform:uppercase;margin:4px}
 .pacg-rules{flex:1;display:flex;flex-direction:column;gap:5px;background:#f4f0e4;padding:4px 0 0;min-width:0}
 .pacg-field{background:#fffef7;min-width:0}
 .pacg-field:first-of-type{flex:1}
-.pacg-field h3{font:700 9px/1.2 "Arial Narrow","Segoe UI",sans-serif;letter-spacing:.025em;text-transform:uppercase;margin:0;padding:4px 8px 3px;background:#272720;color:#fffef6}
-.pacg-field-text{font-family:"Segoe UI",Arial,sans-serif;font-size:12px;line-height:1.65;color:#29291f;padding:11px 12px;overflow-wrap:anywhere}
+.pacg-field h3{font:650 10px/1.4 "Segoe UI",Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase;margin:0;padding:4px 8px 3px;background:#272720;color:#fffef6}
+.pacg-field-text{font-family:"Segoe UI",Arial,sans-serif;font-size:12px;line-height:1.7;letter-spacing:.01em;color:#29291f;padding:11px 12px;overflow-wrap:anywhere}
 .pacg-field-text p{margin:0 0 11px;white-space:pre-wrap}
 .pacg-field-text p:last-child{margin-bottom:0}
 .pacg-flavor{font:italic 12px/1.7 Georgia,serif;margin:0;background:#fffdf5;padding:10px 12px;color:#6f6655}
 .pacg-imprint{display:flex;justify-content:space-between;align-items:flex-end;gap:10px;font-size:7px;line-height:1.5;padding:5px 3px 1px;color:#fff9e9}
 .pacg-imprint span:first-child{max-width:65%;overflow-wrap:anywhere}
 .pacg-imprint span:last-child{white-space:nowrap}
-.pacg-mini-table{margin-top:7px;padding:0;font-family:"Arial Narrow","Segoe UI",sans-serif}
+.pacg-mini-table{margin-top:7px;padding:0;font-family:"Segoe UI",Arial,sans-serif}
 .pacg-mini-table h3{font-size:8px;font-weight:750;text-transform:uppercase;color:#4b4836;padding:0 0 3px;margin:0;border-bottom:1px solid #8c806c66;letter-spacing:.02em}
 .pacg-mini-table table{width:100%;border-collapse:collapse;font-size:9px;line-height:1.5;text-align:left;font-weight:650}
 .pacg-mini-table td,.pacg-mini-table th{border-bottom:1px solid #b7ab912e;padding:2px 1px;vertical-align:top}
 .pacg-mini-table th{font-weight:700}
-.pacg-mini-table td{white-space:nowrap;text-align:right}
+.pacg-mini-table td{white-space:normal;text-align:right}
 .pacg-character .pacg-upper{min-height:240px;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:13px}
 .pacg-character .pacg-emblem{opacity:.06}
 .pacg-character .pacg-mini-table{margin-top:0}
 .pacg-skills table{font-size:9px}
-.pacg-skills td:last-child{font-size:8px;letter-spacing:-.1px}
+.pacg-skills td:last-child{font-size:8px;letter-spacing:normal}
 .pacg-mini-table .pacg-subskill th{font-weight:500;padding-left:6px}
 .pacg-mini-table .pacg-subskill td{white-space:normal;font-weight:500;text-align:left;font-size:8px}
 .pacg-favored{font-size:9px;line-height:1.5;color:#544b35;margin:7px 0}
@@ -115,6 +114,6 @@
   .pacg-deck-number{font-size:12px}
   .pacg-character .pacg-upper{min-height:220px;gap:8px}
   .pacg-skills table{font-size:8px}
-  .pacg-skills td:last-child{font-size:7px}
+  .pacg-skills td:last-child{font-size:8px}
 }
 @media(prefers-reduced-motion:no-preference){.pacg-face-button{transition:background-color .12s ease}}
