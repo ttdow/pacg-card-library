@@ -87,6 +87,11 @@ function initializeTheme() {
 
 function announce(message) { $('announcement').textContent = message; }
 
+function clearRecord() {
+  $('record').replaceChildren();
+  $('record').hidden = true;
+}
+
 function emptyPanel(title, message, retry) {
   const div = el('div', 'empty-detail');
   const icon = el('img', 'empty-die');
@@ -105,6 +110,7 @@ function emptyPanel(title, message, retry) {
 async function loadResults({keepCard = false} = {}) {
   searchRequest?.abort();
   detailRequest?.abort();
+  clearRecord();
   const controller = new AbortController();
   searchRequest = controller;
   $('results').setAttribute('aria-busy', 'true');
@@ -177,6 +183,7 @@ async function loadResults({keepCard = false} = {}) {
 
 async function selectCard(id, {push = false, scroll = false} = {}) {
   detailRequest?.abort();
+  clearRecord();
   const controller = new AbortController();
   detailRequest = controller;
   state.card = id;
@@ -294,8 +301,10 @@ function renderCard(card) {
   }
   source.append(sourceBody);
   body.append(source);
-  presentation.append(preview, body);
+  presentation.append(preview);
   $('detail').replaceChildren(presentation);
+  $('record').replaceChildren(body);
+  $('record').hidden = false;
 }
 
 function renderDecks(parent, card) {

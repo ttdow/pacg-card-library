@@ -72,7 +72,8 @@
 .pacg-hand-size{background:#fffdf5;font-size:10px;line-height:1.6;padding:7px 10px}
 .pacg-hand-size p{margin:0 0 4px;white-space:pre-wrap}
 .pacg-hand-size p:first-child{font-weight:700}
-.card-information{width:100%;max-width:640px;min-width:0;border:1px solid var(--line);border-radius:7px;background:var(--paper);box-shadow:var(--shadow);padding:22px 22px 8px;margin:0}
+.record-panel{margin-top:28px;text-align:left}
+.card-information{width:100%;min-width:0;border:1px solid var(--line);border-radius:7px;background:var(--paper);box-shadow:var(--shadow);padding:22px 22px 8px;margin:0}
 .card-information-label{margin:0 0 13px}
 .card-information .card-toolbar{gap:7px;margin-bottom:18px}
 .card-information .status-badge{font-size:10px;line-height:1.6}

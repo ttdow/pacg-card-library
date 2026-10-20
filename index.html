@@ -9,17 +9,17 @@
   <title>PACG · Card library</title>
   <script src="./theme.js?v=135dc273b1fd"></script>
   <link rel="icon" href="./favicon.svg?v=8658463b272b" type="image/svg+xml">
-  <link rel="stylesheet" href="./style.css?v=7ba84ba78d2b">
-  <link rel="stylesheet" href="./card-face.css?v=ec68b0cba612">
+  <link rel="stylesheet" href="./style.css?v=ab46b602a22d">
+  <link rel="stylesheet" href="./card-face.css?v=2a66d69cba4b">
   <script src="./library-data.js?v=737257c2c051" defer></script>
   <script src="./card-face.js?v=5d02b731e145" defer></script>
-  <script src="./app.js?v=a5d7e280b8c7" defer></script>
+  <script src="./app.js?v=ea0f38d6eb49" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#detail">Skip to card details</a>
   <header class="topbar">
     <a class="brand" href="./" aria-label="PACG home"><img src="./favicon.svg?v=8658463b272b" width="34" height="34" alt=""><span>PACG</span></a>
-    <div class="header-actions"><span class="edition">Original edition</span><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to light mode">Light mode</button></div>
+    <div class="header-actions"><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to light mode">Light mode</button></div>
   </header>
   <main class="workspace">
     <section class="library-heading" aria-labelledby="page-title">
@@ -49,7 +49,7 @@
       </section>
       <article id="detail" class="detail-panel" tabindex="-1" aria-label="Card details" aria-busy="true"><div class="empty-detail"><img class="empty-die" src="./favicon.svg?v=8658463b272b" alt=""><h2>Your next discovery awaits</h2><p>Select a card to see its rules and deck contents.</p></div></article>
     </div>
-    <footer class="footer"><span>Original-edition research collection</span><span>Card text and source verification status are shown with each record.</span></footer>
+    <section id="record" class="record-panel" aria-label="Library record" hidden></section>
   </main>
   <div id="announcement" class="sr-only" role="status"></div>
   <noscript>This card browser needs JavaScript for search and card details.</noscript>
