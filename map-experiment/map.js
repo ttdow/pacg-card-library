@@ -21,7 +21,7 @@
   function adventureFor(data,id){return data.adventures.find(a=>a.id===id)||data.adventures.find(a=>a.id===data.default_adventure)||data.adventures[0];}
   function offsets(scenarios){
     const groups=new Map();
-    for(const scenario of scenarios){const key=scenario.coordinates.join(',');if(!groups.has(key))groups.set(key,[]);groups.get(key).push(scenario);}
+    for(const scenario of scenarios){if(!scenario.coordinates)continue;const key=scenario.coordinates.join(',');if(!groups.has(key))groups.set(key,[]);groups.get(key).push(scenario);}
     const result=new Map();for(const group of groups.values())group.forEach((s,i)=>result.set(s.number,[(i-(group.length-1)/2)*46,0]));return result;
   }
   if(typeof module!=='undefined'&&module.exports){module.exports={adventureFor,offsets,atlasStyle};return;}
@@ -35,17 +35,21 @@
   const credits=$('map-credits');$('map-credits-open').addEventListener('click',()=>credits.showModal());$('map-credits-close').addEventListener('click',()=>credits.close());credits.addEventListener('close',()=>$('map-credits-open').focus());
   function fit(){
     if(!current||!map)return;
-    const bounds=new maplibregl.LngLatBounds();current.scenarios.forEach(s=>bounds.extend(s.coordinates));
-    map.fitBounds(bounds,{padding:{top:225,left:88,right:88,bottom:100},maxZoom:13.5,duration:reduced?0:650});
+    const mapped=current.scenarios.filter(s=>s.coordinates);if(!mapped.length)return;
+    const bounds=new maplibregl.LngLatBounds();
+    if(current.fit_bounds){const b=current.fit_bounds;bounds.extend([b[0],b[1]]);bounds.extend([b[2],b[3]]);}else mapped.forEach(s=>bounds.extend(s.coordinates));
+    const side=Math.max(88,...[...offsets(mapped).values()].map(offset=>Math.abs(offset[0])+26));
+    const top=Math.max(225,Math.ceil(document.querySelector('.map-corner-panel').getBoundingClientRect().bottom-$('adventure-map').getBoundingClientRect().top+26));
+    map.fitBounds(bounds,{padding:{top,left:side,right:side,bottom:100},maxZoom:13.5,duration:reduced?0:650});
   }
-  function world(){popup?.remove();map.fitBounds([[data.bounds[0],data.bounds[1]],[data.bounds[2],data.bounds[3]]],{padding:{top:225,left:22,right:22,bottom:85},maxZoom:2,duration:reduced?0:700});}
+  function world(){popup?.remove();$('map-status').hidden=true;map.fitBounds([[data.bounds[0],data.bounds[1]],[data.bounds[2],data.bounds[3]]],{padding:{top:225,left:22,right:22,bottom:85},maxZoom:2,duration:reduced?0:700});}
   function updateLabels(){
     if(!map||!places.length)return;
     labels.forEach(label=>label.remove());labels=[];
     const zoom=map.getZoom(),width=$('adventure-map').clientWidth,height=$('adventure-map').clientHeight;
     const occupied=[];
     for(const marker of markers){const p=map.project(marker.getLngLat()),offset=offsets(current.scenarios).get(marker.getElement().dataset.number);occupied.push([p.x+offset[0]-25,p.y-25,p.x+offset[0]+25,p.y+32]);}
-    const candidates=places.filter(f=>enabled.has(f.properties.kind)&&f.properties.min_zoom<=zoom).sort((a,b)=>{
+    const candidates=places.filter(f=>f.properties.name&&enabled.has(f.properties.kind)&&f.properties.min_zoom<=zoom).sort((a,b)=>{
       const priority=f=>['Sandpoint','Thistletop'].includes(f.properties.name)?-100:f.properties.min_zoom+(f.properties.kind==='cities'?-1:0);
       return priority(a)-priority(b)||a.properties.name.localeCompare(b.properties.name);
     });
@@ -72,42 +76,55 @@
     }
   }
   function selectScenario(scenario,focus=false){
-    popup?.remove();selected=scenario.number;
+    popup?.remove();$('map-status').hidden=true;selected=scenario.number;
     for(const marker of markers)marker.getElement().setAttribute('aria-pressed',String(marker.getElement().dataset.number===selected));
     for(const b of $('scenario-index').children)b.setAttribute('aria-pressed',String(b.dataset.number===selected));
     const content=node('div','scenario-popup');content.append(node('p','scenario-popup-number',`${current.path} · ${scenario.number}`),node('h2','',scenario.name),node('p','scenario-popup-location',scenario.location),node('p','scenario-popup-note',scenario.note));
+    if(scenario.realm)content.append(node('p','scenario-popup-realm',scenario.realm));
+    if(scenario.optional)content.append(node('p','scenario-popup-note','Optional bonus scenario.'));
     const source=node('a','','Scenario source');source.href=scenario.source_url;source.target='_blank';source.rel='noopener noreferrer';content.append(source);
+    if(!scenario.coordinates){
+      const close=node('button','map-floating-close','×');close.type='button';close.setAttribute('aria-label','Close scenario details');
+      close.addEventListener('click',()=>{$('map-status').hidden=true;for(const b of $('scenario-index').children)b.setAttribute('aria-pressed','false');});
+      $('map-status').replaceChildren(close,content);$('map-status').hidden=false;if(focus)close.focus();return;
+    }
     const offset=offsets(current.scenarios).get(scenario.number);
     popup=new maplibregl.Popup({maxWidth:Math.min(290,$('adventure-map').clientWidth-110)+'px',offset:[offset[0],-26],focusAfterOpen:focus,closeOnClick:true}).setLngLat(scenario.coordinates).setDOMContent(content).addTo(map);
     popup.on('close',()=>{selected='';for(const marker of markers)marker.getElement().setAttribute('aria-pressed','false');for(const b of $('scenario-index').children)b.setAttribute('aria-pressed','false');});
-    $('map-status').textContent=`${scenario.number}: ${scenario.name}. ${scenario.location}. ${scenario.note}`;
   }
   function show(id,{push=false,fitMap=true}={}){
     current=adventureFor(data,id);popup?.remove();markers.forEach(m=>m.remove());markers=[];selected='';
+    document.querySelector('.map-layer-options').open=false;
     $('adventure-choice').value=current.id;$('adventure-choice').title=`${current.path} · ${current.title}`;$('adventure-path-name').textContent=current.path;
     const index=data.adventures.indexOf(current);$('adventure-previous').disabled=index===0;$('adventure-next').disabled=index===data.adventures.length-1;
-    $('scenario-index-label').textContent=`${current.scenarios.length} scenarios`;$('scenario-index').replaceChildren();$('scenario-index-label').parentElement.open=false;
+    const unmapped=current.scenarios.filter(s=>!s.coordinates).length;
+    $('adventure-fit').disabled=unmapped===current.scenarios.length;
+    $('scenario-index-label').textContent=`${current.scenarios.length} scenario${current.scenarios.length===1?'':'s'}${unmapped?' · '+unmapped+' off-map':''}`;$('scenario-index').replaceChildren();$('scenario-index-label').parentElement.open=unmapped===current.scenarios.length;
+    $('adventure-placement').textContent=unmapped?`${unmapped} scenario${unmapped===1?' has':'s have'} no Golarion marker. Select from the list to view the setting.`:'';$('adventure-placement').hidden=!unmapped;
     const positions=offsets(current.scenarios);
     for(const scenario of current.scenarios){
-      const button=node('button','scenario-marker'+(scenario.precision==='region'?' is-approximate':''),scenario.number);button.type='button';button.dataset.number=scenario.number;button.setAttribute('aria-label',`${scenario.number}. ${scenario.name} — ${scenario.location}`);button.setAttribute('aria-pressed','false');button.title=`${scenario.number} · ${scenario.name}`;
-      button.addEventListener('click',event=>{event.stopPropagation();selectScenario(scenario,event.detail===0);});
-      markers.push(new maplibregl.Marker({element:button,offset:positions.get(scenario.number)}).setLngLat(scenario.coordinates).addTo(map));
-      const entry=node('button','',`${scenario.number} · ${scenario.name}`);entry.type='button';entry.dataset.number=scenario.number;entry.setAttribute('aria-pressed','false');entry.addEventListener('click',()=>{entry.closest('details').open=false;map.easeTo({center:scenario.coordinates,duration:reduced?0:400});selectScenario(scenario);});$('scenario-index').append(entry);
+      if(scenario.coordinates){
+        const button=node('button','scenario-marker'+(['region','portal'].includes(scenario.precision)?' is-approximate':''),scenario.number);button.type='button';button.dataset.number=scenario.number;button.setAttribute('aria-label',`${scenario.number}. ${scenario.name} — ${scenario.location}`);button.setAttribute('aria-pressed','false');button.title=`${scenario.number} · ${scenario.name}`;
+        button.addEventListener('click',event=>{event.stopPropagation();selectScenario(scenario,event.detail===0);});
+        markers.push(new maplibregl.Marker({element:button,offset:positions.get(scenario.number)}).setLngLat(scenario.coordinates).addTo(map));
+      }
+      const suffix=scenario.precision==='off-map'?' · Off-world':scenario.precision==='unplaced'?' · Unplaced':scenario.precision==='portal'?' · Entrance':'';
+      const entry=node('button','',`${scenario.number} · ${scenario.name}${suffix}`);entry.type='button';entry.dataset.number=scenario.number;entry.setAttribute('aria-pressed','false');entry.addEventListener('click',event=>{if(scenario.coordinates){entry.closest('details').open=false;map.easeTo({center:scenario.coordinates,duration:reduced?0:400});}selectScenario(scenario,event.detail===0);});$('scenario-index').append(entry);
     }
     const url=new URL(location.href);url.searchParams.set('adventure',current.id);url.searchParams.delete('scenario');history[push?'pushState':'replaceState']({},'',url);
     document.title=`${current.title} · PACG map experiment`;$('map-status').hidden=true;
-    if(fitMap)fit();
+    if(fitMap){if(markers.length)fit();else world();}
     updateLabels();
   }
   $('adventure-choice').addEventListener('change',()=>show($('adventure-choice').value,{push:true}));
   $('adventure-previous').addEventListener('click',()=>show(data.adventures[data.adventures.indexOf(current)-1].id,{push:true}));
   $('adventure-next').addEventListener('click',()=>show(data.adventures[data.adventures.indexOf(current)+1].id,{push:true}));
-  $('adventure-fit').addEventListener('click',fit);
+  $('adventure-fit').addEventListener('click',()=>{document.querySelector('.map-layer-options').open=false;$('scenario-index-label').parentElement.open=false;fit();});
   $('map-world').addEventListener('click',world);
   window.addEventListener('popstate',()=>{if(data&&map?.isStyleLoaded())show(new URL(location.href).searchParams.get('adventure'));});
   async function start(){
     try{
-      const response=await fetch('./adventures.json?v=0dde105fba12');if(!response.ok)throw Error('The adventure index could not be loaded.');data=await response.json();
+      const response=await fetch('./adventures.json?v=73c44a6aa376');if(!response.ok)throw Error('The adventure index could not be loaded.');data=await response.json();
       if(data.schema_version!==1)throw Error('This adventure index is not supported.');
       if(typeof root.maplibregl?.Map!=='function')throw Error('The map library could not be loaded. Reload this map preview to retry.');
       maplibregl.setWorkerUrl(new URL('./vendor/maplibre-worker.js',location.href).href);
@@ -121,7 +138,7 @@
         }
         choice.disabled=false;$('adventure-fit').disabled=false;$('map-world').disabled=false;layerControls();
         try{
-          const collection=await fetch('./places.geojson?v=cd0529484f98').then(r=>{if(!r.ok)throw Error('Place names could not be loaded.');return r.json();});
+          const collection=await fetch('./places.geojson?v=63b5eb746265').then(r=>{if(!r.ok)throw Error('Place names could not be loaded.');return r.json();});
           places=collection.features;map.getSource('places').setData(collection);
         }catch(error){console.warn(error.message);}
         show(new URL(location.href).searchParams.get('adventure'));
