@@ -125,10 +125,6 @@
         if(redemption){
           const deck=picker('Deck','mechanic-redemption-deck',data.redemption_checklists.map(c=>[c.id,c.name]),redemption.id,id=>update({checklist:id}));
           deck.classList.add('redemption-deck-picker');list.insertBefore(deck,list.querySelector('.mechanic-checklist-rows'));
-          for(const issue of redemption.source_issues||[]){
-            const note=node('p','source-note mechanic-list-note',issue.note+' ');
-            const source=node('a','','Checklist source');source.href=redemption.source_url;source.target='_blank';source.rel='noopener noreferrer';note.append(source);list.append(note);
-          }
         }
         const detail=node('div','mechanic-detail');
         detail.append(cardPanel(selected,{redeemed:active.mechanic==='redemption'&&saved.checked.includes(selected)}));
