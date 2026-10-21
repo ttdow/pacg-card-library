@@ -4,11 +4,12 @@ With thanks to PathfinderWiki Mapping Project contributors, John Mechalas,
 Oznogon, and PathfinderWiki contributors.
 
 Selected factual place coordinates: https://github.com/pf-wikis/mapping
-Regional terrain: https://github.com/pf-wikis/mapping-data
+Full atlas terrain: https://github.com/pf-wikis/mapping-data
 The adapted geographic datasets are distributed under CC BY-NC-SA 4.0:
 https://creativecommons.org/licenses/by-nc-sa/4.0/
-Modifications: regional crop, geometry simplification, selected place records,
-original styles, and PACG scenario overlays. See sources.json for input
+Modifications: geometry simplification, coordinate rounding, longitude seam
+splitting, Mercator pole clipping, coastline extraction, factual place labels,
+original flat styles, and PACG scenario overlays. See sources.json for input
 checksums and the pinned geographic source commit.
 
 MapLibre GL JS 5.6.2 keeps the notices in vendor/LICENSE.txt.

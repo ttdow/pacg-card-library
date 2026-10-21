@@ -11,9 +11,9 @@
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="../feedback.css">
   <link rel="stylesheet" href="./vendor/maplibre.css">
-  <link rel="stylesheet" href="./map.css?v=3f2c8b607255">
+  <link rel="stylesheet" href="./map.css?v=1ac53c782438">
   <script src="./vendor/maplibre.js" defer></script>
-  <script src="./map.js?v=d089421073e2" defer></script>
+  <script src="./map.js?v=49ecc8353a0c" defer></script>
   <script src="../feedback.js" defer></script>
 </head>
 <body class="map-experiment-page">
@@ -24,16 +24,17 @@
   </header>
   <main class="map-workspace">
     <section class="map-stage" aria-label="Experimental adventure map">
-      <div id="adventure-map" aria-label="Map of Sandpoint and the Lost Coast"></div>
+      <div id="adventure-map" aria-label="Map of Golarion"></div>
       <div class="map-corner-panel">
         <div class="map-panel-eyebrow">Adventure map <span>Experiment</span></div>
         <label for="adventure-choice" class="sr-only">Adventure Path and Adventure</label>
         <select id="adventure-choice" disabled><option>Loading adventures…</option></select>
-        <div class="map-panel-bottom"><span id="adventure-path-name">Rise of the Runelords</span><div class="map-adventure-actions"><button id="adventure-previous" type="button" aria-label="Previous adventure" disabled>←</button><button id="adventure-next" type="button" aria-label="Next adventure" disabled>→</button><button id="adventure-fit" type="button" aria-label="Fit adventure locations" disabled>Fit</button></div></div>
+        <div class="map-panel-bottom"><span id="adventure-path-name">Rise of the Runelords</span><div class="map-adventure-actions"><button id="adventure-previous" type="button" aria-label="Previous adventure" disabled>←</button><button id="adventure-next" type="button" aria-label="Next adventure" disabled>→</button><button id="adventure-fit" type="button" aria-label="Fit adventure locations" disabled>Fit</button><button id="map-world" type="button" aria-label="Show full world map" disabled>World</button></div></div>
         <details class="map-scenario-index"><summary id="scenario-index-label">Scenarios</summary><div id="scenario-index"></div></details>
+        <details class="map-layer-options"><summary>Map layers</summary><div id="map-layers"></div></details>
       </div>
-      <div class="map-region-label" aria-hidden="true">Sandpoint &amp; the Lost Coast</div>
-      <p id="map-status" role="status" class="map-loading">Preparing the Lost Coast…</p>
+      <div class="map-region-label" aria-hidden="true">Golarion</div>
+      <p id="map-status" role="status" class="map-loading">Preparing the full map of Golarion…</p>
       <div class="map-attribution"><a href="https://github.com/pf-wikis/mapping" target="_blank" rel="noopener noreferrer">Thanks to PathfinderWiki Mapping</a><span>·</span><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-NC-SA 4.0</a><span>·</span><a href="https://maplibre.org/" target="_blank" rel="noopener noreferrer">MapLibre</a><span>·</span><button id="map-credits-open" type="button" aria-haspopup="dialog">Credits</button></div>
     </section>
   </main>
@@ -42,7 +43,7 @@
     <p>This map is made possible by the excellent work of the <a href="https://github.com/pf-wikis/mapping#acknowledgments">PathfinderWiki Mapping Project</a>. Thank you to its contributors and the PathfinderWiki community for building and sharing this wonderful resource!</p>
     <p>Special thanks to John Mechalas for the foundational GIS compilation and Oznogon for contributions to the earlier GIS project and its original interactive map. Their work, and the mapping team's continuing efforts, make exploring Golarion possible.</p>
     <p>Place coordinates come from the <a href="https://github.com/pf-wikis/mapping">mapping repository</a> and terrain geometry from its <a href="https://github.com/pf-wikis/mapping-data">Kart data repository</a>. Both follow <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>. With gratitude to their contributors, our adapted geographic datasets are distributed under the same license.</p>
-    <p>Our changes include a regional crop, geometry simplification, selected place records, original styling, and PACG scenario markers. This experiment remains separate from the main library navigation.</p>
+    <p>Our changes include geometry simplification, coordinate rounding, splitting shapes at the longitude seam, clipping at the Mercator polar limits, coastline extraction, factual place labels, original flat styling, and PACG scenario markers. All geographic layers are included. Borders show the latest open-ended source records; historical variants remain in the dataset. This experiment remains separate from the main library navigation.</p>
     <p><a href="./MAP-LICENSING.txt">Map licensing details</a> · Map rendering uses MapLibre GL JS 5.6.2. <a href="./vendor/LICENSE.txt">Third-party license notices</a> · <a href="./sources.json">Map source register</a></p>
     <p>PACG scenario names and references: <a href="https://pacg.fandom.com/wiki/Pathfinder_Adventure_Card_Game_Wiki">Pathfinder Adventure Card Game Wiki</a>. Source links and retained revisions accompany every scenario. Place popups use original short notes; article prose and raster map artwork are excluded.</p>
     <p>Paizo game material remains © its respective rights holders. <a href="../credits.html">Project credits &amp; licensing</a></p>
