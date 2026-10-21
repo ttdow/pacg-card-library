@@ -1,0 +1,40 @@
+# Code and content have separate terms
+
+The [Zero-Clause BSD license](LICENSE) (SPDX: `0BSD`) applies to the independently
+authored software in this project: application code, scripts, styles, original
+interface markup, and tests. It permits use, modification, redistribution, and
+commercial reuse without an attribution requirement.
+
+It does **not** license the database, card and rulebook text, game names and
+trademarks, source snapshots, wiki contributions, imported catalogs, mapping
+material, dependencies, or other third-party content. Putting content into JSON,
+SQLite, or another format does not change its rights. Third-party software keeps
+its own license.
+
+Paizo game material remains copyrighted by Paizo and its respective rights
+holders. Wiki-authored contributions from the Pathfinder Adventure Card Game Wiki
+are available under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/)
+where applicable; this does not relicense underlying Paizo material. Covered
+adaptations of those contributions retain that license. Per-card source links
+and retained revision metadata identify the source articles and their histories.
+Our adaptations include structured extraction, text normalization, separation of
+rules from flavor text, and reviewed original/errata variants. The master
+rulebook reorganizes the four original-edition rulebooks and groups variations.
+
+The [Credits & licensing page](web/credits.html) contains the Community Use
+notice, creator acknowledgments, source links, and contact information. The
+current application includes no PathfinderWiki mapping data or map artwork.
+
+Character-sheet portraits are unchanged PNGs from Paizo's official
+[PACG Character Portraits package](https://downloads.paizo.com/Pathfinder_Adventure_Card_Game_Character_Portraits.zip),
+used under the Community Use Policy, and remain artwork © Paizo Inc. They are
+excluded from 0BSD. The package supplies no individual artist names in its PNG
+metadata or accompanying notices; no individual credits have been inferred.
+`web/character-portraits.json` records original package members, image checksums,
+source links, and name mappings. The original PNG bytes are preserved.
+
+PACG Card Library uses trademarks and/or copyrights owned by Paizo Inc., used
+under Paizo's Community Use Policy (paizo.com/licenses/communityuse). We are
+expressly prohibited from charging you to use or access this content. PACG Card
+Library is not published, endorsed, or specifically approved by Paizo. For more
+information about Paizo Inc. and Paizo products, visit paizo.com.

@@ -31,7 +31,7 @@
       const query = value('q');
       if (query.length > 200) throw new Error('Search must be 200 characters or fewer.');
       const mode = value('mode', 'text');
-      if (!['name','text'].includes(mode)) throw new Error('Unknown search mode.');
+      if (!['name','text','prefix'].includes(mode)) throw new Error('Unknown search mode.');
       const status = value('status');
       if (!['','review','incomplete'].includes(status)) throw new Error('Unknown text status filter.');
       const integer = (key, fallback, maximum) => {
@@ -40,7 +40,7 @@
         return Math.max(1, Math.min(Number(raw), maximum));
       };
       let page = integer('page', '1', 100000);
-      const limit = integer('limit', '40', 100);
+      let limit = integer('limit', '40', 100);
       const nameQuery = asciiLower(query);
       const tokens = query.match(/[\p{L}\p{N}_]+/gu)?.slice(0,12) || [];
       let matches = null;
@@ -54,7 +54,8 @@
       const ranks = [[],[],[]];
       this.data.records.forEach((record, i) => {
         const name = asciiLower(record.name);
-        if (query && !name.includes(nameQuery) && (mode === 'name' || record.unresolved || !matches?.has(i))) return;
+        if (query && (mode === 'prefix' ? !name.startsWith(nameQuery) :
+          !name.includes(nameQuery) && (mode === 'name' || record.unresolved || !matches?.has(i)))) return;
         if (value('type') && record.card_type !== value('type')) return;
         if (value('product') && !record._products.includes(value('product'))) return;
         if (value('family') && !record._families.includes(value('family'))) return;
@@ -64,6 +65,7 @@
       });
       const ordered = ranks.flat();
       const total = ordered.length;
+      if (value('all') === '1') { page = 1; limit = Math.max(1, total); }
       const pages = Math.max(1, Math.ceil(total / limit));
       page = Math.min(page, pages);
       const cards = ordered.slice((page - 1) * limit, page * limit).map(record => {

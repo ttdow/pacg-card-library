@@ -9,30 +9,55 @@
   <title>PACG · Card library</title>
   <script src="./theme.js?v=135dc273b1fd"></script>
   <link rel="icon" href="./favicon.svg?v=8658463b272b" type="image/svg+xml">
-  <link rel="stylesheet" href="./style.css?v=ab46b602a22d">
-  <link rel="stylesheet" href="./card-face.css?v=c5c5c5e1f0ff">
-  <script src="./library-data.js?v=737257c2c051" defer></script>
-  <script src="./card-face.js?v=59d978cd110b" defer></script>
-  <script src="./app.js?v=ea0f38d6eb49" defer></script>
+  <link rel="stylesheet" href="./style.css?v=8251ce9f0c75">
+  <link rel="stylesheet" href="./card-face.css?v=5509c896745d">
+  <link rel="stylesheet" href="./rulebook.css?v=92f7666d229c">
+  <link rel="stylesheet" href="./mechanics.css?v=9d21ec55d3df">
+  <link rel="stylesheet" href="./feedback.css?v=f607af434fc2">
+  <script src="./feedback.js?v=cc7860c8faf0" defer></script>
+  <script src="./library-data.js?v=735c1818186f" defer></script>
+  <script src="./card-face.js?v=e697fe4f56c1" defer></script>
+  <script src="./card-history.js?v=9b46cdfda061" defer></script>
+  <script src="./character-sheet.js?v=05deaf41b58a" defer></script>
+  <script src="./dice-statistics.js?v=b33c399e1ed7" defer></script>
+  <script src="./rulebook.js?v=a7bc483ced53" defer></script>
+  <script src="./mechanics.js?v=4648241106be" defer></script>
+  <script src="./app.js?v=14e38387bd82" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#detail">Skip to card details</a>
   <header class="topbar">
-    <a class="brand" href="./" aria-label="PACG home"><img src="./favicon.svg?v=8658463b272b" width="34" height="34" alt=""><span>PACG</span></a>
-    <div class="header-actions"><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to light mode">Light mode</button></div>
+    <a class="brand" href="./" aria-label="Pathfinder Adventure Card Game Library · Unofficial home"><img src="./favicon.svg?v=8658463b272b" width="34" height="34" alt=""><h1 id="page-title">Pathfinder Adventure Card Game Library <span class="brand-unofficial">· Unofficial</span></h1></a>
+    <div class="header-actions"><button id="feedback-open" class="theme-toggle feedback-open" type="button" aria-haspopup="dialog" aria-controls="feedback-dialog">Report Bug/Suggestions</button><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to light mode">Light mode</button></div>
   </header>
   <main class="workspace">
-    <section class="library-heading" aria-labelledby="page-title">
-      <h1 id="page-title">Pathfinder Adventure Card Game</h1>
-    </section>
+    <div id="feature-navigation" class="feature-navigation">
+    <button id="feature-menu-toggle" class="feature-menu-toggle" type="button" aria-expanded="false" aria-controls="feature-menu" aria-label="Choose a feature">
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"></path></svg><span id="feature-menu-label">Card library</span>
+    </button>
+    <div id="feature-menu" class="workspace-tabs" role="tablist" aria-label="Library views" aria-orientation="horizontal">
+      <button id="library-tab" type="button" role="tab" aria-selected="true" aria-controls="library-view">Card library</button>
+      <button id="character-tab" type="button" role="tab" aria-selected="false" aria-controls="character-view" tabindex="-1">Character sheet</button>
+      <button id="mechanics-tab" type="button" role="tab" aria-selected="false" aria-controls="mechanics-view" tabindex="-1">Special mechanics</button>
+      <button id="rules-tab" type="button" role="tab" aria-selected="false" aria-controls="rules-view" tabindex="-1">Interactive rulebook</button>
+      <button id="dice-tab" type="button" role="tab" aria-selected="false" aria-controls="dice-view" tabindex="-1">Dice statistics</button>
+    </div>
+    </div>
+    <section id="library-view" role="tabpanel" aria-labelledby="library-tab">
     <form id="filters" class="filters" role="search">
-      <div class="search-row">
-        <div class="search-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m16 16 4.5 4.5"></path></svg><label class="sr-only" for="search">Search cards</label><input id="search" name="q" type="search" maxlength="200" placeholder="Search names, traits, or card text…" autocomplete="off"><kbd aria-hidden="true">/</kbd></div>
+      <div id="search-anchor" class="search-anchor">
+        <div class="search-row">
+          <div class="search-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m16 16 4.5 4.5"></path></svg><label class="sr-only" for="search">Search cards</label><input id="search" name="q" type="search" role="combobox" aria-autocomplete="list" aria-haspopup="listbox" aria-expanded="false" aria-controls="results" maxlength="200" placeholder="Start typing a card name…" autocomplete="off" spellcheck="false"></div>
+        </div>
+        <section id="search-dropdown" class="results-panel" aria-label="Search results" hidden>
+          <div class="results-heading"><h2 id="result-count" aria-live="polite">Loading cards</h2><span id="result-order">A–Z</span></div>
+          <div id="results" class="results" role="listbox" aria-label="Matching cards" aria-busy="true"></div>
+        </section>
       </div>
       <details id="search-options" class="search-options">
         <summary id="filter-summary">Search options</summary>
         <div class="filter-row">
-        <label><span>Search scope</span><select id="mode" name="mode"><option value="text">Names &amp; card text</option><option value="name">Card names only</option></select></label>
+        <label><span>Search scope</span><select id="mode" name="mode"><option value="prefix">Card name starts with</option><option value="name">Card name contains</option><option value="text">Names &amp; card text</option></select></label>
         <label><span>Card type</span><select id="type" name="type"><option value="">All card types</option></select></label>
         <label><span>Adventure path</span><select id="family" name="family"><option value="">All adventure paths</option></select></label>
         <label class="deck-filter"><span>Deck or collection</span><select id="product" name="product"><option value="">All decks &amp; collections</option></select></label>
@@ -42,15 +67,62 @@
       </details>
     </form>
     <div class="browser-layout">
-      <section class="results-panel" aria-label="Search results">
-        <div class="results-heading"><h2 id="result-count" aria-live="polite">Loading cards</h2><span id="result-order">A–Z</span></div>
-        <div id="results" class="results" aria-busy="true"></div>
-        <nav class="pagination" aria-label="Results pages"><button id="previous" type="button" aria-label="Previous page">←</button><span id="page-label">Page 1</span><button id="next" type="button" aria-label="Next page">→</button></nav>
-      </section>
-      <article id="detail" class="detail-panel" tabindex="-1" aria-label="Card details" aria-busy="true"><div class="empty-detail"><img class="empty-die" src="./favicon.svg?v=8658463b272b" alt=""><h2>Your next discovery awaits</h2><p>Select a card to see its rules and deck contents.</p></div></article>
+      <article id="detail" class="detail-panel" tabindex="-1" aria-label="Card details" aria-busy="false"><div class="empty-detail"><img class="empty-die" src="./favicon.svg?v=8658463b272b" alt=""><h2>Find a card</h2><p>Type a name above, then select a card to see its rules and deck contents.</p></div></article>
     </div>
     <section id="record" class="record-panel" aria-label="Library record" hidden></section>
+    </section>
+    <section id="character-view" role="tabpanel" aria-labelledby="character-tab" hidden>
+      <form id="character-search-form" class="filters character-search" role="search" aria-label="Character search">
+        <div id="character-search-anchor" class="search-anchor">
+          <div class="search-row">
+            <div class="search-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m16 16 4.5 4.5"></path></svg><label class="sr-only" for="character-picker">Search characters</label><input id="character-picker" type="search" role="combobox" aria-autocomplete="list" aria-haspopup="listbox" aria-expanded="false" aria-controls="character-results" maxlength="200" placeholder="Start typing a character name…" autocomplete="off" spellcheck="false" disabled></div>
+          </div>
+          <section id="character-search-dropdown" class="results-panel" aria-label="Character search results" hidden>
+            <div class="results-heading"><h2 id="character-result-count" aria-live="polite">Loading characters</h2><span>A–Z</span></div>
+            <div id="character-results" class="results" role="listbox" aria-label="Matching characters" aria-busy="true"></div>
+          </section>
+        </div>
+      </form>
+      <p id="character-save-status" class="character-storage-status" role="status" hidden></p>
+      <div id="character-cards" class="character-cards" aria-busy="false"><div class="empty-detail"><h2>Choose a character</h2><p>Select a character and set to open their character and role cards.</p></div></div>
+    </section>
+    <section id="dice-view" role="tabpanel" aria-labelledby="dice-tab" hidden>
+      <div id="dice-controls" class="dice-controls" role="group" aria-label="Dice quantities"></div>
+      <section class="dice-distribution" aria-label="Dice distribution and statistics">
+        <div class="dice-plot-heading"><h2 id="dice-pool">No dice selected</h2><button id="dice-clear" type="button">Clear dice</button></div>
+        <dl class="dice-statistics">
+          <div><dt>Expected total</dt><dd id="dice-expected">—</dd></div>
+          <div><dt>Minimum</dt><dd id="dice-minimum">—</dd></div>
+          <div><dt>Maximum</dt><dd id="dice-maximum">—</dd></div>
+        </dl>
+        <p id="dice-summary" class="sr-only" role="status"></p>
+        <div id="dice-chart" class="dice-chart" role="group" tabindex="0" aria-label="Inspect roll probabilities" aria-describedby="dice-summary dice-chart-help"></div>
+        <div class="dice-plot-footer"><span class="dice-mean-key">Expected total</span></div>
+        <p id="dice-chart-help" class="sr-only">Point to a bar or use the left and right arrow keys on the plot to see the probability of rolling that total or less.</p>
+      </section>
+    </section>
+    <section id="rules-view" role="tabpanel" aria-labelledby="rules-tab" hidden>
+      <div class="rulebook-toolbar">
+        <h2>Interactive rulebook</h2>
+        <label class="rulebook-search"><span class="sr-only">Search all rules and variations</span><input id="rule-search" type="search" placeholder="Search rules and variations…" autocomplete="off" maxlength="200"><kbd aria-hidden="true">/</kbd></label>
+      </div>
+      <div class="rulebook-layout">
+        <aside class="rulebook-navigation" aria-label="Rulebook navigation">
+          <details id="rule-contents" open><summary id="rule-results-label">Contents</summary><nav id="rule-topics" aria-label="Rule topics"><p class="rule-loading">Loading rules…</p></nav></details>
+        </aside>
+        <article id="rule-article" class="rulebook-article" tabindex="-1" aria-busy="true"><p class="rule-loading">Loading rules…</p></article>
+      </div>
+    </section>
+    <section id="mechanics-view" role="tabpanel" aria-labelledby="mechanics-tab" hidden>
+      <div class="mechanic-toolbar">
+        <label for="mechanic-set"><span>Set</span><select id="mechanic-set" disabled><option>Loading sets…</option></select></label>
+        <label for="mechanic-picker"><span>Mechanic</span><select id="mechanic-picker" disabled><option>Loading mechanics…</option></select></label>
+      </div>
+      <p id="mechanic-storage-status" class="source-note" role="status" hidden></p>
+      <div id="mechanic-content" tabindex="-1" aria-busy="false"></div>
+    </section>
   </main>
+  <footer class="site-footer"><span>Unofficial fan project</span><a href="./credits.html">Credits &amp; licensing</a><a href="./credits.html#contact">Contact</a></footer>
   <div id="announcement" class="sr-only" role="status"></div>
   <noscript>This card browser needs JavaScript for search and card details.</noscript>
 </body>

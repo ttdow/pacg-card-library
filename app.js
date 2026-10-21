@@ -16,25 +16,36 @@ const textStatuses = {
   wiki_transcription_review: 'Transcription · source review needed', wiki_partial: 'Partial card text',
   token_identity_only: 'Token · identity only', printed_verified: 'Printed text verified', missing: 'Card match unresolved'
 };
-const validationLabels = {publisher_matched: 'Publisher matched', publisher_matched_with_aliases: 'Matched with aliases', publisher_discrepancy: 'List discrepancy', wiki_only: 'Wiki inventory'};
+const workspaceViews = ['library','character','mechanics','rules','dice'];
 let state = readURL();
 let meta;
 let searchRequest;
 let detailRequest;
 let timer;
 let resultData;
+let activeResult = -1;
+let characterSheet;
+let diceStatistics;
+let rulebook;
+let mechanics;
 const dataSource = window.PACGData.create({mode:document.querySelector('meta[name="pacg-data-mode"]').content, base:document.baseURI});
+const narrowFeatureMenu = window.matchMedia('(max-width:760px)');
 
 function readURL() {
   const url = new URL(location.href);
-  return Object.fromEntries([...filterKeys.map(key => [key, url.searchParams.get(key) || (key === 'mode' ? 'text' : '')]), ['page', Number(url.searchParams.get('page')) || 1], ['card', url.searchParams.get('card') || '']]);
+  return Object.fromEntries([...filterKeys.map(key => [key, url.searchParams.get(key) || (key === 'mode' ? 'prefix' : '')]),
+    ['card', url.searchParams.get('card') || ''],
+    ['view', workspaceViews.includes(url.searchParams.get('view')) ? url.searchParams.get('view') : 'library'],
+    ['character', url.searchParams.get('character') || ''], ['dice',url.searchParams.get('dice') || ''],
+    ['set',url.searchParams.get('set')||''],['mechanic',url.searchParams.get('mechanic')||''],['tracker',url.searchParams.get('tracker')||'']]);
 }
 
 function updateURL(push = false) {
   const url = new URL(location.href);
   url.search = '';
-  for (const key of [...filterKeys, 'page', 'card']) {
-    if (state[key] && !(key === 'page' && state[key] === 1) && !(key === 'mode' && state[key] === 'text')) url.searchParams.set(key, state[key]);
+  for (const key of [...filterKeys, 'card', 'view', 'character', 'dice','set','mechanic','tracker']) {
+    if (state[key] && !(key === 'mode' && state[key] === 'prefix') &&
+        !(key === 'view' && state[key] === 'library')) url.searchParams.set(key, state[key]);
   }
   history[push ? 'pushState' : 'replaceState'](null, '', url);
 }
@@ -62,16 +73,17 @@ function restoreFields() {
   for (const key of filterKeys) fields[key].value = state[key];
   updateProducts();
   updateFilterSummary();
-  if (activeFilterCount()) $('search-options').open = true;
 }
 
 function activeFilterCount() {
-  return ['type','family','product','status'].filter(key => state[key]).length + (state.mode !== 'text' ? 1 : 0);
+  return ['type','family','product','status'].filter(key => state[key]).length + (state.mode !== 'prefix' ? 1 : 0);
 }
 
 function updateFilterSummary() {
   const count = activeFilterCount();
   $('filter-summary').textContent = count ? `Search options · ${count} active` : 'Search options';
+  $('search').placeholder = state.mode === 'text' ? 'Search names, traits, or card text…' :
+    state.mode === 'name' ? 'Search within card names…' : 'Start typing a card name…';
 }
 
 function initializeTheme() {
@@ -86,6 +98,106 @@ function initializeTheme() {
 }
 
 function announce(message) { $('announcement').textContent = message; }
+
+function setFeatureMenu(open, {restoreFocus = false} = {}) {
+  const expanded = !!open && narrowFeatureMenu.matches;
+  $('feature-navigation').dataset.open = String(expanded);
+  $('feature-menu-toggle').setAttribute('aria-expanded',String(expanded));
+  if (expanded) setDropdown(false);
+  else if (restoreFocus && narrowFeatureMenu.matches) $('feature-menu-toggle').focus();
+}
+
+function showWorkspace(view, {push = false} = {}) {
+  state.view = view;
+  for (const name of workspaceViews) {
+    const selected = name === view;
+    $(name + '-view').hidden = !selected;
+    $(name + '-tab').setAttribute('aria-selected',String(selected));
+    $(name + '-tab').tabIndex = selected ? 0 : -1;
+  }
+  const selectedTab = $(view + '-tab');
+  $('feature-menu-label').textContent = selectedTab.textContent;
+  setFeatureMenu(false,{restoreFocus:$('feature-menu').contains(document.activeElement)});
+  document.querySelector('.skip-link').href = view === 'character' ? '#character-picker' : view === 'dice' ? '#dice-d4' : view === 'rules' ? '#rule-article' : view === 'mechanics' ? '#mechanic-content' : '#detail';
+  setDropdown(false);
+  characterSheet?.closeSearch();
+  updateURL(push);
+  if (view === 'character') {
+    document.title = 'Character sheet · PACG';
+    if (!meta) return;
+    characterSheet ||= window.PACGCharacter.create({source:dataSource,products:meta.products,announce,
+      onSelect:id => {
+        state.character = id;
+        updateURL();
+      }});
+    characterSheet.select(state.character);
+  } else if (view === 'dice') {
+    document.title = 'Dice statistics · PACG';
+    diceStatistics ||= window.PACGDice.create({onChange:pool => { state.dice = pool; updateURL(); }});
+    diceStatistics.setPool(state.dice);
+  } else if (view === 'rules') {
+    document.title = 'Interactive rulebook · PACG';
+    rulebook ||= window.PACGRules.create();
+    rulebook.open();
+  } else if (view === 'mechanics') {
+    document.title = 'Special mechanics · PACG';
+    mechanics ||= window.PACGMechanics.create({onChange:choice=>{state.set=choice.set;state.mechanic=choice.mechanic;state.tracker=choice.character;updateURL();}});
+    mechanics.open({set:state.set,mechanic:state.mechanic,character:state.tracker});
+  } else document.title = 'PACG · Card library';
+}
+
+function initializeViews() {
+  const toggle = $('feature-menu-toggle');
+  const navigation = $('feature-navigation');
+  const openMenu = () => {
+    setFeatureMenu(true);
+    $(state.view + '-tab').focus();
+  };
+  toggle.addEventListener('click',() => {
+    if (toggle.getAttribute('aria-expanded') === 'true') setFeatureMenu(false);
+    else openMenu();
+  });
+  toggle.addEventListener('keydown',event => {
+    if (!['ArrowDown','ArrowUp'].includes(event.key)) return;
+    event.preventDefault();
+    openMenu();
+  });
+  navigation.addEventListener('keydown',event => {
+    if (event.key === 'Escape' && narrowFeatureMenu.matches) {
+      event.preventDefault();
+      setFeatureMenu(false,{restoreFocus:true});
+    }
+  });
+  navigation.addEventListener('focusout',event => {
+    if (!navigation.contains(event.relatedTarget)) setFeatureMenu(false);
+  });
+  document.addEventListener('pointerdown',event => {
+    if (!navigation.contains(event.target)) setFeatureMenu(false);
+  });
+  const updateMenuLayout = () => {
+    $('feature-menu').setAttribute('aria-orientation',narrowFeatureMenu.matches ? 'vertical' : 'horizontal');
+    const focusWithin = navigation.contains(document.activeElement);
+    setFeatureMenu(false);
+    if (focusWithin) (narrowFeatureMenu.matches ? toggle : $(state.view + '-tab')).focus();
+  };
+  narrowFeatureMenu.addEventListener('change',updateMenuLayout);
+  updateMenuLayout();
+  for (const name of workspaceViews) {
+    const button = $(name + '-tab');
+    button.addEventListener('click',() => showWorkspace(name,{push:true}));
+    button.addEventListener('keydown',event => {
+      const previous = narrowFeatureMenu.matches ? 'ArrowUp' : 'ArrowLeft';
+      const next = narrowFeatureMenu.matches ? 'ArrowDown' : 'ArrowRight';
+      if (![previous,next,'Home','End'].includes(event.key)) return;
+      event.preventDefault();
+      const target = event.key === 'Home' ? workspaceViews[0] : event.key === 'End' ? workspaceViews.at(-1) :
+        workspaceViews[(workspaceViews.indexOf(name) + (event.key === next ? 1 : -1) + workspaceViews.length) % workspaceViews.length];
+      if (!narrowFeatureMenu.matches) showWorkspace(target,{push:true});
+      $(target + '-tab').focus();
+    });
+  }
+  showWorkspace(state.view);
+}
 
 function clearRecord() {
   $('record').replaceChildren();
@@ -107,32 +219,68 @@ function emptyPanel(title, message, retry) {
   return div;
 }
 
-async function loadResults({keepCard = false} = {}) {
+function setActiveResult(index) {
+  const buttons = [...$('results').querySelectorAll('.result')];
+  activeResult = index >= 0 && index < buttons.length ? index : -1;
+  buttons.forEach((button, i) => button.setAttribute('aria-selected', String(i === activeResult)));
+  if (activeResult < 0) $('search').removeAttribute('aria-activedescendant');
+  else {
+    $('search').setAttribute('aria-activedescendant', buttons[activeResult].id);
+    buttons[activeResult].scrollIntoView({block:'nearest'});
+  }
+}
+
+function setDropdown(open) {
+  $('search-dropdown').hidden = !open;
+  $('search').setAttribute('aria-expanded', String(open));
+  if (!open) setActiveResult(-1);
+}
+
+function invalidateResults() {
   searchRequest?.abort();
-  detailRequest?.abort();
-  clearRecord();
+  searchRequest = undefined;
+  resultData = null;
+  setActiveResult(-1);
+  $('results').replaceChildren();
+  $('result-count').textContent = 'Searching…';
+  $('results').setAttribute('aria-busy', 'true');
+}
+
+async function loadResults() {
+  invalidateResults();
   const controller = new AbortController();
   searchRequest = controller;
   $('results').setAttribute('aria-busy', 'true');
   $('results').classList.add('loading');
-  const params = new URLSearchParams();
-  for (const key of [...filterKeys, 'page']) if (state[key]) params.set(key, state[key]);
+  const params = new URLSearchParams({all:'1'});
+  for (const key of filterKeys) if (state[key]) params.set(key, state[key]);
   try {
     const data = await dataSource.search(params, controller.signal);
+    if (controller.signal.aborted || searchRequest !== controller) return;
     resultData = data;
-    state.page = data.page;
     $('result-count').textContent = `${number(data.total)} ${data.total === 1 ? 'record' : 'records'}`;
-    $('result-order').textContent = state.q ? 'Names first' : 'A–Z';
+    $('result-order').textContent = state.q && state.mode !== 'prefix' ? 'Names first' : 'A–Z';
     $('results').replaceChildren();
     for (const card of data.cards) {
       const button = el('button', 'result');
       button.type = 'button';
       button.dataset.id = card.id;
-      button.setAttribute('aria-pressed', 'false');
+      button.id = 'result-' + card.id;
+      button.tabIndex = -1;
+      button.setAttribute('role', 'option');
+      button.setAttribute('aria-selected', 'false');
+      button.classList.toggle('is-current', card.id === state.card);
       const title = el('span', 'result-title');
       title.append(el('span', '', card.name), el('span', 'result-arrow', '↗'));
       const info = el('span', 'result-meta');
-      info.append(el('span', 'result-kind', label(card.card_type)), el('span', 'meta-dot', '·'), el('span', '', `${card.product_count} ${card.product_count === 1 ? 'deck' : 'decks'}`));
+      info.append(el('span', 'result-kind', label(card.card_type)), el('span', 'meta-dot', '·'));
+      const sets = el('span','result-sets');
+      sets.title = `${card.product_count} ${card.product_count === 1 ? 'deck' : 'decks'}`;
+      if (card.source_codes?.length) {
+        sets.setAttribute('aria-label','Sets: ' + card.source_codes.join(', '));
+        for (const code of card.source_codes) sets.append(el('span','result-set',code));
+      } else sets.textContent = sets.title;
+      info.append(sets);
       if (card.text_status !== 'wiki_transcription' && card.text_status !== 'printed_verified') {
         const dot = el('span', 'result-review');
         dot.title = textStatuses[card.text_status] || 'Needs review';
@@ -142,37 +290,24 @@ async function loadResults({keepCard = false} = {}) {
       button.append(title, info);
       if (card.traits.length) button.append(el('div', 'result-traits', card.traits.slice(0, 4).join(' · ')));
       button.addEventListener('click', () => selectCard(card.id, {push: true, scroll: true}));
+      button.addEventListener('pointerdown', event => {
+        if (event.pointerType === 'mouse') event.preventDefault();
+      });
       $('results').append(button);
     }
     $('results').scrollTop = 0;
-    $('page-label').textContent = `Page ${data.page} of ${data.pages}`;
-    $('previous').disabled = data.page <= 1;
-    $('next').disabled = data.page >= data.pages;
     if (!data.total) {
       const empty = el('div', 'empty-results');
       empty.append(el('h3', '', 'No cards found'), el('p', '', 'Try another name or a broader set of filters.'));
-      const button = el('button', 'retry-button', 'Reset filters');
-      button.type = 'button';
-      button.addEventListener('click', resetFilters);
-      empty.append(button);
       $('results').append(empty);
-      state.card = '';
-      $('detail').replaceChildren(emptyPanel('A different path awaits', 'No card matches this search. Adjust your filters to keep exploring.'));
-      $('detail').setAttribute('aria-busy', 'false');
-    } else {
-      const selected = keepCard && state.card ? state.card : data.cards.some(c => c.id === state.card) ? state.card : data.cards[0].id;
-      await selectCard(selected);
     }
     if (controller.signal.aborted) return;
     updateURL();
     announce(`${number(data.total)} records found.`);
   } catch (error) {
-    if (error.name === 'AbortError') return;
+    if (error.name === 'AbortError' || searchRequest !== controller) return;
     $('result-count').textContent = 'Search unavailable';
     $('results').replaceChildren(emptyPanel('Couldn’t load the library', error.message, () => loadResults()));
-    $('previous').disabled = true;
-    $('next').disabled = true;
-    $('detail').setAttribute('aria-busy', 'false');
   } finally {
     if (searchRequest === controller) {
       $('results').setAttribute('aria-busy', 'false');
@@ -182,19 +317,21 @@ async function loadResults({keepCard = false} = {}) {
 }
 
 async function selectCard(id, {push = false, scroll = false} = {}) {
+  setDropdown(false);
   detailRequest?.abort();
   clearRecord();
   const controller = new AbortController();
   detailRequest = controller;
   state.card = id;
-  for (const button of $('results').querySelectorAll('.result')) button.setAttribute('aria-pressed', String(button.dataset.id === id));
+  for (const button of $('results').querySelectorAll('.result')) button.classList.toggle('is-current', button.dataset.id === id);
   $('detail').setAttribute('aria-busy', 'true');
   $('detail').classList.add('loading');
   if (push) updateURL(true);
   try {
     const card = await dataSource.detail(id, controller.signal);
+    if (controller.signal.aborted || detailRequest !== controller) return;
     renderCard(card);
-    document.title = `${card.name} · PACG card library`;
+    if (state.view === 'library') document.title = `${card.name} · PACG card library`;
     announce(`${card.name}, ${label(card.card_type)}. Details loaded.`);
     if (scroll && window.matchMedia('(max-width: 620px)').matches) {
       $('detail').scrollIntoView({behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'start'});
@@ -213,27 +350,31 @@ async function selectCard(id, {push = false, scroll = false} = {}) {
 
 function renderCard(card) {
   const presentation = el('div', 'card-presentation');
-  const preview = window.PACGFace.create(card, {product:state.product, family:state.family, products:meta.products, announce});
+  const textView = el('div','card-text-view');
+  const toggle = el('div','text-version-toggle');
+  toggle.setAttribute('role','group');
+  toggle.setAttribute('aria-label','Card text version');
+  const preview = el('div','text-version-preview');
+  let side = 0;
+  const showVersion = mode => {
+    for (const button of toggle.querySelectorAll('button')) button.setAttribute('aria-pressed',String(button.dataset.mode === mode));
+    const selected = window.PACGHistory.select(card,mode);
+    preview.replaceChildren(window.PACGFace.create(selected.card, {product:state.product, family:state.family,
+      products:meta.products, announce, edgeControls:toggle, viewIndex:side, onViewChange:index => { side = index; }}));
+  };
+  for (const [mode,title] of [['original','Original'],['errata','Errata']]) {
+    if (mode === 'errata' && !window.PACGHistory.hasErrata(card)) continue;
+    const button = el('button','text-version-button',title);
+    button.type = 'button';
+    button.dataset.mode = mode;
+    button.addEventListener('click',() => { showVersion(mode); button.focus({preventScroll:true}); announce(`${title} text displayed.`); });
+    toggle.append(button);
+  }
+  textView.append(preview,window.PACGHistory.disclosure(card));
+  showVersion('original');
   const body = el('aside', 'card-information');
   body.setAttribute('aria-label', 'Deck contents and source information');
   body.append(el('p', 'card-information-label', 'Library record'));
-  const toolbar = el('div', 'card-toolbar');
-  const review = !['wiki_transcription','printed_verified'].includes(card.text_status);
-  toolbar.append(el('span', 'status-badge' + (review ? ' review' : ''), textStatuses[card.text_status] || label(card.text_status)));
-  const copy = el('button', 'copy-link', 'Copy card link ↗');
-  copy.type = 'button';
-  copy.addEventListener('click', async () => {
-    try {
-      await navigator.clipboard.writeText(location.href);
-      copy.textContent = 'Link copied';
-      announce('Card link copied to clipboard.');
-      setTimeout(() => { copy.textContent = 'Copy card link ↗'; }, 1800);
-    } catch {
-      copy.textContent = 'Use the browser address to share';
-    }
-  });
-  toolbar.append(copy);
-  body.append(toolbar);
   const notices = {
     missing: 'This inventory entry has no resolved card version. Its deck quantity is recorded; the card text still needs to be matched.',
     wiki_partial: 'This record contains partial adventure information. A complete transcription of the printed card is still needed.',
@@ -242,17 +383,6 @@ function renderCard(card) {
     wiki_transcription_review: 'The deck inventory establishes this card’s source. The wiki text’s printing association still needs review.'
   };
   if (notices[card.text_status]) body.append(el('p', 'notice', notices[card.text_status]));
-  if (card.corrections.length) {
-    const heading = el('h3', 'section-label', 'Errata & corrections');
-    body.append(heading);
-    for (const correction of card.corrections) {
-      const details = el('details', 'errata');
-      details.append(el('summary', '', correction.issue || 'View correction'));
-      if (correction.corrected_text) details.append(el('p', '', correction.corrected_text));
-      else details.append(el('p', '', 'See the source page for this correction.'));
-      body.append(details);
-    }
-  }
   renderDecks(body, card);
   if (card.other_versions.length) {
     const section = el('section', 'text-section');
@@ -270,19 +400,13 @@ function renderCard(card) {
   const source = el('details', 'disclosure');
   source.append(el('summary', '', 'Source & verification'));
   const sourceBody = el('div');
-  if (card.source_url) {
-    const line = el('p', 'source-line');
-    const link = el('a', '', 'View source on the Pathfinder ACG Wiki ↗');
-    // Only known web links become clickable; card content is always plain text.
-    if (/^https:\/\/pacg\.fandom\.com\//.test(card.source_url)) link.href = card.source_url;
-    link.target = '_blank';
-    link.rel = 'noopener noreferrer';
-    line.append(link);
-    sourceBody.append(line);
+  const originalNote = window.PACGHistory.select(card,'original').note;
+  if (originalNote !== 'Original printing unverified. Wiki transcription shown; it may already include errata.') {
+    sourceBody.append(el('p','source-note',originalNote));
   }
   sourceBody.append(el('p', 'source-line', `Wiki revision ${card.revision || 'unknown'} · Record ${card.id}`));
-  if (card.source_codes.length) sourceBody.append(el('p', 'source-line', 'Source codes: ' + card.source_codes.join(', ')));
-  if (card.notes) sourceBody.append(el('p', 'source-note', card.notes));
+  const sourceNotes = (card.notes || '').replace('Wiki text may include errata; not independently certified as printed text.','').trim();
+  if (sourceNotes) sourceBody.append(el('p', 'source-note', sourceNotes));
   if (card.issues.length) {
     sourceBody.append(el('p', 'source-line', `${card.issues.length} open review ${card.issues.length === 1 ? 'note' : 'notes'}`));
     const list = el('ul', 'source-note');
@@ -301,7 +425,7 @@ function renderCard(card) {
   }
   source.append(sourceBody);
   body.append(source);
-  presentation.append(preview);
+  presentation.append(textView);
   $('detail').replaceChildren(presentation);
   $('record').replaceChildren(body);
   $('record').hidden = false;
@@ -318,7 +442,7 @@ function renderDecks(parent, card) {
     const table = el('table', 'deck-table');
     const head = el('thead');
     const header = el('tr');
-    for (const text of ['Deck / collection','Copies','Inventory check']) {
+    for (const text of ['Deck','Copies']) {
       const th = el('th', '', text);
       th.scope = 'col';
       header.append(th);
@@ -336,15 +460,14 @@ function renderDecks(parent, card) {
         button.addEventListener('click', () => {
           state.product = product.id;
           state.family = '';
-          state.page = 1;
           restoreFields();
           loadResults();
+          $('search').focus();
         });
-        deck.append(button, el('span', 'deck-code', product.id + (product.levels ? ' · Level ' + product.levels : '')));
+        const deckCodes = product.levels ? product.levels.split(',').map(level => product.id + '-' + level.trim()).join(' · ') : product.id;
+        deck.append(button, el('span', 'deck-code', deckCodes));
         const count = el('td', '', product.quantity);
-        const status = el('td');
-        status.append(el('span', 'validation-label' + (product.validation_status === 'publisher_discrepancy' ? ' warning' : ''), validationLabels[product.validation_status] || label(product.validation_status)));
-        row.append(deck, count, status);
+        row.append(deck, count);
         rows.append(row);
       }
     };
@@ -365,25 +488,27 @@ function renderDecks(parent, card) {
       section.append(show);
     }
   }
-  parent.append(section, el('div', 'detail-divider'));
+  parent.append(section);
 }
 
 function resetFilters() {
   clearTimeout(timer);
-  state = {q:'', mode:'text', type:'', family:'', product:'', status:'', page:1, card:''};
+  state = {...state,q:'', mode:'prefix', type:'', family:'', product:'', status:''};
   restoreFields();
   loadResults();
   $('search').focus();
 }
 
-function onFilterChange() {
+function onFilterChange({debounce = false} = {}) {
   clearTimeout(timer);
   for (const key of filterKeys) state[key] = fields[key].value;
-  state.page = 1;
-  state.card = '';
   updateProducts();
   updateFilterSummary();
-  loadResults();
+  updateURL();
+  invalidateResults();
+  setDropdown($('search-anchor').contains(document.activeElement));
+  if (debounce) timer = setTimeout(loadResults, 180);
+  else loadResults();
 }
 
 async function init() {
@@ -392,27 +517,65 @@ async function init() {
     setOptions($('type'), meta.types.map(type => [type,label(type)]), 'All card types');
     setOptions($('family'), meta.families.map(family => [family,family]), 'All adventure paths');
     restoreFields();
-    $('search').addEventListener('input', () => {
-      clearTimeout(timer);
-      timer = setTimeout(onFilterChange, 250);
+    if (state.view === 'character') showWorkspace(state.view);
+    $('search').addEventListener('input', () => onFilterChange({debounce:true}));
+    $('search').addEventListener('focus', () => setDropdown(true));
+    $('search').addEventListener('click', () => setDropdown(true));
+    $('search').addEventListener('keydown', event => {
+      if (event.isComposing) return;
+      if (event.key === 'Escape') { event.preventDefault(); setDropdown(false); }
+      else if (['ArrowDown','ArrowUp'].includes(event.key)) {
+        event.preventDefault();
+        setDropdown(true);
+        const count = $('results').querySelectorAll('.result').length;
+        if (count) setActiveResult(activeResult < 0 ? (event.key === 'ArrowDown' ? 0 : count - 1) :
+          (activeResult + (event.key === 'ArrowDown' ? 1 : -1) + count) % count);
+      } else if (event.key === 'Enter') {
+        event.preventDefault();
+        if (!$('search-dropdown').hidden && resultData?.cards.length) {
+          selectCard(resultData.cards[Math.max(0, activeResult)].id, {push:true, scroll:true});
+        } else { clearTimeout(timer); loadResults(); setDropdown(true); }
+      }
+    });
+    document.addEventListener('pointerdown', event => {
+      if (!$('search-anchor').contains(event.target)) setDropdown(false);
+    });
+    $('search-anchor').addEventListener('focusout', event => {
+      if (!$('search-anchor').contains(event.relatedTarget)) setDropdown(false);
+    });
+    $('search-anchor').addEventListener('keydown', event => {
+      if (event.key === 'Escape' && document.activeElement !== $('search')) {
+        event.preventDefault();
+        $('search').focus();
+        setDropdown(false);
+      }
     });
     for (const key of filterKeys.filter(k => k !== 'q')) fields[key].addEventListener('change', onFilterChange);
     $('filters').addEventListener('submit', event => { event.preventDefault(); onFilterChange(); });
     $('clear').addEventListener('click', resetFilters);
-    for (const [id, delta] of [['previous',-1],['next',1]]) $(id).addEventListener('click', () => {
-      if (!resultData) return;
-      state.page += delta;
-      state.card = '';
+    window.addEventListener('popstate', () => {
+      clearTimeout(timer);
+      state = readURL();
+      restoreFields();
+      showWorkspace(state.view);
+      setDropdown(false);
       loadResults();
+      if (state.card) selectCard(state.card);
+      else {
+        detailRequest?.abort();
+        clearRecord();
+        $('detail').classList.remove('loading');
+        $('detail').setAttribute('aria-busy', 'false');
+        $('detail').replaceChildren(emptyPanel('Find a card', 'Type a name above, then select a card to see its rules and deck contents.'));
+      }
     });
-    window.addEventListener('popstate', () => { state = readURL(); restoreFields(); loadResults({keepCard:true}); });
     document.addEventListener('keydown', event => {
       if (event.key === '/' && !event.ctrlKey && !event.metaKey && !['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName)) {
         event.preventDefault();
-        $('search').focus();
+        (state.view === 'character' ? $('character-picker') : state.view === 'dice' ? $('dice-d4') : state.view === 'rules' ? $('rule-search') : state.view === 'mechanics' ? $('mechanic-set') : $('search')).focus();
       }
     });
-    await loadResults({keepCard:true});
+    await Promise.all([loadResults(), state.card ? selectCard(state.card) : Promise.resolve()]);
   } catch (error) {
     $('results').setAttribute('aria-busy', 'false');
     $('detail').setAttribute('aria-busy', 'false');
@@ -422,4 +585,5 @@ async function init() {
 }
 
 initializeTheme();
+initializeViews();
 init();

@@ -29,6 +29,12 @@
 .pacg-name{font-family:"Segoe UI",Arial,sans-serif;text-transform:uppercase;font-weight:650;font-size:24px;letter-spacing:.035em;line-height:1.25;text-align:center;background:var(--card-light);padding:10px 10px 11px;margin:0;border-top:1px solid #ffffff66;border-bottom:2px solid #342e2670;overflow-wrap:anywhere}
 .pacg-name-long{font-size:20px;letter-spacing:.025em}
 .pacg-role-name{font:650 15px/1.4 "Segoe UI",Arial,sans-serif;letter-spacing:.035em;text-transform:uppercase;text-align:center;background:var(--card-light);margin:0;padding:5px 10px 7px;border-bottom:1px solid #71695255}
+.pacg-role-options{display:flex;align-items:stretch;justify-content:center;background:var(--card-light);border-bottom:1px solid #71695255;padding:0 8px}
+.pacg-role-button{flex:1;min-width:0;appearance:none;border:0;border-bottom:2px solid transparent;border-radius:0;background:transparent;color:inherit;font:500 14px/1.4 "Segoe UI",Arial,sans-serif;letter-spacing:.035em;text-transform:uppercase;padding:7px 5px;opacity:.65;overflow-wrap:anywhere}
+.pacg-role-button:hover{opacity:1;background:#ffffff0c}
+.pacg-role-button[aria-pressed=true]{font-weight:650;opacity:1;border-bottom-color:currentColor;background:#ffffff0c}
+.pacg-character-options{flex-wrap:wrap}
+.pacg-character-button{font-size:12px;letter-spacing:.02em;flex:1 1 auto}
 .pacg-upper{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 96px;min-height:190px;padding:12px 10px;gap:15px;isolation:isolate;background-color:#f4efdc;background-image:radial-gradient(#8d744412 .7px,transparent .9px),linear-gradient(115deg,#fffdf1a1,#e5d7b63b);background-size:5px 5px,100% 100%;border-bottom:2px solid var(--card-accent)}
 .pacg-trait-column,.pacg-check-column{position:relative;z-index:1;min-width:0}
 .pacg-traits{padding:0;margin:0;list-style:none;text-transform:uppercase;font-family:"Segoe UI",Arial,sans-serif;font-size:10px;line-height:1.5;font-weight:650;max-width:160px;letter-spacing:.03em}
@@ -51,9 +57,13 @@
 .pacg-field-text p{margin:0 0 11px;white-space:pre-wrap}
 .pacg-field-text p:last-child{margin-bottom:0}
 .pacg-flavor{font:italic 12px/1.7 Georgia,serif;margin:0;background:#fffdf5;padding:10px 12px;color:#6f6655}
-.pacg-imprint{display:flex;justify-content:space-between;align-items:flex-end;gap:10px;font-size:7px;line-height:1.5;padding:5px 3px 1px;color:#fff9e9}
-.pacg-imprint span:first-child{max-width:65%;overflow-wrap:anywhere}
-.pacg-imprint span:last-child{white-space:nowrap}
+.pacg-imprint{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:7px;line-height:1.5;padding:5px 3px 1px;color:#fff9e9}
+.pacg-imprint>span:first-child{max-width:45%;overflow-wrap:anywhere}
+.pacg-imprint-tags{display:flex;align-items:center;gap:5px;flex-shrink:0}
+.pacg-unofficial,.pacg-source{font:700 8px/1 "Segoe UI",system-ui,sans-serif;letter-spacing:.03em;white-space:nowrap}
+.pacg-imprint-separator{font-size:8px;line-height:1}
+.pacg-source{color:#a9d3ff;text-decoration:none}
+.pacg-source:hover{text-decoration:underline}
 .pacg-mini-table{margin-top:7px;padding:0;font-family:"Segoe UI",Arial,sans-serif}
 .pacg-mini-table h3{font-size:8px;font-weight:750;text-transform:uppercase;color:#4b4836;padding:0 0 3px;margin:0;border-bottom:1px solid #8c806c66;letter-spacing:.02em}
 .pacg-mini-table table{width:100%;border-collapse:collapse;font-size:9px;line-height:1.5;text-align:left;font-weight:650}
@@ -74,16 +84,11 @@
 .record-panel{margin-top:28px;text-align:left}
 .card-information{width:100%;min-width:0;border:1px solid var(--line);border-radius:7px;background:var(--paper);box-shadow:var(--shadow);padding:22px 22px 8px;margin:0}
 .card-information-label{margin:0 0 13px}
-.card-information .card-toolbar{gap:7px;margin-bottom:18px}
-.card-information .status-badge{font-size:10px;line-height:1.6}
-.card-information .copy-link{font-size:10px}
 .card-information .notice{font-size:11px;line-height:1.7;padding:9px 11px;margin-bottom:20px}
 .card-information .deck-section h3{font-size:19px;margin-top:18px}
 .card-information .deck-table{font-size:11px}
 .card-information .deck-table th:nth-child(2),.card-information .deck-table td:nth-child(2){width:32px}
-.card-information .deck-table th:last-child,.card-information .deck-table td:last-child{display:table-cell;width:91px;padding-left:8px}
 .card-information .deck-button{font-size:12px}
-.card-information .validation-label{font-size:10px;white-space:normal}
 .card-information .deck-code{font-size:10px}
 .card-information .section-label{font-size:9px}
 .card-information .errata{font-size:11px;padding:9px 11px}
@@ -92,7 +97,7 @@
 .card-information .versions{max-height:220px;overflow-y:auto}
 .card-information .version-button{font-size:9px}
 :root[data-theme=dark] .pacg-card{color:var(--ink);border-color:#080e0a;box-shadow:0 9px 24px #0004}
-:root[data-theme=dark] .pacg-name,:root[data-theme=dark] .pacg-role-name,:root[data-theme=dark] .pacg-check{background:color-mix(in srgb,var(--card-accent) 22%,#18211c);border-color:#ffffff15}
+:root[data-theme=dark] .pacg-name,:root[data-theme=dark] .pacg-role-name,:root[data-theme=dark] .pacg-role-options,:root[data-theme=dark] .pacg-check{background:color-mix(in srgb,var(--card-accent) 22%,#18211c);border-color:#ffffff15}
 :root[data-theme=dark] .pacg-upper{background-color:var(--surface);background-image:radial-gradient(#bbccac0a .7px,transparent .9px)}
 :root[data-theme=dark] .pacg-rules{background:#101813}
 :root[data-theme=dark] .pacg-field,:root[data-theme=dark] .pacg-hand-size,:root[data-theme=dark] .pacg-flavor{background:var(--paper)}

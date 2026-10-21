@@ -1,0 +1,32 @@
+.topbar{height:auto;min-height:65px;padding-top:12px;padding-bottom:12px}
+.header-actions{gap:8px}
+.feedback-open{white-space:nowrap;min-width:0}
+.feedback-dialog{width:520px;max-width:calc(100vw - 32px);max-height:calc(100dvh - 32px);padding:24px;background:var(--paper);color:var(--ink);border:1px solid var(--line);border-radius:10px;box-shadow:0 20px 70px #0006;overflow:auto}
+.feedback-dialog::backdrop{background:#0009}
+.feedback-heading{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:20px}
+.feedback-heading h2{font-size:20px;font-weight:600;line-height:1.35;margin:0}
+.feedback-close{border:0;background:none;color:var(--muted);font-size:26px;line-height:1;min-width:32px;min-height:32px;padding:3px}
+.feedback-close:hover{color:var(--ink)}
+.feedback-form{display:grid;gap:16px}
+.feedback-field{display:flex;flex-direction:column;gap:7px;font-size:12px;font-weight:600}
+.feedback-field textarea{width:100%;min-width:0;border:1px solid var(--line);border-radius:5px;background:var(--input);color:var(--ink);font:14px/1.6 "Segoe UI",system-ui,sans-serif;padding:9px 11px}
+.feedback-field textarea{resize:vertical;min-height:150px}
+.feedback-field textarea::placeholder{color:var(--muted)}
+.feedback-context{display:flex;align-items:center;gap:8px;font-size:12px;line-height:1.5}
+.feedback-context input{accent-color:var(--gold);margin:0;width:15px;height:15px}
+.feedback-note{color:var(--muted);font-size:12px;line-height:1.7;margin:0}
+.feedback-error{color:var(--warn);font-size:12px;line-height:1.6;margin:0}
+.feedback-success{color:var(--green);font-size:12px;line-height:1.6;margin:0}
+.feedback-success:focus{outline:0}
+.feedback-actions{display:flex;justify-content:flex-end;flex-wrap:wrap;gap:10px;margin-top:4px}
+.feedback-actions button{font-size:12px;padding:10px 14px;border-radius:5px;border:1px solid var(--line)}
+.feedback-cancel{background:transparent;color:var(--muted)}
+.feedback-submit{background:var(--green);color:var(--canvas);border-color:var(--green)!important;font-weight:600}
+.feedback-actions button:hover{filter:brightness(1.1)}
+@media(max-width:760px){
+  .topbar{flex-wrap:wrap;row-gap:10px}
+  .topbar .brand{flex:1 1 100%}
+  .header-actions{width:100%;justify-content:flex-end}
+  .feedback-dialog{padding:18px}
+  .feedback-heading h2{font-size:18px}
+}

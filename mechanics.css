@@ -1,0 +1,37 @@
+.mechanic-toolbar{display:flex;align-items:end;gap:18px;background:var(--paper);padding:17px 20px;border:1px solid var(--line);border-radius:8px;margin-bottom:24px}
+.mechanic-toolbar label,.mechanic-picker{display:flex;flex-direction:column;gap:8px;font-size:11px;color:var(--muted);font-weight:600}
+.mechanic-toolbar label{flex:1;max-width:360px}
+.mechanic-toolbar select,.mechanic-picker select{font-size:13px;background:var(--input);color:var(--ink);border:1px solid var(--line);border-radius:4px;padding:10px 12px;max-width:100%;min-width:0}
+.mechanic-heading{display:flex;align-items:center;justify-content:space-between;margin-bottom:23px}
+.mechanic-heading h2{font:400 27px Georgia,serif;margin:0}
+.mechanic-rules-link{font-size:12px}
+.mechanic-layout{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:30px;align-items:start;max-width:1040px;margin:0 auto}
+.mechanic-checklist{min-width:0;background:var(--paper);border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:8px;overflow:hidden}
+.mechanic-list-heading{display:flex;align-items:center;justify-content:space-between;padding:20px 22px 18px;border-bottom:1px solid var(--line);color:var(--gold);font-size:14px}
+.mechanic-list-heading h3{margin:0;font:400 23px Georgia,serif;color:var(--ink)}
+.mechanic-list-heading>span{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.mechanic-checklist-rows{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));padding:8px 12px 14px;gap:0 8px}
+.mechanic-check-row{display:flex;align-items:center;gap:7px;border-bottom:1px solid var(--line);min-width:0;padding:4px 3px;border-radius:3px}
+.mechanic-check-row.selected{background:var(--selected)}
+.mechanic-check-row input,.mechanic-servitor-row input{accent-color:var(--gold);cursor:pointer;width:16px;height:16px;flex:none}
+.mechanic-card-name{display:block;flex:1;min-width:0;text-align:left;padding:8px 3px;color:var(--ink);background:none;border:0;font-size:12px;line-height:1.5;overflow-wrap:anywhere}
+.mechanic-card-name:hover{color:var(--green)}
+.mechanic-card-name small{display:block;font-size:9px;color:var(--muted);margin-top:2px}
+.mechanic-detail{min-width:0}
+.mechanic-card{min-width:0}
+.mechanic-card .pacg-preview{margin:0 auto}
+.mechanic-button{border:1px solid var(--line);background:var(--paper);border-radius:4px;padding:8px 12px;color:var(--green);font-size:12px}
+.mechanic-button:hover{background:var(--hover)}
+.mythic-controls{padding:24px;display:flex;flex-direction:column;gap:24px}
+.mechanic-empty{padding:45px 25px;text-align:center;font-size:13px;color:var(--muted);line-height:1.7}
+.mechanic-servitor-row{display:flex;align-items:center;gap:12px;padding:15px 20px;border-bottom:1px solid var(--line);font-size:12px;line-height:1.5;cursor:pointer}
+.mechanic-servitor-row:has(input:checked){background:var(--selected)}
+.mechanic-servitor-row:last-child{border:0}
+.mechanic-servitor-row strong{font-weight:600}
+.mechanic-servitor-row small{display:block;color:var(--muted);margin-top:5px;font-size:11px}
+.mechanic-redeemed-note{margin:0 0 15px;color:var(--gold);font-size:12px}
+.workspace-tabs{overflow-x:auto}
+.workspace-tabs button{white-space:nowrap}
+@media(max-width:900px){.mechanic-layout{gap:20px;grid-template-columns:1fr 1fr}.mechanic-checklist-rows{grid-template-columns:1fr}.mythic-controls{padding:18px}.mechanic-list-heading{padding:18px}}
+@media(max-width:650px){.mechanic-layout{grid-template-columns:minmax(0,1fr);max-width:480px}.mechanic-toolbar{flex-direction:column;align-items:stretch;gap:15px}.mechanic-toolbar label{max-width:none}.mechanic-heading h2{font-size:25px}.mechanic-checklist-rows{grid-template-columns:repeat(2,minmax(0,1fr))}.mechanic-card-name{font-size:11px}}
+@media(max-width:360px){.mechanic-checklist-rows{grid-template-columns:1fr}}

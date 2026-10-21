@@ -1,0 +1,749 @@
+{
+  "schema_version": 1,
+  "source_url": "https://downloads.paizo.com/Pathfinder_Adventure_Card_Game_Character_Portraits.zip",
+  "package_page": "https://paizo.com/licenses/communityuse/package",
+  "policy_url": "https://paizo.com/licenses/communityuse",
+  "package_sha256": "b99cb51b0cdf0588cdc578dd1e817fd773ad7947aeed3550d7ae69b56386caee",
+  "package_updated": "2017-12-11",
+  "copyright": "Artwork © Paizo Inc.",
+  "artist_note": "The PACG package and its PNG metadata do not supply individual artist names. No individual attribution has been inferred.",
+  "modifications": "PNG bytes are unchanged; filenames are normalized and three character-name spelling differences are mapped explicitly. Displayed proportionally without cropping.",
+  "portraits": {
+    "Adowyn": {
+      "file": "portraits/adowyn.png",
+      "width": 867,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Hunter - Adowyn.png",
+      "sha256": "18ca7d550552cdc568a81ee375fce5f7ca1437db8f792e50d1f643e3ddf5cff0",
+      "artist": null
+    },
+    "Agna": {
+      "file": "portraits/agna.png",
+      "width": 750,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Ranger - Agna.png",
+      "sha256": "7d89da74e197b4325b9907faa227831249112cedf462b1867076d815dbcf7d5c",
+      "artist": null
+    },
+    "Ak": {
+      "file": "portraits/ak.png",
+      "width": 773,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Goblins Fight - Ak.png",
+      "sha256": "02ee792c61a99d98e547f210649397d5627bab89565ed41847e22b8e67161fc2",
+      "artist": null
+    },
+    "Alahazra": {
+      "file": "portraits/alahazra.png",
+      "width": 665,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Oracle - Alahazra.png",
+      "sha256": "e4f9d20799c004f80535d4d66e6d90d198c3f2653d8a20e8151b5a0a3574d1f8",
+      "artist": null
+    },
+    "Alase": {
+      "file": "portraits/alase.png",
+      "width": 315,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Summoner - Alase.png",
+      "sha256": "3a4a1e1ac04bf1ad8449b8f4a5d94b146d0a3484defdefa69a4430ce1acff473",
+      "artist": null
+    },
+    "Amaryllis": {
+      "file": "portraits/amaryllis.png",
+      "width": 574,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Sorcerer - Amaryllis.png",
+      "sha256": "157258e89470ab6892fb9fc3a45b73e46703ec54b7e21ac6f121c139d0da1e9a",
+      "artist": null
+    },
+    "Amiri": {
+      "file": "portraits/amiri.png",
+      "width": 563,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Barbarian - Amiri.png",
+      "sha256": "04816b752f6fd39492347240e0aa3c1e67c2812a11662c10e39538f9560dd479",
+      "artist": null
+    },
+    "Amli": {
+      "file": "portraits/amli.png",
+      "width": 888,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Warpriest - Amli.png",
+      "sha256": "39c0ae96498daf5c109964dabb96eb2143f5313ed50e53638c1314cfdd2448f2",
+      "artist": null
+    },
+    "Angban": {
+      "file": "portraits/angban.png",
+      "width": 1000,
+      "height": 921,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Gunslinger - Angban.png",
+      "sha256": "cdb82800aa7ff5a6717f59a140efe5b2e698042cc0ffa0566c226887aba8972b",
+      "artist": null
+    },
+    "Arabundi": {
+      "file": "portraits/arabundi.png",
+      "width": 562,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Ranger - Arabundi.png",
+      "sha256": "70dc15c922067b88968f4422365c9f085f1c06074400c957a4647d69fe47c06a",
+      "artist": null
+    },
+    "Athnul": {
+      "file": "portraits/athnul.png",
+      "width": 391,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Monk - Athnul.png",
+      "sha256": "ee20943d1143329dcf7a8b421b98db1ab6574defc47336eb9bb654021e8fa1f4",
+      "artist": null
+    },
+    "Balazar": {
+      "file": "portraits/balazar.png",
+      "width": 777,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Summoner - Balazar.png",
+      "sha256": "75d4cd61f60e82022fcd14700a264c1377a0c98e6e17d19f418a04f1b0d9a3c6",
+      "artist": null
+    },
+    "Bekah": {
+      "file": "portraits/bekah.png",
+      "width": 507,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Bard - Bekah.png",
+      "sha256": "afb3ac835c34e2df406d4e573fe92f150df825a1ee0c189747b1512f0a4a646e",
+      "artist": null
+    },
+    "Brielle": {
+      "file": "portraits/brielle.png",
+      "width": 712,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Barbarian - Brielle.png",
+      "sha256": "f8ecdf973918efba2ce6374fb34030b61b9e533dd1a809e6c99b434f5f3a63cf",
+      "artist": null
+    },
+    "Celeste": {
+      "file": "portraits/celeste.png",
+      "width": 760,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Tales - Celeste.png",
+      "sha256": "d5c7b94c440c11f1ca8779837950c5e3b9d333c6f6d3eee64fb09a2bb5d95244",
+      "artist": null
+    },
+    "Chuffy": {
+      "file": "portraits/chuffy.png",
+      "width": 931,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Goblins Fight - Chuffy.png",
+      "sha256": "192201fe4129a8436d146aebb793b90ea05cc1b456e5cfa28bc04bf1414c1c00",
+      "artist": null
+    },
+    "Cogsnap": {
+      "file": "portraits/cogsnap.png",
+      "width": 682,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Alchemist - Cogsnap.png",
+      "sha256": "1eacf71e4239b8d600bf0141dad445f51ca6ef79027e18faf87fb3d852948d86",
+      "artist": null
+    },
+    "Damiel": {
+      "file": "portraits/damiel.png",
+      "width": 605,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Alchemist - Damiel.png",
+      "sha256": "bd9caee6e90d5b5bf0cd7166b93ebe85f1ef680ccd81dfd9f062c6e0222f63dc",
+      "artist": null
+    },
+    "Darago": {
+      "file": "portraits/darago.png",
+      "width": 522,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Wizard - Darago.png",
+      "sha256": "4e245bd4af60d71862db84812a53d0746075fd0b9b5378375ed9f5009aa7b515",
+      "artist": null
+    },
+    "Ekkie": {
+      "file": "portraits/ekkie.png",
+      "width": 958,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Promo - Ekkie.png",
+      "sha256": "7ea4a56117adbac9b68b74271ef785e005784fa10df12f019c9bd8d58dda83fb",
+      "artist": null
+    },
+    "Emil": {
+      "file": "portraits/emil.png",
+      "width": 655,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Hells Vengeance - Emil.png",
+      "sha256": "d38e8cf8050b3190cb82fca0fe3d95fd0ac83ca8e6b6199df49cbb0956bdd5d0",
+      "artist": null
+    },
+    "Erasmus": {
+      "file": "portraits/erasmus.png",
+      "width": 619,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Occult Adventures - Erasmus.png",
+      "sha256": "5a57820d8fc27084a4e08848b35e08c7bab9ac8b6303f81652c40d2b8d3ec41b",
+      "artist": null
+    },
+    "Estra": {
+      "file": "portraits/estra.png",
+      "width": 722,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Occult Adventures - Estra.png",
+      "sha256": "0687a1611aee0945b7fa546ac7f4df32450bbc278e2f9df6484d27ec31e1382c",
+      "artist": null
+    },
+    "Ezren": {
+      "file": "portraits/ezren.png",
+      "width": 567,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Wizard - Ezren.png",
+      "sha256": "64af16c4a0937a3cea0565760bd423f9017eb7da5d060fadd1f5082e5ebd4d2b",
+      "artist": null
+    },
+    "Feiya": {
+      "file": "portraits/feiya.png",
+      "width": 903,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Witch - Feiya.png",
+      "sha256": "0ac84d3200d99fd04c4ad15820e752d9f3be3005e82cc144cbcb1d028411e21b",
+      "artist": null
+    },
+    "Flenta": {
+      "file": "portraits/flenta.png",
+      "width": 774,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Fighter - Flenta.png",
+      "sha256": "a7423aa6440c705bc4d603e732480d9ead3cffc8b3b33e1664880e647bae62ef",
+      "artist": null
+    },
+    "Grazzle": {
+      "file": "portraits/grazzle.png",
+      "width": 521,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Oracle - Grazzle.png",
+      "sha256": "777b676331d0d8d8fa1f82a2c693dd7afbaac67dd1b26d379006581c2b7ef503",
+      "artist": null
+    },
+    "Gronk": {
+      "file": "portraits/gronk.png",
+      "width": 449,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Druid - Gronk.png",
+      "sha256": "a18bcaae25c9f16bae61ee7bac82a01f4792896fb27b93cc6ab3b9e27980eb59",
+      "artist": null
+    },
+    "Harsk": {
+      "file": "portraits/harsk.png",
+      "width": 831,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Ranger - Harsk.png",
+      "sha256": "642c8fb4ffb359ff4a102e706f2f80077fe13b11fcfe1effefeca656685daff8",
+      "artist": null
+    },
+    "Heggal": {
+      "file": "portraits/heggal.png",
+      "width": 506,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Cleric - Heggal.png",
+      "sha256": "4203a9a61cd3afbdddbecc12701d9f5f166ad775d696b971cfab03b7e77b59f3",
+      "artist": null
+    },
+    "Imrijka": {
+      "file": "portraits/imrijka.png",
+      "width": 731,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Inquisitor - Imrijka.png",
+      "sha256": "12ddcc281dfccb0eb82bda015a20ce71c4852bbab25a6b7a7a3779d689b1dc75",
+      "artist": null
+    },
+    "Kasmir": {
+      "file": "portraits/kasmir.png",
+      "width": 464,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Witch - Kasmir.png",
+      "sha256": "96519ecf20ed8f10306613183bc060f39095a9c5457018500ef146957f005c44",
+      "artist": null
+    },
+    "Koren": {
+      "file": "portraits/koren.png",
+      "width": 753,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Paladin - Koren.png",
+      "sha256": "46925546bcb6123951a32876c53c9262d3f3871bedf82df80002acf20b61f609",
+      "artist": null
+    },
+    "Korundo": {
+      "file": "portraits/korundo.png",
+      "width": 710,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Hunter - Krundo.png",
+      "sha256": "b54f284d4a14bd52635b37973c1a2cc719914e5212f2af4fa2b6b1959402e67a",
+      "artist": null
+    },
+    "Kyra": {
+      "file": "portraits/kyra.png",
+      "width": 641,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Cleric - Kyra.png",
+      "sha256": "6714924384db9dfad04f6699fe5501c8ed45d490de5fca308b9e79776521a73a",
+      "artist": null
+    },
+    "Lazzero": {
+      "file": "portraits/lazzero.png",
+      "width": 585,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Hells Vengeance - Lazzero.png",
+      "sha256": "034df0cca636ed30a2ea70b2034b58f1b270c916663260dc46c83f2f3b84cf34",
+      "artist": null
+    },
+    "Lem": {
+      "file": "portraits/lem.png",
+      "width": 624,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Bard - Lem.png",
+      "sha256": "0829816235981bb1f9eb37129b4e48f42ebcb883eb3a6439f80c7daffcfe4219",
+      "artist": null
+    },
+    "Lesath": {
+      "file": "portraits/lesath.png",
+      "width": 626,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Rogue - Lesath.png",
+      "sha256": "0a3b421f76e5f5f3d903997809438d9f4aaaa2813e0f963afe96b026dd629e5d",
+      "artist": null
+    },
+    "Lini": {
+      "file": "portraits/lini.png",
+      "width": 444,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Druid - Lini.png",
+      "sha256": "22f13fafdc29cc25c417a7ff068a2bce1e04193ce0fb0296b6b7d63344c0901f",
+      "artist": null
+    },
+    "Linxia": {
+      "file": "portraits/linxia.png",
+      "width": 724,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Hells Vengeance - Linxia.png",
+      "sha256": "365645fc9c9b4ca4815b218c61184ef52e99f7476b4c85fc6b000962b4ccd851",
+      "artist": null
+    },
+    "Lirianne": {
+      "file": "portraits/lirianne.png",
+      "width": 665,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Gunslinger - Lirianne.png",
+      "sha256": "42839add520afc773f92f11d44781eb225c61ac45b8b35ffcea89ad350f96151",
+      "artist": null
+    },
+    "Mavaro": {
+      "file": "portraits/mavaro.png",
+      "width": 677,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Occult Adventures - Mavaro.png",
+      "sha256": "03fee34163a5b3cccd87b108de62c9773e06a787014ad768f30ce94c38bba021",
+      "artist": null
+    },
+    "Maznar": {
+      "file": "portraits/maznar.png",
+      "width": 790,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Druid - Maznar.png",
+      "sha256": "678c9147a4365922d9baacf3c107202f6e9e117278945205d3fbcc65979c32ad",
+      "artist": null
+    },
+    "Meligaster": {
+      "file": "portraits/meligaster.png",
+      "width": 593,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Occult Adventures - Meligaster.png",
+      "sha256": "bee51bd7f6e0da2ab4bc6624224b7eed6c6365daeb015d9b9b6b13d3ac9b01fc",
+      "artist": null
+    },
+    "Melindra": {
+      "file": "portraits/melindra.png",
+      "width": 641,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Wizard - Melindra.png",
+      "sha256": "92bfe8e48348a260f2b04a4955fccacc95821e1743c795865d9b9506c20ec812",
+      "artist": null
+    },
+    "Meliski": {
+      "file": "portraits/meliski.png",
+      "width": 917,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Bard - Meliski.png",
+      "sha256": "e4f4897856578f30b4d3a96959c9e2a7cc43defd02420334acb2ba56331c6749",
+      "artist": null
+    },
+    "Merisiel": {
+      "file": "portraits/merisiel.png",
+      "width": 489,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Rogue - Merisiel.png",
+      "sha256": "178ebd311808462b2fe7062e8e3e44a8db089d177857e0d25ef7736bc699f01b",
+      "artist": null
+    },
+    "Mogmurch": {
+      "file": "portraits/mogmurch.png",
+      "width": 1000,
+      "height": 926,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Goblins Burn - Mogmurch.png",
+      "sha256": "4e4195b3d5c12e8325f5a4db33c2c3ebf79f4609ab719fd33942ba5ac16db9f7",
+      "artist": null
+    },
+    "Mother Myrtle": {
+      "file": "portraits/mother-myrtle.png",
+      "width": 592,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Alchemist - Mother Mrytle.png",
+      "sha256": "fe63682faf395e3211fabb563def1d5098e4a7a641c01dd9b5aa297797b0841e",
+      "artist": null
+    },
+    "Nyctessa": {
+      "file": "portraits/nyctessa.png",
+      "width": 703,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Hells Vengeance - Nyctessa.png",
+      "sha256": "0a371d6cdcddb7d611018d167d8e6c4d0055544d2723cf7d79924d1492bdd6b3",
+      "artist": null
+    },
+    "Olenjack": {
+      "file": "portraits/olenjack.png",
+      "width": 472,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Rogue - Olenjack.png",
+      "sha256": "d34a35abf6773e9c8269674dcdc647044ade49aeb578e6e5ec6ba66a3f1b85cf",
+      "artist": null
+    },
+    "Oloch": {
+      "file": "portraits/oloch.png",
+      "width": 755,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Warpriest - Oloch.png",
+      "sha256": "d243cb063d3e14d94b4a24d2018ffc8e5163cb152cc69ef1dfb54f15ae99d299",
+      "artist": null
+    },
+    "Ostog": {
+      "file": "portraits/ostog.png",
+      "width": 658,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Barbarian - Ostog.png",
+      "sha256": "34a8f66e2f4f2a0e8592850ca9565b093d1f273724d48ee941df644bb135a184",
+      "artist": null
+    },
+    "Poog": {
+      "file": "portraits/poog.png",
+      "width": 837,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Goblins Burn - Poog.png",
+      "sha256": "b424f49a9b814cebad17d344cdcfb3086dd99dae32ddabb5a1fb76e9191dbaa0",
+      "artist": null
+    },
+    "Qualzar": {
+      "file": "portraits/qualzar.png",
+      "width": 592,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Sorcerer - Qualzar.png",
+      "sha256": "8f9234033c66118d8ded26b1f2cfcdecfcfcc3750b771b804c2c02ae8bc1c50b",
+      "artist": null
+    },
+    "Radillo": {
+      "file": "portraits/radillo.png",
+      "width": 501,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Wizard - Radillo.png",
+      "sha256": "481daa8f1259930b93b3398ce752c711e6fd4dcc2edce4aab37cd778fa42c013",
+      "artist": null
+    },
+    "Radovan": {
+      "file": "portraits/radovan.png",
+      "width": 532,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Tales - Radovan.png",
+      "sha256": "173ede16593a680efb54c839d2c940bb79b8fbb7b023cc126f2c90d4a94d97f2",
+      "artist": null
+    },
+    "Raheli": {
+      "file": "portraits/raheli.png",
+      "width": 735,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Witch - Raheli.png",
+      "sha256": "e76058a6866fe9a088ba4ba05eecfbdc3cbbdca373062a1798c2c48c87bb5646",
+      "artist": null
+    },
+    "Ramexes": {
+      "file": "portraits/ramexes.png",
+      "width": 342,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Oracle - Ramexes.png",
+      "sha256": "6aaa23e248f506540b66644410146ee8497ad8c771245aed5202cc0fbda8e53e",
+      "artist": null
+    },
+    "Ranzak": {
+      "file": "portraits/ranzak.png",
+      "width": 659,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Promo - Ranzak.png",
+      "sha256": "f27bc403a36877efae23fac8fa2e60bf3a9b3e7c4504b55baca3a5689ae82d58",
+      "artist": null
+    },
+    "Raz": {
+      "file": "portraits/raz.png",
+      "width": 694,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Paladin - Raz.png",
+      "sha256": "db9e42c7463eaccd43a064bfc06ca34a24d1cb6a6c3f96e46bded4fc19968294",
+      "artist": null
+    },
+    "Reepazo": {
+      "file": "portraits/reepazo.png",
+      "width": 1000,
+      "height": 859,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Promo - Reepazo.png",
+      "sha256": "8df44c52eeab76b4f52afee1a7dd99a217a8b8ba4b633b4b39a168ec08b4cbdd",
+      "artist": null
+    },
+    "Reta": {
+      "file": "portraits/reta.png",
+      "width": 732,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Goblins Fight - Reta.png",
+      "sha256": "3d751ea4d925fca022182af23a9528e81ff5313174a6ea2c1ebb1f5e4931903b",
+      "artist": null
+    },
+    "Rivani": {
+      "file": "portraits/rivani.png",
+      "width": 578,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Occult Adventures - Rivani.png",
+      "sha256": "c8746866c686226577a9ce7760a199e293e146f73bfd8a9b01339edd03c71863",
+      "artist": null
+    },
+    "Rooboo": {
+      "file": "portraits/rooboo.png",
+      "width": 850,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Monk - Rooboo.png",
+      "sha256": "281ec3ef2af41a15f47a12d034b4bff78162f3636fa813ba388c382ae36e04cc",
+      "artist": null
+    },
+    "Sajan": {
+      "file": "portraits/sajan.png",
+      "width": 694,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Monk - Sajan.png",
+      "sha256": "d7a2814694298de03bf7e187aef86fe50ab7d31206c2d26376694fffbf331017",
+      "artist": null
+    },
+    "Salim": {
+      "file": "portraits/salim.png",
+      "width": 710,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Inquisitor - Salim.png",
+      "sha256": "78acc8f9eb1c6c8baafce994b5094910e298320aa5161e1facbb2f24d22a2e4f",
+      "artist": null
+    },
+    "Seelah": {
+      "file": "portraits/seelah.png",
+      "width": 702,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Paladin - Seelah.png",
+      "sha256": "cc1a26eafaa95b904325f931fb99995ae4b3c35d7e8b6fc20eba2a87b3706611",
+      "artist": null
+    },
+    "Seltyiel": {
+      "file": "portraits/seltyiel.png",
+      "width": 722,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Magus - Seltyiel.png",
+      "sha256": "c4e4bfbb287ad20605dc8cba26ac946dbd1b169dd6fc7878569f8fb2e7a5394e",
+      "artist": null
+    },
+    "Seoni": {
+      "file": "portraits/seoni.png",
+      "width": 615,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Sorcerer - Seoni.png",
+      "sha256": "924d3f91e4780d80b028a51996c2a64aa59a73639fb6cef8dfbac250245b1a26",
+      "artist": null
+    },
+    "Siwar": {
+      "file": "portraits/siwar.png",
+      "width": 588,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Bard - Siwar.png",
+      "sha256": "14c36b24a63da691c98b1ac3da4757389e5df00be90211a3e78c9d8a21e9fdc7",
+      "artist": null
+    },
+    "Skizza": {
+      "file": "portraits/skizza.png",
+      "width": 1000,
+      "height": 919,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Gunslinger - Skizza.png",
+      "sha256": "5915059aef3c8f3c010e593ddbf11724fd7dcc32a7dcc9e5ffab8ec4f171e0f6",
+      "artist": null
+    },
+    "Talitha": {
+      "file": "portraits/talitha.png",
+      "width": 418,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Magus - Talitha.png",
+      "sha256": "1eec69c3c2a8ebfc5507cdcf3381dbe1a5f9c8d52eb420aa3005b948ef17b714",
+      "artist": null
+    },
+    "Tarlin": {
+      "file": "portraits/tarlin.png",
+      "width": 761,
+      "height": 1200,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Cleric - Tarlin.png",
+      "sha256": "d84124d947f79e870c2d98271faad5fa97a223db2ecb62ca781956337170ad8f",
+      "artist": null
+    },
+    "Tontelizi": {
+      "file": "portraits/tontelizi.png",
+      "width": 894,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Fighter - Tontelizi.png",
+      "sha256": "245fcc243b7cc1c6eb9b9c36c58655f05337fcf3beaef7424f67f06cacfb9294",
+      "artist": null
+    },
+    "Tup": {
+      "file": "portraits/tup.png",
+      "width": 726,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Promo - Tup.png",
+      "sha256": "569fb217925bd7b9eba3830015f614512d5d6570691684748173a7f8e9c04fd2",
+      "artist": null
+    },
+    "Ukuja": {
+      "file": "portraits/ukuja.png",
+      "width": 384,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Hunter - Ukuja.png",
+      "sha256": "4574cbbf5dc424ccf099279ce7c0e3951615090d6a32274512a8659064f1d854",
+      "artist": null
+    },
+    "Uliah": {
+      "file": "portraits/uliah.png",
+      "width": 463,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Warpriest - Uliah.png",
+      "sha256": "a37ac102c30e01ea3efa2ddeb9640834771c831b75c56abf1d378af68ccd6458",
+      "artist": null
+    },
+    "Urgraz": {
+      "file": "portraits/urgraz.png",
+      "width": 729,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Hells Vengeance - Urgraz.png",
+      "sha256": "8aeb82644c4e030c51d537ed05866d76abf4ede592a182d467b6df2e78667088",
+      "artist": null
+    },
+    "Valendron": {
+      "file": "portraits/valendron.png",
+      "width": 959,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Sorcerer - Valendron.png",
+      "sha256": "c0ccc9582588f3d4dd9e30ad1efd71ca726e8b422409eb2fcab4cb2b5a46880a",
+      "artist": null
+    },
+    "Valeros": {
+      "file": "portraits/valeros.png",
+      "width": 572,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Fighter - Valeros.png",
+      "sha256": "26dbaa84b30784f9ef2a9e3f197beacabd3a58d9f7b5016f411d1461d4717f63",
+      "artist": null
+    },
+    "Varian": {
+      "file": "portraits/varian.png",
+      "width": 451,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Tales - Varian.png",
+      "sha256": "fd3d94acc61296646d9236ed06c59ca6ada86023154c09b62a4fd584736e0e84",
+      "artist": null
+    },
+    "Varril": {
+      "file": "portraits/varril.png",
+      "width": 399,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Inquisitor - Varril.png",
+      "sha256": "45146a718d2a77c8b5aef6b36682ec8e6143b92f1751abcac301e6753af520c2",
+      "artist": null
+    },
+    "Vika": {
+      "file": "portraits/vika.png",
+      "width": 662,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Fighter - Vika.png",
+      "sha256": "baba41f2937688dddd5afc403891e679bfe76df93ca161f574e7e5df2b97c44e",
+      "artist": null
+    },
+    "Wrathack": {
+      "file": "portraits/wrathack.png",
+      "width": 627,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Ranger - Wrathack.png",
+      "sha256": "949e24bb58bb935e206f7947bd1275c8f06242fff59a56b03431b7226dd416dd",
+      "artist": null
+    },
+    "Wu Shen": {
+      "file": "portraits/wu-shen.png",
+      "width": 639,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Rogue - Wu-Shen.png",
+      "sha256": "83a3aaa4a7faa52c3106aedae7175045ad3c8566cf8f73bbab6f9ac8f509590f",
+      "artist": null
+    },
+    "Yoon": {
+      "file": "portraits/yoon.png",
+      "width": 807,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Occult Adventures - Yoon.png",
+      "sha256": "ee645a6d6de779d4825611112e90739377a79af48e8c84548d33ee72e2e4e3d1",
+      "artist": null
+    },
+    "Zarlova": {
+      "file": "portraits/zarlova.png",
+      "width": 391,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Cleric - Zarlova.png",
+      "sha256": "85b5c3a5591149cbdbff1f27fb959eff6459deb79546397a868b1418582a3b0a",
+      "artist": null
+    },
+    "Zelhara": {
+      "file": "portraits/zelhara.png",
+      "width": 606,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Hells Vengeance - Zelhara.png",
+      "sha256": "a55de14bcb70526fea91f3916c8182c2f2632b95d4caf90e7cf6347bf93dd4ed",
+      "artist": null
+    },
+    "Zetha": {
+      "file": "portraits/zetha.png",
+      "width": 403,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Summoner - Zetha.png",
+      "sha256": "8b04cb2a47c4a4160c24a3e5a36ef62ec2b7bf75d5084c1b54ab361752b7d8f5",
+      "artist": null
+    },
+    "Zibini": {
+      "file": "portraits/zibini.png",
+      "width": 548,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Goblins Burn - Zibini.png",
+      "sha256": "b77637a86cbcd972c1ba7ecfb70ffd382f4aa741665e5b4da92d016cea93876e",
+      "artist": null
+    },
+    "Zvarbel": {
+      "file": "portraits/zvarbel.png",
+      "width": 810,
+      "height": 1000,
+      "package_member": "Pathfinder Adventure Card Game Character Portraits/PNG/Magus - Zvarbel.png",
+      "sha256": "9a16bbcd62b165b8c4b0e0b1a8ba0ddddee6c9135fde30621c14706e1473052d",
+      "artist": null
+    }
+  }
+}
