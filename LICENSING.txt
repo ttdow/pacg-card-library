@@ -24,10 +24,10 @@ rulebook reorganizes the four original-edition rulebooks and groups variations.
 The [Credits & licensing page](web/credits.html) contains the Community Use
 notice, creator acknowledgments, source links, and contact information. The
 main library includes no map artwork. The separate, unlinked experimental
-map interface preview includes selected place coordinates from the PathfinderWiki
-mapping repository, distributed as an adapted dataset under CC BY-NC-SA 4.0.
-See map-experiment/MAP-LICENSING.txt for source credits and terms. The preview
-omits all terrain geometry while its redistribution terms remain unconfirmed.
+map preview includes regional terrain and selected place coordinates from the
+PathfinderWiki Mapping Project and its Kart data repository. These adapted
+geographic datasets retain CC BY-NC-SA 4.0. See the map's Credits panel and
+map-experiment/MAP-LICENSING.txt for source credits, license links, and changes.
 
 Character-sheet portraits are unchanged PNGs from Paizo's official
 [PACG Character Portraits package](https://downloads.paizo.com/Pathfinder_Adventure_Card_Game_Character_Portraits.zip),

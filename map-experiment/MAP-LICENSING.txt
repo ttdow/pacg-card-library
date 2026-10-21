@@ -1,15 +1,15 @@
-Experimental PACG map interface preview
+Experimental PACG adventure map
 
 With thanks to PathfinderWiki Mapping Project contributors, John Mechalas,
 Oznogon, and PathfinderWiki contributors.
 
 Selected factual place coordinates: https://github.com/pf-wikis/mapping
-The adapted place dataset is distributed under CC BY-NC-SA 4.0:
+Regional terrain: https://github.com/pf-wikis/mapping-data
+The adapted geographic datasets are distributed under CC BY-NC-SA 4.0:
 https://creativecommons.org/licenses/by-nc-sa/4.0/
-Modifications: selected regional place records, original styles, PACG overlays.
-
-No terrain data from pf-wikis/mapping-data is distributed in this preview.
-Its redistribution terms remain unconfirmed; the region collection is empty.
+Modifications: regional crop, geometry simplification, selected place records,
+original styles, and PACG scenario overlays. See sources.json for input
+checksums and the pinned geographic source commit.
 
 MapLibre GL JS 5.6.2 keeps the notices in vendor/LICENSE.txt.
 Original application code: the project 0BSD license, ../LICENSE.txt.

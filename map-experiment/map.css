@@ -57,9 +57,7 @@
   .map-stage{height:calc(100svh - 126px);min-height:560px;border-radius:8px}
   .map-corner-panel{top:10px;left:10px;padding:12px;width:285px;max-width:calc(100% - 66px)}
   .map-panel-eyebrow{margin-bottom:9px}.map-panel-bottom{gap:5px}
-  .map-region-label{font-size:15px;left:14px;bottom:42px}
+  .map-region-label{font-size:15px;left:14px;bottom:60px}
   .maplibregl-ctrl-top-right{top:0;right:0}
   .map-attribution{font-size:9px;gap:5px;padding:7px 8px}
 }
-
-.map-region-label{max-width:calc(100% - 30px);font:11px/1.5 "Segoe UI",system-ui,sans-serif;bottom:45px}

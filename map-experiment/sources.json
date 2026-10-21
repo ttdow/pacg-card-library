@@ -1,15 +1,27 @@
 {
-  "public_interface_preview": true,
-  "terrain_included": false,
-  "terrain_status": "Omitted pending confirmation of geographic-layer redistribution terms.",
-  "mapping_repository": "https://github.com/pf-wikis/mapping",
-  "place_data_license": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "local_experiment_only": false,
+  "mapping_data_commit": "2de8da874e46915564d46d2357410312c97dd28d",
   "maplibre_version": "5.6.2",
-  "modifications": "Selected factual place coordinates, original styling, and PACG scenario overlays. No terrain geometry, article prose, or raster artwork.",
+  "mapping_repository": "https://github.com/pf-wikis/mapping",
+  "geometry_repository": "https://github.com/pf-wikis/mapping-data",
+  "mapping_license": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "geometry_license": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "geometry_publication_status": "CC BY-NC-SA 4.0; the user confirmed that the Kart repository follows the mapping project license on 2026-10-21.",
+  "modifications": "Regional crop and simplification; original styling; selected factual place names and coordinates; PACG scenario overlays. Article prose and raster maps are excluded.",
   "input_sha256": {
     "cities.geojson": "e68a2bde0d2c3f881f4007bbe73909096f24560be3420478af8b761d4170e5ef",
     "locations.geojson": "81dd3e94161ef498ac7385e9f9db6e4ff058436991bd9523662197fd05cabaaa",
+    "geometry-source.tar.gz": "706c626ec7f39431e1c8743a8c5676c9a81cb2056d2efc56f45ec03e3604e104",
     "scenarios.json": "59a1d884e47c561d10125ccadbc9e8b02182499aaf1bd6afd6452815814b341d",
     "adventures.json": "940008ca47beeb5f658f47e8dc54be5d9ca5780bf521d0b0566b58deb58ef3a2"
-  }
+  },
+  "feature_counts": {
+    "land": 9,
+    "forests": 19,
+    "rivers": 21,
+    "roads": 1
+  },
+  "public_interface_preview": true,
+  "terrain_included": true,
+  "place_data_license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
 }

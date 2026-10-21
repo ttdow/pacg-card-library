@@ -1,4 +1,4 @@
-/* PACG map interface preview; terrain intentionally omitted. No article prose or raster map artwork. */
+/* PACG adventure map experiment. No article prose or raster map artwork. */
 (function(root){
   'use strict';
   const COLORS={dark:{water:'#142630',land:'#334236',coast:'#77846a',forest:'#263e30',river:'#578a9e',road:'#c8af73'},light:{water:'#c6dce0',land:'#e9e3c8',coast:'#829783',forest:'#c3d0ab',river:'#669aa8',road:'#a48651'}};
@@ -29,7 +29,7 @@
     const content=node('div','scenario-popup');content.append(node('p','scenario-popup-number',`${current.path} · ${scenario.number}`),node('h2','',scenario.name),node('p','scenario-popup-location',scenario.location),node('p','scenario-popup-note',scenario.note));
     const source=node('a','','Scenario source');source.href=scenario.source_url;source.target='_blank';source.rel='noopener noreferrer';content.append(source);
     const offset=offsets(current.scenarios).get(scenario.number);
-    popup=new maplibregl.Popup({maxWidth:'290px',offset:[offset[0],-26],focusAfterOpen:focus,closeOnClick:true}).setLngLat(scenario.coordinates).setDOMContent(content).addTo(map);
+    popup=new maplibregl.Popup({maxWidth:Math.min(290,$('adventure-map').clientWidth-110)+'px',offset:[offset[0],-26],focusAfterOpen:focus,closeOnClick:true}).setLngLat(scenario.coordinates).setDOMContent(content).addTo(map);
     popup.on('close',()=>{selected='';for(const marker of markers)marker.getElement().setAttribute('aria-pressed','false');for(const b of $('scenario-index').children)b.setAttribute('aria-pressed','false');});
     $('map-status').textContent=`${scenario.number}: ${scenario.name}. ${scenario.location}. ${scenario.note}`;
   }
@@ -62,7 +62,7 @@
       maplibregl.setWorkerUrl(new URL('./vendor/maplibre-worker.js',location.href).href);
       const c=COLORS[root.PACGTheme.get()];
       map=new maplibregl.Map({container:'adventure-map',center:[-27.12,44.10],zoom:11.4,minZoom:9.5,maxZoom:16,maxBounds:[[data.bounds[0],data.bounds[1]],[data.bounds[2],data.bounds[3]]],attributionControl:false,renderWorldCopies:false,pitchWithRotate:false,dragRotate:false,
-        style:{version:8,sources:{region:{type:'geojson',data:new URL('./region.geojson',location.href).href}},layers:[
+        style:{version:8,sources:{region:{type:'geojson',data:new URL('./region.geojson?v=35592a1d4aef',location.href).href}},layers:[
           {id:'ocean',type:'background',paint:{'background-color':c.water}},
           {id:'land',type:'fill',source:'region',filter:['==',['get','layer'],'land'],paint:{'fill-color':c.land}},
           {id:'coast',type:'line',source:'region',filter:['==',['get','layer'],'land'],paint:{'line-color':c.coast,'line-width':1}},
