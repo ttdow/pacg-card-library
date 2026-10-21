@@ -219,3 +219,12 @@ h1{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:30px;li
   .deck-button{font-size:11px}
 }
 @media(prefers-reduced-motion:no-preference){.result,button{transition:background-color .12s ease}.detail-panel{scroll-behavior:smooth}}
+/* iPhone Safari zooms focused text fields below 16px. Keep user zoom enabled. */
+@media(any-pointer:coarse){
+  body .search-wrap input,
+  body .rulebook-search input,
+  body .filter-row select,
+  body .mechanic-toolbar select,
+  body .mechanic-picker select,
+  body .feedback-field textarea{font-size:16px}
+}
