@@ -9,9 +9,9 @@
   <title>PACG · Card library</title>
   <script src="./theme.js?v=135dc273b1fd"></script>
   <link rel="icon" href="./favicon.svg?v=8658463b272b" type="image/svg+xml">
-  <link rel="stylesheet" href="./style.css?v=88925c1316f1">
+  <link rel="stylesheet" href="./style.css?v=80bfe59ae1cc">
   <link rel="stylesheet" href="./card-face.css?v=5509c896745d">
-  <link rel="stylesheet" href="./rulebook.css?v=92f7666d229c">
+  <link rel="stylesheet" href="./rulebook.css?v=cd91ce8ba41f">
   <link rel="stylesheet" href="./mechanics.css?v=9d21ec55d3df">
   <link rel="stylesheet" href="./feedback.css?v=f607af434fc2">
   <script src="./feedback.js?v=cc7860c8faf0" defer></script>
@@ -19,7 +19,7 @@
   <script src="./card-face.js?v=e697fe4f56c1" defer></script>
   <script src="./card-history.js?v=9b46cdfda061" defer></script>
   <script src="./character-sheet.js?v=05deaf41b58a" defer></script>
-  <script src="./dice-statistics.js?v=b33c399e1ed7" defer></script>
+  <script src="./dice-statistics.js?v=7c7445026666" defer></script>
   <script src="./rulebook.js?v=a7bc483ced53" defer></script>
   <script src="./mechanics.js?v=4648241106be" defer></script>
   <script src="./app.js?v=14e38387bd82" defer></script>
@@ -98,13 +98,13 @@
         <p id="dice-summary" class="sr-only" role="status"></p>
         <div id="dice-chart" class="dice-chart" role="group" tabindex="0" aria-label="Inspect roll probabilities" aria-describedby="dice-summary dice-chart-help"></div>
         <div class="dice-plot-footer"><span class="dice-mean-key">Expected total</span></div>
-        <p id="dice-chart-help" class="sr-only">Point to a bar or use the left and right arrow keys on the plot to see the probability of rolling that total or less.</p>
+        <p id="dice-chart-help" class="sr-only">Click or tap the plot to select a roll total, or use the left and right arrow keys, to see the probability of rolling that total or less.</p>
       </section>
     </section>
     <section id="rules-view" role="tabpanel" aria-labelledby="rules-tab" hidden>
       <div class="rulebook-toolbar">
         <h2>Interactive rulebook</h2>
-        <label class="rulebook-search"><span class="sr-only">Search all rules and variations</span><input id="rule-search" type="search" placeholder="Search rules and variations…" autocomplete="off" maxlength="200"><kbd aria-hidden="true">/</kbd></label>
+        <div class="search-row rulebook-search"><div class="search-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m16 16 4.5 4.5"></path></svg><label class="sr-only" for="rule-search">Search all rules and variations</label><input id="rule-search" type="search" placeholder="Search rules and variations…" autocomplete="off" maxlength="200" spellcheck="false"></div></div>
       </div>
       <div class="rulebook-layout">
         <aside class="rulebook-navigation" aria-label="Rulebook navigation">

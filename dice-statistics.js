@@ -144,7 +144,7 @@
       for (const total of ticks) svg.append(svgNode('text',{x:x(total),y:bottom+20,'text-anchor':'middle',class:'dice-axis-label'},number(total)));
       svg.append(svgNode('text',{x:(left+right)/2,y:height-6,'text-anchor':'middle',class:'dice-axis-label'},'Total roll'));
       host.append(svg,tooltip);
-      plot = {x,y,left,right,bottom,width,highlight};
+      plot = {x,y,left,right,top,bottom,width,height,svg,highlight};
     }
     function update(notify = true) {
       model = distribution(counts);
@@ -185,21 +185,17 @@
       inputs.set(sides,input);
     }
     $('dice-clear').addEventListener('click',() => { counts = emptyPool(); update(); });
-    const inspectPointer = event => {
+    host.addEventListener('click',event => {
       if (!plot) return;
-      const bar = event.target.closest?.('.dice-bars rect');
-      if (!bar) { hideTooltip(); return; }
-      inspect(Number(bar.dataset.total));
-    };
-    host.addEventListener('pointermove',inspectPointer);
-    host.addEventListener('pointerdown',event => {
-      if (event.target.closest?.('.dice-bars rect')) {
-        event.preventDefault();
-        host.focus({preventScroll:true});
-      }
-      inspectPointer(event);
+      const bounds = plot.svg.getBoundingClientRect();
+      const x = (event.clientX-bounds.left)*plot.width/bounds.width;
+      const y = (event.clientY-bounds.top)*plot.height/bounds.height;
+      if (x < plot.left || x > plot.right || y < plot.top || y > plot.bottom) { hideTooltip(); return; }
+      // The entire plot column is a target, including space above short bars.
+      const total = model.minimum + Math.floor((x-plot.left)/(plot.right-plot.left)*(model.maximum-model.minimum+1));
+      host.focus({preventScroll:true});
+      inspect(total);
     });
-    host.addEventListener('pointerleave',hideTooltip);
     host.addEventListener('blur',hideTooltip);
     host.addEventListener('focus',() => inspect(selected ?? Math.round(model.expected)));
     document.addEventListener('pointerdown',event => { if (!host.contains(event.target)) hideTooltip(); });

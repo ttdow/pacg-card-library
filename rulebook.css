@@ -1,10 +1,6 @@
 .rulebook-toolbar{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:24px}
 .rulebook-toolbar h2{font:400 25px Georgia,serif;margin:0;white-space:nowrap}
-.rulebook-search{display:flex;align-items:center;gap:12px;background:var(--input);border:1px solid var(--line);border-radius:6px;padding:0 15px;max-width:570px;flex:1}
-.rulebook-search:focus-within{outline:2px solid var(--green);outline-offset:1px}
-.rulebook-search input{padding:14px 0;width:100%;min-width:0;background:transparent;color:var(--ink);border:0;outline:none;font-size:14px}
-.rulebook-search input:focus-visible{outline:none}
-.rulebook-search kbd{border:1px solid var(--line);border-radius:3px;color:var(--muted);padding:0 6px;font-size:12px}
+.rulebook-search{max-width:570px;min-width:0;flex:1}
 .rulebook-layout{display:grid;grid-template-columns:245px minmax(0,1fr);gap:26px;align-items:start}
 .rulebook-navigation{position:sticky;top:20px;max-height:calc(100vh - 40px);overflow:auto;scrollbar-width:thin;padding:0 12px 18px 0}
 .rulebook-navigation summary{font-size:12px;font-weight:600;color:var(--muted);padding:0 8px 17px;list-style:none}

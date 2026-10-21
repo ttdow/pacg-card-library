@@ -62,9 +62,9 @@ button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible,su
 .dice-statistics>div:first-child{border-color:var(--gold)}
 .dice-statistics dt{font-size:11px;color:var(--muted);margin-bottom:7px}
 .dice-statistics dd{font-size:25px;font-weight:600;font-variant-numeric:tabular-nums;margin:0}
-.dice-chart{position:relative;min-width:0;min-height:280px;outline-offset:4px}
+.dice-chart{position:relative;min-width:0;min-height:280px;outline-offset:4px;-webkit-tap-highlight-color:transparent}
 .dice-chart:focus-visible{outline:2px solid var(--gold)}
-.dice-chart svg{display:block;width:100%;height:auto;overflow:visible}
+.dice-chart svg{display:block;width:100%;height:auto;overflow:visible;cursor:pointer}
 .dice-axis-label{fill:var(--muted);font:11px "Segoe UI",sans-serif}
 .dice-grid-line{stroke:var(--line);stroke-width:1}
 .dice-bars rect{fill:var(--green);opacity:.65}
