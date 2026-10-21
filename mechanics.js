@@ -16,7 +16,8 @@
   function tracker(value={}){
     return {checked:Array.isArray(value.checked)?[...new Set(value.checked.filter(validId))]:[],
       selected:validId(value.selected)?value.selected:'',current:validId(value.current)?value.current:'', count:Number.isSafeInteger(value.count)?Math.max(0,Math.min(9999,value.count)):0,
-      level:/^[B1-6]$/.test(value.level)?value.level:'B', wrecked:value.wrecked===true};
+      level:/^[B1-6]$/.test(value.level)?value.level:'B', wrecked:value.wrecked===true,
+      checklist:['WOTR','HV1','HV2'].includes(value.checklist)?value.checklist:'WOTR'};
   }
   class TrackerStore {
     constructor(storage){
@@ -90,7 +91,7 @@
       if(redeemed)panel.append(node('p','mechanic-redeemed-note','Redeemed · Corrupted trait removed'));
       panel.append(preview);show();return panel;
     }
-    function checklist(title,ids,checked,label,selected,onCheck,onPreview){
+    function checklist(title,ids,checked,label,selected,onCheck,onPreview,sourcePrefix=active.set){
       const section=node('section','mechanic-checklist');section.setAttribute('aria-label',title);
       const heading=node('div','mechanic-list-heading');heading.append(node('h3','',title),node('span','',`${checked.filter(id=>ids.includes(id)).length} / ${ids.length}`));section.append(heading);
       const list=node('div','mechanic-checklist-rows');
@@ -98,7 +99,7 @@
         const card=data.cards[id],row=node('div','mechanic-check-row'+(id===selected?' selected':''));
         const input=node('input');input.type='checkbox';input.id='mechanic-check-'+id;input.checked=checked.includes(id);input.setAttribute('aria-label',`${label}: ${card.name}`);input.addEventListener('change',()=>onCheck(id,input.checked));
         const name=button(card.name,()=>onPreview(id),'mechanic-card-name');name.id='mechanic-preview-'+id;name.setAttribute('aria-pressed',String(id===selected));
-        const code=card.source_codes.find(c=>c.startsWith(active.set+'-'))||card.source_codes[0];name.append(node('small','',code));
+        const code=card.source_codes.find(c=>c.startsWith(sourcePrefix+'-'))||card.source_codes[0];name.append(node('small','',code));
         row.append(input,name);list.append(row);
       }
       section.append(list);return section;
@@ -114,12 +115,21 @@
       const saved=store.get(scope()),layout=node('div','mechanic-layout');host.append(layout);
       if(['ships','redemption','traders','curses'].includes(active.mechanic)){
         const key={ships:'ships',redemption:'redemption',traders:'traders',curses:'curses'}[active.mechanic];
-        const ids=data[key],selected=ids.includes(saved.selected)?saved.selected:ids[0];
+        const redemption=active.mechanic==='redemption'?(data.redemption_checklists?.find(c=>c.id===saved.checklist)||data.redemption_checklists?.[0]):null;
+        const ids=redemption?redemption.cards:data[key],selected=ids.includes(saved.selected)?saved.selected:ids[0];
         const label={ships:'Acquired',redemption:'Redeemed',traders:'Available',curses:'Displayed'}[active.mechanic];
         const list=checklist({ships:'Fleet',redemption:'Redemption',traders:'Bazaar',curses:'Curses'}[active.mechanic],ids,saved.checked,label,selected,(id,checked)=>{
           store.check(scope(),id,checked);
           renderPreservingFocus();status();
-        },id=>update({selected:id}));
+        },id=>update({selected:id}),redemption?.id||active.set);
+        if(redemption){
+          const deck=picker('Deck','mechanic-redemption-deck',data.redemption_checklists.map(c=>[c.id,c.name]),redemption.id,id=>update({checklist:id}));
+          deck.classList.add('redemption-deck-picker');list.insertBefore(deck,list.querySelector('.mechanic-checklist-rows'));
+          for(const issue of redemption.source_issues||[]){
+            const note=node('p','source-note mechanic-list-note',issue.note+' ');
+            const source=node('a','','Checklist source');source.href=redemption.source_url;source.target='_blank';source.rel='noopener noreferrer';note.append(source);list.append(note);
+          }
+        }
         const detail=node('div','mechanic-detail');
         detail.append(cardPanel(selected,{redeemed:active.mechanic==='redemption'&&saved.checked.includes(selected)}));
         layout.append(detail,list);
@@ -144,7 +154,7 @@
       $('mechanic-content').setAttribute('aria-busy','true');
       try{
         if(!data){
-          if(!pending)pending=fetch(new URL('mechanics-catalog.json',document.baseURI)).then(r=>{if(!r.ok)throw new Error('Could not load the mechanic cards.');return r.json();}).then(value=>{if(value.schema_version!==1)throw new Error('Unsupported mechanic catalog.');data=value;}).finally(()=>{pending=null;});
+          if(!pending)pending=fetch(new URL('mechanics-catalog.json',document.baseURI),{cache:'no-cache'}).then(r=>{if(!r.ok)throw new Error('Could not load the mechanic cards.');return r.json();}).then(value=>{if(value.schema_version!==1)throw new Error('Unsupported mechanic catalog.');data=value;}).finally(()=>{pending=null;});
           await pending;
         }
         if(version!==loadVersion)return;
