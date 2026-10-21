@@ -44,7 +44,14 @@
     let chance = 0;
     probabilities.forEach((value,total) => { chance += value; cumulative[total] = Math.min(1,chance); });
     cumulative[maximum] = 1;
-    return {probabilities,cumulative,minimum,maximum,expected,dice:minimum};
+    // Sum the upper tail directly so very rare outcomes retain their precision.
+    const greater = new Float64Array(probabilities.length);
+    let tail = 0;
+    for (let total = maximum; total >= 0; total--) {
+      greater[total] = Math.min(1,tail);
+      tail += probabilities[total];
+    }
+    return {probabilities,cumulative,greater,minimum,maximum,expected,dice:minimum};
   }
 
   function create({onChange} = {}) {
@@ -81,7 +88,7 @@
     function inspect(total) {
       if (!model?.dice || !plot) return;
       selected = Math.max(model.minimum,Math.min(model.maximum,total));
-      tooltip.textContent = `Roll ${number(selected)} or less: ${percent(model.cumulative[selected])}`;
+      tooltip.textContent = `Roll ${number(selected)} or less: ${percent(model.cumulative[selected])}\nRoll greater than ${number(selected)}: ${percent(model.greater[selected])}`;
       tooltip.hidden = false;
       host.setAttribute('aria-describedby','dice-summary dice-chart-help dice-tooltip');
       plot.highlight.setAttribute('visibility','visible');

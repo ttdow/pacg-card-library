@@ -71,7 +71,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible,su
 .dice-bar-highlight{fill:var(--green-dark)}
 .dice-mean-line{stroke:var(--gold);stroke-width:2;stroke-dasharray:5 4;pointer-events:none}
 .dice-plot-footer{display:flex;align-items:center;justify-content:flex-end;min-height:32px}
-.dice-tooltip{position:absolute;z-index:4;pointer-events:none;background:var(--input);color:var(--ink);border:1px solid var(--green);border-radius:5px;padding:9px 12px;font-size:12px;line-height:1.5;box-shadow:0 4px 16px #0004;max-width:calc(100% - 16px);overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
+.dice-tooltip{position:absolute;z-index:4;pointer-events:none;background:var(--input);color:var(--ink);border:1px solid var(--green);border-radius:5px;padding:9px 12px;font-size:12px;line-height:1.5;box-shadow:0 4px 16px #0004;max-width:calc(100% - 16px);white-space:pre-line;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
 .dice-mean-key{display:inline-flex;gap:8px;align-items:center;font-size:11px;color:var(--muted)}
 .dice-mean-key:before{content:"";width:23px;border-top:2px dashed var(--gold)}
 .dice-empty{min-height:250px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:13px;text-align:center;line-height:1.7;padding:25px}
