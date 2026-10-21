@@ -1,0 +1,15 @@
+{
+  "public_interface_preview": true,
+  "terrain_included": false,
+  "terrain_status": "Omitted pending confirmation of geographic-layer redistribution terms.",
+  "mapping_repository": "https://github.com/pf-wikis/mapping",
+  "place_data_license": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "maplibre_version": "5.6.2",
+  "modifications": "Selected factual place coordinates, original styling, and PACG scenario overlays. No terrain geometry, article prose, or raster artwork.",
+  "input_sha256": {
+    "cities.geojson": "e68a2bde0d2c3f881f4007bbe73909096f24560be3420478af8b761d4170e5ef",
+    "locations.geojson": "81dd3e94161ef498ac7385e9f9db6e4ff058436991bd9523662197fd05cabaaa",
+    "scenarios.json": "59a1d884e47c561d10125ccadbc9e8b02182499aaf1bd6afd6452815814b341d",
+    "adventures.json": "940008ca47beeb5f658f47e8dc54be5d9ca5780bf521d0b0566b58deb58ef3a2"
+  }
+}

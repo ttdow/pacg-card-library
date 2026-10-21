@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Adventure map experiment · PACG</title>
+  <script src="../theme.js"></script>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../feedback.css">
+  <link rel="stylesheet" href="./vendor/maplibre.css">
+  <link rel="stylesheet" href="./map.css?v=3aca9a802c8a">
+  <script src="./vendor/maplibre.js" defer></script>
+  <script src="./map.js?v=93fa6c837aa8" defer></script>
+  <script src="../feedback.js" defer></script>
+</head>
+<body class="map-experiment-page">
+  <a class="skip-link" href="#adventure-choice">Skip to adventure selection</a>
+  <header class="topbar">
+    <a class="brand" href="../"><img src="../favicon.svg" width="34" height="34" alt=""><span>Pathfinder Adventure Card Game Library <span class="brand-unofficial">· Unofficial</span></span></a>
+    <div class="header-actions"><button id="feedback-open" class="theme-toggle feedback-open" type="button" aria-haspopup="dialog" aria-controls="feedback-dialog">Report Bug/Suggestions</button><button id="theme-toggle" class="theme-toggle" type="button">Light mode</button></div>
+  </header>
+  <main class="map-workspace">
+    <section class="map-stage" aria-label="Experimental adventure map">
+      <div id="adventure-map" aria-label="Map of Sandpoint and the Lost Coast"></div>
+      <div class="map-corner-panel">
+        <div class="map-panel-eyebrow">Adventure map <span>Experiment</span></div>
+        <label for="adventure-choice" class="sr-only">Adventure Path and Adventure</label>
+        <select id="adventure-choice" disabled><option>Loading adventures…</option></select>
+        <div class="map-panel-bottom"><span id="adventure-path-name">Rise of the Runelords</span><div class="map-adventure-actions"><button id="adventure-previous" type="button" aria-label="Previous adventure" disabled>←</button><button id="adventure-next" type="button" aria-label="Next adventure" disabled>→</button><button id="adventure-fit" type="button" aria-label="Fit adventure locations" disabled>Fit</button></div></div>
+        <details class="map-scenario-index"><summary id="scenario-index-label">Scenarios</summary><div id="scenario-index"></div></details>
+      </div>
+      <div class="map-region-label" aria-hidden="true">Interface preview · Terrain pending licensing confirmation</div>
+      <p id="map-status" role="status" class="map-loading">Preparing the Lost Coast…</p>
+      <div class="map-attribution"><a href="https://github.com/pf-wikis/mapping" target="_blank" rel="noopener noreferrer">PathfinderWiki mapping</a><span>·</span><a href="https://maplibre.org/" target="_blank" rel="noopener noreferrer">MapLibre</a><span>·</span><button id="map-credits-open" type="button" aria-haspopup="dialog">Credits</button></div>
+    </section>
+  </main>
+  <dialog id="map-credits" aria-labelledby="map-credits-title">
+    <div class="map-credits-heading"><h2 id="map-credits-title">Map credits</h2><button id="map-credits-close" type="button" aria-label="Close map credits">×</button></div>
+    <p>With thanks to the PathfinderWiki Mapping Project contributors, John Mechalas, Oznogon, and PathfinderWiki contributors.</p>
+    <p>Place coordinates come from the <a href="https://github.com/pf-wikis/mapping">mapping repository</a>, which supplies <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> terms. This public preview includes selected place coordinates and original PACG scenario overlays. The adapted place dataset is supplied under the same CC BY-NC-SA 4.0 terms.</p>
+    <p>Terrain is omitted from this public preview while the redistribution terms for the separate geographic repository are clarified. The full local experiment is unchanged. <a href="./MAP-LICENSING.txt">Preview licensing details</a></p>
+    <p>Map rendering uses MapLibre GL JS 5.6.2. <a href="./vendor/LICENSE.txt">Third-party license notices</a> · <a href="./sources.json">Map source register</a></p>
+    <p>PACG scenario names and references: <a href="https://pacg.fandom.com/wiki/Pathfinder_Adventure_Card_Game_Wiki">Pathfinder Adventure Card Game Wiki</a>. Source links and retained revisions accompany every scenario. Place popups use original short notes; article prose and raster map artwork are excluded.</p>
+    <p>Paizo game material remains © its respective rights holders. <a href="../credits.html">Project credits &amp; licensing</a></p>
+  </dialog>
+</body>
+</html>
