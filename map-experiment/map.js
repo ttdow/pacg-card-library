@@ -28,7 +28,24 @@
     return [['villain','Villain'],['henchmen','Henchmen'],['locations','Locations'],['during','During this scenario'],['reward','Reward']]
       .filter(([key])=>card.attributes?.[key]).map(([key,title])=>({title,text:card.attributes[key]}));
   }
-  if(typeof module!=='undefined'&&module.exports){module.exports={adventureFor,offsets,atlasStyle,scenarioRules};return;}
+  const coordinateKey=coordinates=>coordinates.join(',');
+  function labelPlacement(point,size,occupied,viewport,stack=[]){
+    const [halfWidth,halfHeight]=size.map(value=>value/2),gap=8;
+    const candidates=stack.length?[
+      [Math.max(...stack.map(r=>r[2]))-point.x+halfWidth+gap,0],
+      [Math.min(...stack.map(r=>r[0]))-point.x-halfWidth-gap,0],
+      [0,Math.max(...stack.map(r=>r[3]))-point.y+halfHeight+gap],
+      [0,Math.min(...stack.map(r=>r[1]))-point.y-halfHeight-gap]
+    ]:[[0,15],[halfWidth+15,0],[-halfWidth-15,0],[0,-15]];
+    for(const offset of candidates){
+      const x=point.x+offset[0],y=point.y+offset[1],rect=[x-halfWidth,y-halfHeight,x+halfWidth,y+halfHeight];
+      if(rect[0]<4||rect[2]>viewport.width-4||rect[1]<4||rect[3]>viewport.height-45)continue;
+      if(occupied.some(r=>rect[0]<r[2]&&rect[2]>r[0]&&rect[1]<r[3]&&rect[3]>r[1]))continue;
+      return {offset,rect};
+    }
+    return null;
+  }
+  if(typeof module!=='undefined'&&module.exports){module.exports={adventureFor,offsets,atlasStyle,scenarioRules,labelPlacement};return;}
   const $=id=>document.getElementById(id),node=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text!=null)n.textContent=text;return n;};
   let map,data,current,popup,markers=[],labels=[],places=[],selected='',enabled=new Set();
   const controls=$('map-controls'),cardCache=new Map();
@@ -55,19 +72,25 @@
     if(!map||!places.length)return;
     labels.forEach(label=>label.remove());labels=[];
     const zoom=map.getZoom(),width=$('adventure-map').clientWidth,height=$('adventure-map').clientHeight;
-    const occupied=[];
-    for(const marker of markers){const p=map.project(marker.getLngLat()),offset=offsets(current.scenarios).get(marker.getElement().dataset.number);occupied.push([p.x+offset[0]-25,p.y+offset[1]-25,p.x+offset[0]+25,p.y+offset[1]+32]);}
-    const candidates=places.filter(f=>f.properties.name&&enabled.has(f.properties.kind)&&f.properties.min_zoom<=zoom).sort((a,b)=>{
-      const priority=f=>['Sandpoint','Thistletop'].includes(f.properties.name)?-100:f.properties.min_zoom+(f.properties.kind==='cities'?-1:0);
-      return priority(a)-priority(b)||a.properties.name.localeCompare(b.properties.name);
+    const occupied=[],stacks=new Map(),positions=offsets(current.scenarios);
+    for(const marker of markers){
+      const coordinates=marker.getLngLat().toArray(),p=map.project(coordinates),offset=positions.get(marker.getElement().dataset.number);
+      const rect=[p.x+offset[0]-25,p.y+offset[1]-25,p.x+offset[0]+25,p.y+offset[1]+32],key=coordinateKey(coordinates);
+      occupied.push(rect);if(!stacks.has(key))stacks.set(key,[]);stacks.get(key).push(rect);
+    }
+    const candidates=places.filter(f=>f.properties.name&&enabled.has(f.properties.kind)&&(stacks.has(coordinateKey(f.geometry.coordinates))||f.properties.min_zoom<=zoom)).sort((a,b)=>{
+      const priority=f=>stacks.has(coordinateKey(f.geometry.coordinates))?0:f.properties.kind==='cities'?1:2;
+      return priority(a)-priority(b)||a.properties.min_zoom-b.properties.min_zoom||a.properties.name.localeCompare(b.properties.name);
     });
     for(const place of candidates){
-      const p=map.project(place.geometry.coordinates),name=place.properties.name,anchor=['Sandpoint','Thistletop'].includes(name),offset=anchor?34:15;
-      const half=Math.min(190,name.length*3.5+5),rect=[p.x-half,p.y+offset-9,p.x+half,p.y+offset+9];
-      if(rect[0]<4||rect[2]>width-4||rect[1]<4||rect[3]>height-45)continue;
-      if(occupied.some(r=>rect[0]<r[2]&&rect[2]>r[0]&&rect[1]<r[3]&&rect[3]>r[1]))continue;
+      const p=map.project(place.geometry.coordinates),name=place.properties.name,stack=stacks.get(coordinateKey(place.geometry.coordinates))||[],anchor=stack.length>0;
+      if(p.x<0||p.x>width||p.y<0||p.y>height)continue;
       const label=node('span','map-place-label'+(anchor?' is-anchor':''),name);label.title=name;
-      labels.push(new maplibregl.Marker({element:label,offset:[0,offset]}).setLngLat(place.geometry.coordinates).addTo(map));occupied.push(rect);
+      label.style.visibility='hidden';
+      const marker=new maplibregl.Marker({element:label}).setLngLat(place.geometry.coordinates).addTo(map),box=label.getBoundingClientRect();
+      const placement=labelPlacement(p,[box.width,box.height],occupied,{width,height},stack);
+      if(!placement){marker.remove();continue;}
+      marker.setOffset(placement.offset);label.style.visibility='';labels.push(marker);occupied.push(placement.rect);
       if(labels.length>=90)break;
     }
   }
