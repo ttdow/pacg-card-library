@@ -15,7 +15,7 @@
     add('roads','roads','line',{'line-color':c.road,'line-width':['interpolate',['linear'],['zoom'],5,.4,10,1,15,3],'line-opacity':.7},{minzoom:5});
     add('buildings','buildings','fill',{'fill-color':c.buildings,'fill-opacity':.8},{minzoom:12});
     add('mapping-notes','Notes','line',{'line-color':c.notes,'line-width':1,'line-dasharray':[2,2]},{minzoom:6,layout:{visibility:'none'}});
-    for(const kind of ['cities','locations'])layers.push({id:kind,type:'circle',source:'places',filter:['==',['get','kind'],kind],metadata:{group:kind},minzoom:kind==='cities'?5:9,paint:{'circle-radius':['interpolate',['linear'],['zoom'],5,1,12,3,16,4],'circle-color':kind==='cities'?c.road:c.coast,'circle-stroke-color':c.water,'circle-stroke-width':1}});
+    for(const kind of ['cities','locations'])layers.push({id:kind,type:'circle',source:'places',filter:['==',['get','kind'],kind],metadata:{group:kind},paint:{'circle-radius':['interpolate',['linear'],['zoom'],0,.6,5,1,12,3,16,4],'circle-color':kind==='cities'?c.road:c.coast,'circle-stroke-color':c.water,'circle-stroke-width':1}});
     return {version:8,sources:{region:{type:'geojson',data:new URL('./region.geojson?v=15d36ef7bfc3',typeof location==='undefined'?'http://localhost/':location.href).href,maxzoom:14,tolerance:.5},places:{type:'geojson',data:{type:'FeatureCollection',features:[]}}},layers};
   }
   function adventureFor(data,id){return data.adventures.find(a=>a.id===id)||data.adventures.find(a=>a.id===data.default_adventure)||data.adventures[0];}
