@@ -49,6 +49,13 @@
   const $=id=>document.getElementById(id),node=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text!=null)n.textContent=text;return n;};
   let map,data,current,popup,markers=[],labels=[],places=[],selected='',enabled=new Set();
   const controls=$('map-controls'),cardCache=new Map();
+  const artworkCatalog=fetch('./artwork.json?v=4d8a8793f0fd').then(response=>{
+    if(!response.ok)throw Error('Illustration credits could not be loaded.');
+    return response.json();
+  }).then(catalog=>{
+    if(catalog.schema_version!==1)throw Error('This illustration catalog is not supported.');
+    return {assets:new Map(catalog.assets.map(asset=>[asset.id,asset])),scenarios:new Map(catalog.scenarios.map(scenario=>[scenario.card_id,scenario]))};
+  }).catch(error=>{console.warn(error.message);return null;});
   const library=root.PACGData.create({mode:document.querySelector('meta[name="pacg-data-mode"]').content,base:new URL('../',document.baseURI)});
   function closeControls({focus=false}={}){controls.open=false;if(focus)$('map-controls-toggle').focus();}
   controls.addEventListener('keydown',event=>{if(event.key==='Escape'){event.preventDefault();closeControls({focus:true});}});
@@ -115,6 +122,34 @@
     const dy=Math.max(0,box.bottom-frame.bottom+50)+Math.min(0,box.top-frame.top-10);
     if(dx||dy)map.panBy([dx,dy],{duration:0});
   }
+  async function loadScenarioArtwork(scenario,slot,content){
+    const catalog=await artworkCatalog;if(!slot.isConnected||!catalog)return;
+    const assignment=catalog.scenarios.get(scenario.card_id),asset=catalog.assets.get(assignment?.asset_id);
+    if(!asset)return;
+    const figure=node('figure','scenario-artwork'),image=node('img'),caption=node('figcaption');
+    image.alt=(assignment.contextual_fallback?'Context illustration: ':'')+asset.title;
+    image.width=asset.width;image.height=asset.height;image.decoding='async';
+    image.dataset.assetId=asset.id;
+    const resize=()=>{
+      if(popup?.isOpen()&&popup.getElement()?.contains(content)){
+        const active=popup;active.setDOMContent(content);requestAnimationFrame(()=>keepPopupVisible(active));
+      }
+    };
+    image.addEventListener('load',resize,{once:true});
+    image.addEventListener('error',()=>{
+      image.replaceWith(node('p','scenario-popup-note','Illustration could not be loaded.'));resize();
+    },{once:true});
+    const label=assignment.contextual_fallback?'Context illustration':'Illustration';
+    caption.append(node('span','scenario-artwork-title',`${label}: ${asset.title}`));
+    caption.append(node('span','scenario-artwork-credit',asset.artist?`Art by ${asset.artist}`:'Artist not identified in the source'));
+    const source=node('a','','Artwork source');source.href=asset.publication_url;source.target='_blank';source.rel='noopener noreferrer';
+    caption.append(node('span','scenario-artwork-copyright',asset.copyright),source);
+    // The reviewed explanation remains available without crowding the card text.
+    const about=node('details','scenario-artwork-about');about.append(node('summary','','About this illustration'),node('p','',assignment.reason));
+    caption.append(about);figure.append(image,caption);slot.append(figure);
+    image.src=new URL(asset.image+'?v='+asset.sha256.slice(0,12),new URL('./',location.href)).href;
+    resize();
+  }
   async function loadScenarioText(scenario,body,content){
     body.replaceChildren(node('p','scenario-popup-note','Loading card text…'));
     try{
@@ -142,17 +177,18 @@
     for(const marker of markers)marker.getElement().setAttribute('aria-pressed',String(marker.getElement().dataset.number===selected));
     for(const b of $('scenario-index').children)b.setAttribute('aria-pressed',String(b.dataset.number===selected));
     const content=node('div','scenario-popup');content.append(node('p','scenario-popup-number',`${current.path} · ${scenario.number}`),node('h2','',scenario.name));
+    const artwork=node('div','scenario-artwork-slot');content.append(artwork);
     const body=node('div','scenario-card-text');content.append(body);
     const footer=node('p','scenario-source','Unofficial · '),source=node('a','','Source');source.href=scenario.source_url;source.target='_blank';source.rel='noopener noreferrer';footer.append(source);content.append(footer);
     if(!scenario.coordinates){
       const close=node('button','map-floating-close','×');close.type='button';close.setAttribute('aria-label','Close scenario details');
       close.addEventListener('click',()=>{$('map-status').hidden=true;for(const b of $('scenario-index').children)b.setAttribute('aria-pressed','false');});
-      $('map-status').replaceChildren(close,content);$('map-status').hidden=false;loadScenarioText(scenario,body,content);if(focus)close.focus();return;
+      $('map-status').replaceChildren(close,content);$('map-status').hidden=false;loadScenarioArtwork(scenario,artwork,content);loadScenarioText(scenario,body,content);if(focus)close.focus();return;
     }
     const offset=offsets(current.scenarios).get(scenario.number);
     popup=new maplibregl.Popup({maxWidth:Math.min(380,$('adventure-map').clientWidth-40)+'px',offset:[offset[0],offset[1]-26],focusAfterOpen:focus,closeOnClick:true}).setLngLat(scenario.coordinates).setDOMContent(content).addTo(map);
     popup.on('close',()=>{selected='';for(const marker of markers)marker.getElement().setAttribute('aria-pressed','false');for(const b of $('scenario-index').children)b.setAttribute('aria-pressed','false');});
-    const active=popup;requestAnimationFrame(()=>keepPopupVisible(active));loadScenarioText(scenario,body,content);
+    const active=popup;requestAnimationFrame(()=>keepPopupVisible(active));loadScenarioArtwork(scenario,artwork,content);loadScenarioText(scenario,body,content);
   }
   function show(id,{push=false,fitMap=true}={}){
     current=adventureFor(data,id);popup?.remove();markers.forEach(m=>m.remove());markers=[];selected='';

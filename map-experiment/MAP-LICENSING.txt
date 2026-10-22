@@ -16,3 +16,15 @@ MapLibre GL JS 5.6.2 keeps the notices in vendor/LICENSE.txt.
 Original application code: the project 0BSD license, ../LICENSE.txt.
 Paizo and PACG Wiki content retain their separate rights; ../LICENSING.txt
 and ../credits.html give notices and source credits.
+
+SCENARIO ILLUSTRATIONS
+With warm thanks to Paizo and the talented artists who bring Golarion to life.
+These 52 illustrations accompany 140 scenarios and retain their individual
+Paizo copyright notices. They are used under the Paizo Community Use Policy:
+https://paizo.com/licenses/communityuse
+See artwork.json for individual artist credits, original publisher links,
+file checksums, exact art-only crop bounds, and contextual assignments.
+Artwork is separate from the CC BY-NC-SA geographic data and 0BSD code.
+This website is unofficial and is not published, endorsed, or specifically
+approved by Paizo. Access is free. See the Community Use notice in the map
+Credits dialog and ../credits.html.
