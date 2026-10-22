@@ -72,7 +72,7 @@
     if(!map||!places.length)return;
     labels.forEach(label=>label.remove());labels=[];
     const zoom=map.getZoom(),width=$('adventure-map').clientWidth,height=$('adventure-map').clientHeight;
-    const occupied=[],stacks=new Map(),positions=offsets(current.scenarios);
+    const occupied=[],stacks=new Map(),positions=offsets(current.scenarios),usedNames=new Set();
     for(const marker of markers){
       const coordinates=marker.getLngLat().toArray(),p=map.project(coordinates),offset=positions.get(marker.getElement().dataset.number);
       const rect=[p.x+offset[0]-25,p.y+offset[1]-25,p.x+offset[0]+25,p.y+offset[1]+32],key=coordinateKey(coordinates);
@@ -84,13 +84,15 @@
     });
     for(const place of candidates){
       const p=map.project(place.geometry.coordinates),name=place.properties.name,stack=stacks.get(coordinateKey(place.geometry.coordinates))||[],anchor=stack.length>0;
+      const nameKey=name.normalize('NFKC').trim().replace(/\s+/g,' ').toLowerCase();
+      if(usedNames.has(nameKey))continue;
       if(p.x<0||p.x>width||p.y<0||p.y>height)continue;
       const label=node('span','map-place-label'+(anchor?' is-anchor':''),name);label.title=name;
       label.style.visibility='hidden';
       const marker=new maplibregl.Marker({element:label}).setLngLat(place.geometry.coordinates).addTo(map),box=label.getBoundingClientRect();
       const placement=labelPlacement(p,[box.width,box.height],occupied,{width,height},stack);
       if(!placement){marker.remove();continue;}
-      marker.setOffset(placement.offset);label.style.visibility='';labels.push(marker);occupied.push(placement.rect);
+      marker.setOffset(placement.offset);label.style.visibility='';labels.push(marker);occupied.push(placement.rect);usedNames.add(nameKey);
       if(labels.length>=90)break;
     }
   }
