@@ -22,11 +22,19 @@
   function offsets(scenarios){
     const groups=new Map();
     for(const scenario of scenarios){if(!scenario.coordinates)continue;const key=scenario.coordinates.join(',');if(!groups.has(key))groups.set(key,[]);groups.get(key).push(scenario);}
-    const result=new Map();for(const group of groups.values())group.forEach((s,i)=>result.set(s.number,[(i-(group.length-1)/2)*46,0]));return result;
+    const result=new Map();for(const group of groups.values())group.forEach((s,i)=>result.set(s.number,[0,(i-(group.length-1)/2)*46]));return result;
   }
-  if(typeof module!=='undefined'&&module.exports){module.exports={adventureFor,offsets,atlasStyle};return;}
+  function scenarioRules(card){
+    return [['villain','Villain'],['henchmen','Henchmen'],['locations','Locations'],['during','During this scenario'],['reward','Reward']]
+      .filter(([key])=>card.attributes?.[key]).map(([key,title])=>({title,text:card.attributes[key]}));
+  }
+  if(typeof module!=='undefined'&&module.exports){module.exports={adventureFor,offsets,atlasStyle,scenarioRules};return;}
   const $=id=>document.getElementById(id),node=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text!=null)n.textContent=text;return n;};
   let map,data,current,popup,markers=[],labels=[],places=[],selected='',enabled=new Set();
+  const controls=$('map-controls'),cardCache=new Map();
+  const library=root.PACGData.create({mode:document.querySelector('meta[name="pacg-data-mode"]').content,base:new URL('../',document.baseURI)});
+  function closeControls({focus=false}={}){controls.open=false;if(focus)$('map-controls-toggle').focus();}
+  controls.addEventListener('keydown',event=>{if(event.key==='Escape'){event.preventDefault();closeControls({focus:true});}});
   const reduced=matchMedia('(prefers-reduced-motion:reduce)').matches;
   const themeButton=$('theme-toggle');
   function updateThemeButton(){const light=root.PACGTheme.get()==='dark';themeButton.textContent=light?'Light mode':'Dark mode';themeButton.setAttribute('aria-label',`Switch to ${light?'light':'dark'} mode`);}
@@ -38,17 +46,17 @@
     const mapped=current.scenarios.filter(s=>s.coordinates);if(!mapped.length)return;
     const bounds=new maplibregl.LngLatBounds();
     if(current.fit_bounds){const b=current.fit_bounds;bounds.extend([b[0],b[1]]);bounds.extend([b[2],b[3]]);}else mapped.forEach(s=>bounds.extend(s.coordinates));
-    const side=Math.max(88,...[...offsets(mapped).values()].map(offset=>Math.abs(offset[0])+26));
-    const top=Math.max(225,Math.ceil(document.querySelector('.map-corner-panel').getBoundingClientRect().bottom-$('adventure-map').getBoundingClientRect().top+26));
-    map.fitBounds(bounds,{padding:{top,left:side,right:side,bottom:100},maxZoom:13.5,duration:reduced?0:650});
+    const stack=Math.max(...[...offsets(mapped).values()].map(offset=>Math.abs(offset[1])+26));
+    const top=Math.ceil($('map-controls-toggle').getBoundingClientRect().bottom-$('adventure-map').getBoundingClientRect().top+stack+12);
+    map.fitBounds(bounds,{padding:{top,left:60,right:60,bottom:Math.max(100,stack+30)},maxZoom:13.5,duration:reduced?0:650});
   }
-  function world(){popup?.remove();$('map-status').hidden=true;map.fitBounds([[data.bounds[0],data.bounds[1]],[data.bounds[2],data.bounds[3]]],{padding:{top:225,left:22,right:22,bottom:85},maxZoom:2,duration:reduced?0:700});}
+  function world(){popup?.remove();$('map-status').hidden=true;map.fitBounds([[data.bounds[0],data.bounds[1]],[data.bounds[2],data.bounds[3]]],{padding:{top:85,left:22,right:22,bottom:85},maxZoom:2,duration:reduced?0:700});}
   function updateLabels(){
     if(!map||!places.length)return;
     labels.forEach(label=>label.remove());labels=[];
     const zoom=map.getZoom(),width=$('adventure-map').clientWidth,height=$('adventure-map').clientHeight;
     const occupied=[];
-    for(const marker of markers){const p=map.project(marker.getLngLat()),offset=offsets(current.scenarios).get(marker.getElement().dataset.number);occupied.push([p.x+offset[0]-25,p.y-25,p.x+offset[0]+25,p.y+32]);}
+    for(const marker of markers){const p=map.project(marker.getLngLat()),offset=offsets(current.scenarios).get(marker.getElement().dataset.number);occupied.push([p.x+offset[0]-25,p.y+offset[1]-25,p.x+offset[0]+25,p.y+offset[1]+32]);}
     const candidates=places.filter(f=>f.properties.name&&enabled.has(f.properties.kind)&&f.properties.min_zoom<=zoom).sort((a,b)=>{
       const priority=f=>['Sandpoint','Thistletop'].includes(f.properties.name)?-100:f.properties.min_zoom+(f.properties.kind==='cities'?-1:0);
       return priority(a)-priority(b)||a.properties.name.localeCompare(b.properties.name);
@@ -75,32 +83,64 @@
       });label.append(input,node('span','',layer.label));controls.append(label);
     }
   }
+  function keepPopupVisible(active){
+    if(popup!==active||!active.isOpen())return;
+    const box=active.getElement().getBoundingClientRect(),frame=$('adventure-map').getBoundingClientRect();
+    const dx=Math.max(0,box.right-frame.right+10)+Math.min(0,box.left-frame.left-10);
+    const dy=Math.max(0,box.bottom-frame.bottom+50)+Math.min(0,box.top-frame.top-10);
+    if(dx||dy)map.panBy([dx,dy],{duration:0});
+  }
+  async function loadScenarioText(scenario,body,content){
+    body.replaceChildren(node('p','scenario-popup-note','Loading card text…'));
+    try{
+      if(!cardCache.has(scenario.card_id))cardCache.set(scenario.card_id,library.detail(scenario.card_id).catch(error=>{cardCache.delete(scenario.card_id);throw error;}));
+      const card=await cardCache.get(scenario.card_id);if(!body.isConnected)return;
+      let mode='original';
+      const render=()=>{
+        body.replaceChildren();
+        if(root.PACGHistory.hasErrata(card)){
+          const tabs=node('div','scenario-text-versions');tabs.setAttribute('aria-label','Card text version');
+          for(const value of ['original','errata']){const button=node('button','',value==='original'?'Original':'Errata');button.type='button';button.setAttribute('aria-pressed',String(mode===value));button.addEventListener('click',()=>{mode=value;render();body.querySelector(`button[aria-pressed="true"]`).focus();});tabs.append(button);}body.append(tabs);
+        }
+        const sections=scenarioRules(root.PACGHistory.select(card,mode).card);
+        for(const section of sections){const block=node('section','scenario-rules-section');block.append(node('h3','',section.title),node('p','',section.text));body.append(block);}
+        if(!sections.length)body.append(node('p','scenario-popup-note','Card text is not yet available.'));
+        if(popup?.isOpen()&&popup.getElement()?.contains(content)){const active=popup;active.setDOMContent(content);requestAnimationFrame(()=>keepPopupVisible(active));}
+      };render();
+    }catch(error){
+      if(!body.isConnected)return;body.replaceChildren(node('p','scenario-popup-note','Card text could not be loaded.'));
+      const retry=node('button','scenario-text-retry','Retry');retry.type='button';retry.addEventListener('click',()=>loadScenarioText(scenario,body,content));body.append(retry);
+    }
+  }
   function selectScenario(scenario,focus=false){
-    popup?.remove();$('map-status').hidden=true;selected=scenario.number;
+    closeControls();popup?.remove();$('map-status').hidden=true;selected=scenario.number;
     for(const marker of markers)marker.getElement().setAttribute('aria-pressed',String(marker.getElement().dataset.number===selected));
     for(const b of $('scenario-index').children)b.setAttribute('aria-pressed',String(b.dataset.number===selected));
-    const content=node('div','scenario-popup');content.append(node('p','scenario-popup-number',`${current.path} · ${scenario.number}`),node('h2','',scenario.name),node('p','scenario-popup-location',scenario.location),node('p','scenario-popup-note',scenario.note));
-    if(scenario.realm)content.append(node('p','scenario-popup-realm',scenario.realm));
-    if(scenario.optional)content.append(node('p','scenario-popup-note','Optional bonus scenario.'));
-    const source=node('a','','Scenario source');source.href=scenario.source_url;source.target='_blank';source.rel='noopener noreferrer';content.append(source);
+    const content=node('div','scenario-popup');content.append(node('p','scenario-popup-number',`${current.path} · ${scenario.number}`),node('h2','',scenario.name));
+    const body=node('div','scenario-card-text');content.append(body);
+    const footer=node('p','scenario-source','Unofficial · '),source=node('a','','Source');source.href=scenario.source_url;source.target='_blank';source.rel='noopener noreferrer';footer.append(source);content.append(footer);
     if(!scenario.coordinates){
       const close=node('button','map-floating-close','×');close.type='button';close.setAttribute('aria-label','Close scenario details');
       close.addEventListener('click',()=>{$('map-status').hidden=true;for(const b of $('scenario-index').children)b.setAttribute('aria-pressed','false');});
-      $('map-status').replaceChildren(close,content);$('map-status').hidden=false;if(focus)close.focus();return;
+      $('map-status').replaceChildren(close,content);$('map-status').hidden=false;loadScenarioText(scenario,body,content);if(focus)close.focus();return;
     }
     const offset=offsets(current.scenarios).get(scenario.number);
-    popup=new maplibregl.Popup({maxWidth:Math.min(290,$('adventure-map').clientWidth-110)+'px',offset:[offset[0],-26],focusAfterOpen:focus,closeOnClick:true}).setLngLat(scenario.coordinates).setDOMContent(content).addTo(map);
+    popup=new maplibregl.Popup({maxWidth:Math.min(380,$('adventure-map').clientWidth-40)+'px',offset:[offset[0],offset[1]-26],focusAfterOpen:focus,closeOnClick:true}).setLngLat(scenario.coordinates).setDOMContent(content).addTo(map);
     popup.on('close',()=>{selected='';for(const marker of markers)marker.getElement().setAttribute('aria-pressed','false');for(const b of $('scenario-index').children)b.setAttribute('aria-pressed','false');});
+    const active=popup;requestAnimationFrame(()=>keepPopupVisible(active));loadScenarioText(scenario,body,content);
   }
   function show(id,{push=false,fitMap=true}={}){
     current=adventureFor(data,id);popup?.remove();markers.forEach(m=>m.remove());markers=[];selected='';
     document.querySelector('.map-layer-options').open=false;
-    $('adventure-choice').value=current.id;$('adventure-choice').title=`${current.path} · ${current.title}`;$('adventure-path-name').textContent=current.path;
-    const index=data.adventures.indexOf(current);$('adventure-previous').disabled=index===0;$('adventure-next').disabled=index===data.adventures.length-1;
+    const choice=$('adventure-choice');
+    if($('adventure-path-choice').value!==current.path||!choice.querySelector(`option[value="${current.id}"]`)){
+      $('adventure-path-choice').value=current.path;choice.replaceChildren();
+      for(const adventure of data.adventures.filter(a=>a.path===current.path)){const option=node('option','',`${adventure.deck} · ${adventure.title}`);option.value=adventure.id;choice.append(option);}
+    }
+    choice.value=current.id;choice.title=current.title;
     const unmapped=current.scenarios.filter(s=>!s.coordinates).length;
     $('adventure-fit').disabled=unmapped===current.scenarios.length;
     $('scenario-index-label').textContent=`${current.scenarios.length} scenario${current.scenarios.length===1?'':'s'}${unmapped?' · '+unmapped+' off-map':''}`;$('scenario-index').replaceChildren();$('scenario-index-label').parentElement.open=unmapped===current.scenarios.length;
-    $('adventure-placement').textContent=unmapped?`${unmapped} scenario${unmapped===1?' has':'s have'} no Golarion marker. Select from the list to view the setting.`:'';$('adventure-placement').hidden=!unmapped;
     const positions=offsets(current.scenarios);
     for(const scenario of current.scenarios){
       if(scenario.coordinates){
@@ -116,15 +156,14 @@
     if(fitMap){if(markers.length)fit();else world();}
     updateLabels();
   }
-  $('adventure-choice').addEventListener('change',()=>show($('adventure-choice').value,{push:true}));
-  $('adventure-previous').addEventListener('click',()=>show(data.adventures[data.adventures.indexOf(current)-1].id,{push:true}));
-  $('adventure-next').addEventListener('click',()=>show(data.adventures[data.adventures.indexOf(current)+1].id,{push:true}));
-  $('adventure-fit').addEventListener('click',()=>{document.querySelector('.map-layer-options').open=false;$('scenario-index-label').parentElement.open=false;fit();});
-  $('map-world').addEventListener('click',world);
+  $('adventure-path-choice').addEventListener('change',()=>show(data.adventures.find(a=>a.path===$('adventure-path-choice').value).id,{push:true}));
+  $('adventure-choice').addEventListener('change',()=>{closeControls({focus:true});show($('adventure-choice').value,{push:true});});
+  $('adventure-fit').addEventListener('click',()=>{closeControls({focus:true});fit();});
+  $('map-world').addEventListener('click',()=>{closeControls({focus:true});world();});
   window.addEventListener('popstate',()=>{if(data&&map?.isStyleLoaded())show(new URL(location.href).searchParams.get('adventure'));});
   async function start(){
     try{
-      const response=await fetch('./adventures.json?v=73c44a6aa376');if(!response.ok)throw Error('The adventure index could not be loaded.');data=await response.json();
+      const response=await fetch('./adventures.json?v=2244710aed0c');if(!response.ok)throw Error('The adventure index could not be loaded.');data=await response.json();
       if(data.schema_version!==1)throw Error('This adventure index is not supported.');
       if(typeof root.maplibregl?.Map!=='function')throw Error('The map library could not be loaded. Reload this map preview to retry.');
       maplibregl.setWorkerUrl(new URL('./vendor/maplibre-worker.js',location.href).href);
@@ -132,11 +171,11 @@
       map.addControl(new maplibregl.NavigationControl({showCompass:false}),'top-right');
       map.on('error',event=>{console.error('Map rendering:',event.error);$('map-status').textContent='Part of the map could not be loaded. Reload this map preview to retry.';$('map-status').hidden=false;});
       map.once('load',async()=>{
-        const choice=$('adventure-choice');choice.replaceChildren();
+        const choice=$('adventure-path-choice');choice.replaceChildren();
         for(const path of [...new Set(data.adventures.map(a=>a.path))]){
-          const group=node('optgroup');group.label=path;for(const a of data.adventures.filter(a=>a.path===path)){const option=node('option','',`${a.deck} · ${a.title}`);option.value=a.id;group.append(option);}choice.append(group);
+          const option=node('option','',path);option.value=path;choice.append(option);
         }
-        choice.disabled=false;$('adventure-fit').disabled=false;$('map-world').disabled=false;layerControls();
+        choice.disabled=false;$('adventure-choice').disabled=false;$('adventure-fit').disabled=false;$('map-world').disabled=false;layerControls();
         try{
           const collection=await fetch('./places.geojson?v=63b5eb746265').then(r=>{if(!r.ok)throw Error('Place names could not be loaded.');return r.json();});
           places=collection.features;map.getSource('places').setData(collection);
