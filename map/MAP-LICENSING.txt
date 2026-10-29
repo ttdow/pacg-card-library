@@ -1,4 +1,4 @@
-Experimental PACG adventure map
+PACG adventure map
 
 With thanks to PathfinderWiki Mapping Project contributors, John Mechalas,
 Oznogon, and PathfinderWiki contributors.

@@ -36,6 +36,8 @@ button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible,su
 .theme-toggle{border:1px solid var(--line);border-radius:5px;background:var(--paper);color:var(--green);font-size:11px;padding:8px 12px;min-width:91px}
 .theme-toggle:hover{background:var(--hover)}
 .workspace{max-width:1280px;margin:0 auto;padding:27px 26px 20px}
+.is-map-view .workspace{max-width:1600px}
+.adventure-map-frame{display:block;width:100%;height:calc(100svh - 205px);min-height:520px;border:0;border-radius:10px;background:var(--paper)}
 .feature-navigation{position:relative;z-index:4;margin-bottom:22px}
 .feature-menu-toggle{display:none;align-items:center;gap:10px;min-height:42px;border:1px solid var(--line);border-radius:6px;background:var(--paper);padding:9px 13px;color:var(--ink);font-size:13px}
 .feature-menu-toggle svg{fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round}

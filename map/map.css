@@ -1,4 +1,7 @@
 .map-workspace{max-width:1600px;margin:0 auto;padding:18px 24px 24px}
+.map-embedded .topbar{display:none}
+.map-embedded .map-workspace{max-width:none;padding:0}
+.map-embedded .map-stage{height:100svh;min-height:0;border-radius:10px}
 .map-stage{position:relative;height:calc(100svh - 112px);min-height:520px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#12232d;isolation:isolate}
 #adventure-map{position:absolute;inset:0}
 .scenario-routes{position:absolute;inset:0;width:100%;height:100%;overflow:hidden;pointer-events:none;--route-ink:#f1d39b;--route-halo:#15262e}

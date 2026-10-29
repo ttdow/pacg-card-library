@@ -9,7 +9,7 @@
   <title>PACG · Card library</title>
   <script src="./theme.js?v=135dc273b1fd"></script>
   <link rel="icon" href="./favicon.svg?v=8658463b272b" type="image/svg+xml">
-  <link rel="stylesheet" href="./style.css?v=0dda5590820c">
+  <link rel="stylesheet" href="./style.css?v=0c41dde9329f">
   <link rel="stylesheet" href="./card-face.css?v=5509c896745d">
   <link rel="stylesheet" href="./rulebook.css?v=cd91ce8ba41f">
   <link rel="stylesheet" href="./mechanics.css?v=558ebdfc7399">
@@ -22,7 +22,8 @@
   <script src="./dice-statistics.js?v=952f09eb2f1c" defer></script>
   <script src="./rulebook.js?v=a7bc483ced53" defer></script>
   <script src="./mechanics.js?v=be4c44a59dc5" defer></script>
-  <script src="./app.js?v=14e38387bd82" defer></script>
+  <script src="./adventure-map.js?v=badfe75692ed" defer></script>
+  <script src="./app.js?v=7229a6998ea7" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#detail">Skip to card details</a>
@@ -39,6 +40,7 @@
       <button id="library-tab" type="button" role="tab" aria-selected="true" aria-controls="library-view">Card library</button>
       <button id="character-tab" type="button" role="tab" aria-selected="false" aria-controls="character-view" tabindex="-1">Character sheet</button>
       <button id="mechanics-tab" type="button" role="tab" aria-selected="false" aria-controls="mechanics-view" tabindex="-1">Special mechanics</button>
+      <button id="map-tab" type="button" role="tab" aria-selected="false" aria-controls="map-view" tabindex="-1">Adventure map</button>
       <button id="rules-tab" type="button" role="tab" aria-selected="false" aria-controls="rules-view" tabindex="-1">Interactive rulebook</button>
       <button id="dice-tab" type="button" role="tab" aria-selected="false" aria-controls="dice-view" tabindex="-1">Dice statistics</button>
     </div>
@@ -120,6 +122,9 @@
       </div>
       <p id="mechanic-storage-status" class="source-note" role="status" hidden></p>
       <div id="mechanic-content" tabindex="-1" aria-busy="false"></div>
+    </section>
+    <section id="map-view" role="tabpanel" aria-labelledby="map-tab" hidden>
+      <iframe id="adventure-map-frame" class="adventure-map-frame" title="Adventure map of Golarion" tabindex="0"></iframe>
     </section>
   </main>
   <footer class="site-footer"><span>Unofficial fan project</span><a href="./credits.html">Credits &amp; licensing</a><a href="./credits.html#contact">Contact</a></footer>

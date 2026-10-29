@@ -47,6 +47,9 @@
   }
   if(typeof module!=='undefined'&&module.exports){module.exports={adventureFor,offsets,atlasStyle,scenarioRules,labelPlacement};return;}
   const $=id=>document.getElementById(id),node=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text!=null)n.textContent=text;return n;};
+  const embedded=parent!==window&&new URL(location.href).searchParams.get('embedded')==='1';
+  document.documentElement.classList.toggle('map-embedded',embedded);
+  const notifyHost=message=>{if(embedded)parent.postMessage(message,location.origin);};
   let map,data,current,popup,markers=[],labels=[],places=[],selected='',enabled=new Set(),routes;
   const controls=$('map-controls'),cardCache=new Map();
   const artworkCatalog=fetch('./artwork.json?v=4d8a8793f0fd').then(response=>{
@@ -239,8 +242,9 @@
       const suffix=scenario.precision==='off-map'?' · Off-world':scenario.precision==='unplaced'?' · Unplaced':scenario.precision==='portal'?' · Entrance':'';
       const entry=node('button','',`${scenario.number} · ${scenario.name}${suffix}`);entry.type='button';entry.dataset.number=scenario.number;entry.setAttribute('aria-pressed','false');entry.addEventListener('click',event=>{if(scenario.coordinates){entry.closest('details').open=false;map.easeTo({center:scenario.coordinates,duration:reduced?0:400});}selectScenario(scenario,event.detail===0);});$('scenario-index').append(entry);
     }
-    const url=new URL(location.href);url.searchParams.set('adventure',current.id);url.searchParams.delete('scenario');history[push?'pushState':'replaceState']({},'',url);
-    document.title=`${current.title} · PACG map experiment`;$('map-status').hidden=true;
+    const url=new URL(location.href);url.searchParams.set('adventure',current.id);url.searchParams.delete('scenario');history[push&&!embedded?'pushState':'replaceState']({},'',url);
+    document.title=`${current.title} · PACG adventure map`;$('map-status').hidden=true;
+    notifyHost({type:'pacg-map-selection',adventure:current.id,push});
     if(fitMap){if(markers.length)fit();else world();}
     updateRoutes();updateLabels();
   }
@@ -249,15 +253,24 @@
   $('adventure-fit').addEventListener('click',()=>{closeControls({focus:true});fit();});
   $('map-world').addEventListener('click',()=>{closeControls({focus:true});world();});
   window.addEventListener('popstate',()=>{if(data&&map?.isStyleLoaded())show(new URL(location.href).searchParams.get('adventure'));});
+  window.addEventListener('message',event=>{
+    if(!embedded||event.origin!==location.origin||event.source!==parent)return;
+    if(event.data?.type==='pacg-map-theme'&&['dark','light'].includes(event.data.theme)){
+      if(root.PACGTheme.get()!==event.data.theme)root.PACGTheme.toggle();updateThemeButton();paint();
+    }else if(event.data?.type==='pacg-map-adventure'&&data&&map&&data.adventures.some(a=>a.id===event.data.adventure)){
+      const id=event.data.adventure;
+      if(map.isStyleLoaded())show(id);else map.once('idle',()=>show(id));
+    }
+  });
   async function start(){
     try{
       const response=await fetch('./adventures.json?v=e179c607c8fc');if(!response.ok)throw Error('The adventure index could not be loaded.');data=await response.json();
       if(data.schema_version!==1)throw Error('This adventure index is not supported.');
-      if(typeof root.maplibregl?.Map!=='function')throw Error('The map library could not be loaded. Reload this map preview to retry.');
+      if(typeof root.maplibregl?.Map!=='function')throw Error('The map library could not be loaded. Reload to retry.');
       maplibregl.setWorkerUrl(new URL('./vendor/maplibre-worker.js',location.href).href);
       map=new maplibregl.Map({container:'adventure-map',center:[-27.12,44.10],zoom:11.4,minZoom:-2,maxZoom:18,attributionControl:false,renderWorldCopies:false,pitchWithRotate:false,dragRotate:false,style:atlasStyle(root.PACGTheme.get())});
       map.addControl(new maplibregl.NavigationControl({showCompass:false}),'top-right');
-      map.on('error',event=>{console.error('Map rendering:',event.error);$('map-status').textContent='Part of the map could not be loaded. Reload this map preview to retry.';$('map-status').hidden=false;});
+      map.on('error',event=>{console.error('Map rendering:',event.error);$('map-status').textContent='Part of the map could not be loaded. Reload to retry.';$('map-status').hidden=false;});
       map.once('load',async()=>{
         createRoutes();
         const choice=$('adventure-path-choice');choice.replaceChildren();
@@ -277,6 +290,7 @@
         }
         const resize=new ResizeObserver(()=>map.resize());resize.observe($('adventure-map'));
         window.PACGMapExperiment={map,getAdventure:()=>current,getLabelCount:()=>labels.length};
+        notifyHost({type:'pacg-map-ready',adventure:current.id});
       });
     }catch(error){$('map-status').textContent=error.message;$('map-status').hidden=false;}
   }

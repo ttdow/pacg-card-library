@@ -16,7 +16,7 @@ const textStatuses = {
   wiki_transcription_review: 'Transcription · source review needed', wiki_partial: 'Partial card text',
   token_identity_only: 'Token · identity only', printed_verified: 'Printed text verified', missing: 'Card match unresolved'
 };
-const workspaceViews = ['library','character','mechanics','rules','dice'];
+const workspaceViews = ['library','character','mechanics','map','rules','dice'];
 let state = readURL();
 let meta;
 let searchRequest;
@@ -28,6 +28,7 @@ let characterSheet;
 let diceStatistics;
 let rulebook;
 let mechanics;
+let adventureMap;
 const dataSource = window.PACGData.create({mode:document.querySelector('meta[name="pacg-data-mode"]').content, base:document.baseURI});
 const narrowFeatureMenu = window.matchMedia('(max-width:760px)');
 
@@ -37,13 +38,13 @@ function readURL() {
     ['card', url.searchParams.get('card') || ''],
     ['view', workspaceViews.includes(url.searchParams.get('view')) ? url.searchParams.get('view') : 'library'],
     ['character', url.searchParams.get('character') || ''], ['dice',url.searchParams.get('dice') || ''],
-    ['set',url.searchParams.get('set')||''],['mechanic',url.searchParams.get('mechanic')||''],['tracker',url.searchParams.get('tracker')||'']]);
+    ['set',url.searchParams.get('set')||''],['mechanic',url.searchParams.get('mechanic')||''],['tracker',url.searchParams.get('tracker')||''],['adventure',url.searchParams.get('adventure')||'']]);
 }
 
 function updateURL(push = false) {
   const url = new URL(location.href);
   url.search = '';
-  for (const key of [...filterKeys, 'card', 'view', 'character', 'dice','set','mechanic','tracker']) {
+  for (const key of [...filterKeys, 'card', 'view', 'character', 'dice','set','mechanic','tracker','adventure']) {
     if (state[key] && !(key === 'mode' && state[key] === 'prefix') &&
         !(key === 'view' && state[key] === 'library')) url.searchParams.set(key, state[key]);
   }
@@ -93,7 +94,7 @@ function initializeTheme() {
     button.textContent = label(next) + ' mode';
     button.setAttribute('aria-label',`Switch to ${next} mode`);
   };
-  button.addEventListener('click',() => { window.PACGTheme.toggle(); update(); });
+  button.addEventListener('click',() => { window.PACGTheme.toggle(); update(); adventureMap?.syncTheme(); });
   update();
 }
 
@@ -109,6 +110,7 @@ function setFeatureMenu(open, {restoreFocus = false} = {}) {
 
 function showWorkspace(view, {push = false} = {}) {
   state.view = view;
+  document.body.classList.toggle('is-map-view',view==='map');
   for (const name of workspaceViews) {
     const selected = name === view;
     $(name + '-view').hidden = !selected;
@@ -118,7 +120,7 @@ function showWorkspace(view, {push = false} = {}) {
   const selectedTab = $(view + '-tab');
   $('feature-menu-label').textContent = selectedTab.textContent;
   setFeatureMenu(false,{restoreFocus:$('feature-menu').contains(document.activeElement)});
-  document.querySelector('.skip-link').href = view === 'character' ? '#character-picker' : view === 'dice' ? '#dice-d4' : view === 'rules' ? '#rule-article' : view === 'mechanics' ? '#mechanic-content' : '#detail';
+  document.querySelector('.skip-link').href = view === 'map' ? '#adventure-map-frame' : view === 'character' ? '#character-picker' : view === 'dice' ? '#dice-d4' : view === 'rules' ? '#rule-article' : view === 'mechanics' ? '#mechanic-content' : '#detail';
   setDropdown(false);
   characterSheet?.closeSearch();
   updateURL(push);
@@ -143,6 +145,13 @@ function showWorkspace(view, {push = false} = {}) {
     document.title = 'Special mechanics · PACG';
     mechanics ||= window.PACGMechanics.create({onChange:choice=>{state.set=choice.set;state.mechanic=choice.mechanic;state.tracker=choice.character;updateURL();}});
     mechanics.open({set:state.set,mechanic:state.mechanic,character:state.tracker});
+  } else if(view==='map') {
+    document.title='Adventure map · PACG';
+    adventureMap ||= window.PACGAdventureMap.create({frame:$('adventure-map-frame'),onChange:(id,{push})=>{
+      const changed=state.adventure!==id;state.adventure=id;
+      if(state.view==='map')updateURL(push&&changed);
+    }});
+    adventureMap.open(state.adventure);
   } else document.title = 'PACG · Card library';
 }
 
@@ -572,7 +581,7 @@ async function init() {
     document.addEventListener('keydown', event => {
       if (event.key === '/' && !event.ctrlKey && !event.metaKey && !['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName)) {
         event.preventDefault();
-        (state.view === 'character' ? $('character-picker') : state.view === 'dice' ? $('dice-d4') : state.view === 'rules' ? $('rule-search') : state.view === 'mechanics' ? $('mechanic-set') : $('search')).focus();
+        (state.view === 'map' ? $('adventure-map-frame') : state.view === 'character' ? $('character-picker') : state.view === 'dice' ? $('dice-d4') : state.view === 'rules' ? $('rule-search') : state.view === 'mechanics' ? $('mechanic-set') : $('search')).focus();
       }
     });
     await Promise.all([loadResults(), state.card ? selectCard(state.card) : Promise.resolve()]);

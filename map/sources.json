@@ -64,7 +64,8 @@
     "unplaced_scenarios": 1
   },
   "scenario_placement_method": "Retained PACG wiki scenario/adventure revisions plus reviewed geographic anchors. Regional and portal anchors are explicitly labeled; off-world scenarios have no Golarion coordinates.",
-  "public_interface_preview": true,
+  "public_interface_preview": false,
+  "feature": "adventure-map",
   "terrain_included": true,
   "place_data_license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
 }
