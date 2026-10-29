@@ -1,0 +1,1758 @@
+{
+  "schema_version": 1,
+  "copyright": "Pathfinder characters and original character backgrounds © Paizo Inc.",
+  "policy_url": "https://paizo.com/licenses/communityuse",
+  "characters": {
+    "Adowyn": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Born to skilled woodworkers near an ancient forest, Adowyn is known more for her skill with a bow than with a carver's chisel. After losing her father to the depredations of a diseased bear during a supply run, Adowyn picked up her father's bow and quiver and learned to survive in the deep woods. She saved an injured gray wolf and nursed him back to health, and now the faithful Leryn rangers alongside the young hunter, tracking prey and bounties with skill and savagery."
+        ],
+        "source": {
+          "title": "Adowyn — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Adowyn",
+          "revision": "18089",
+          "revision_url": "https://pacg.fandom.com/wiki/Adowyn?oldid=18089",
+          "retrieved_at": "2026-10-19T16:53:54.446424+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Agna": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Dwarves laboring in the mines of Kalsgard have limited exposure to the animals of the forest, but Agna has trained in the wilderness, and she's introduced many beasts to the lands below the earth. Ready to fight with a weapon in either hand, Agna can make you think she's your biggest threat—right before a trained bear attacks you from behind. If you hear the cry of an eagle in a dungeon, expect Agna to be close at hand."
+        ],
+        "source": {
+          "title": "Agna — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Agna",
+          "revision": "19461",
+          "revision_url": "https://pacg.fandom.com/wiki/Agna?oldid=19461",
+          "retrieved_at": "2026-10-19T16:53:54.446424+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Ahmotep": {
+      "card_background": null,
+      "expanded_background": null
+    },
+    "Ak": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Ak is king, the best survivor\nNo one else can be aliver!\nYou can't stab or shoot him dead\nOr put a pitchfork in his head.",
+          "Drown him, burn him, mutilate him,\nCut his nose, defenestrate him,\nPunch him, scrunch him, stab his back—\nHe'll survive it. All hail Ak!"
+        ],
+        "source": {
+          "title": "Ak — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Ak",
+          "revision": "20648",
+          "revision_url": "https://pacg.fandom.com/wiki/Ak?oldid=20648",
+          "retrieved_at": "2026-10-19T16:53:55.113025+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Alahazra": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "At a young age, Alahazra was struck blind and began exhibiting supernatural powers. Accused of being a follower of the gods, she was driven from her atheist home in Rahadoum into the desert. Although the experience almost killed her, she emerged with the realization that her abilities came not from any deity, but from the powers of the sun and flames. Now Alahazra travels the world, exposing any injustice she encounters with her scouring light."
+        ],
+        "source": {
+          "title": "Alahazra — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Alahazra",
+          "revision": "11083",
+          "revision_url": "https://pacg.fandom.com/wiki/Alahazra?oldid=11083",
+          "retrieved_at": "2026-10-19T16:53:55.113025+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Alain": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Alain learned at an early age that his gifts lent themselves equally well to the pursuits of physical prowess and physical pleasure. Since his boring life in a settled house of minor nobility promised no great quantity of either opportunity, the youth gathered his personal effects and styled himself a sellsword, willing to dispense death on the battlefield for the right price. Astride his trusty steed Donahan, Alain commands soldiers and serving maids alike with cool authority."
+        ],
+        "source": {
+          "title": "Alain — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Alain",
+          "revision": "19565",
+          "revision_url": "https://pacg.fandom.com/wiki/Alain?oldid=19565",
+          "retrieved_at": "2026-10-19T16:53:55.113025+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Alase": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "God caller Alase Brinz-Widowknife scouts southern Storasta, her constant companion the bear-sized black wolf Tonbarse, whose brown is marked with the same glowing blue sigil that adorns hers. Together they guide crusaders and adventurers around the Worldwound. One day Alase swears she will reclaim the demon-infested Widowknife clanhold. Whether Tonbarse is a god as Alase insists, or merely her eidolon as foreign wizards suggest, he has given his life for her countless times, yet always returns when she calls."
+        ],
+        "source": {
+          "title": "Alase — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Alase",
+          "revision": "11411",
+          "revision_url": "https://pacg.fandom.com/wiki/Alase?oldid=11411",
+          "retrieved_at": "2026-10-19T16:53:55.113025+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Amaryllis": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Amaryllis, a relaxed and personable halfling, doesn't like seeing people get hurt. She trusts her powers to get her through danger alive, but still carries a burden of guild for the friends she couldn't save. Hiding her doubt under a veneer of constant cheerfulness and good humour, she's fond of using magic to delight others and make friends. The Baslwief fireworks festival hasn't been the same since she took up a life of adventure."
+        ],
+        "source": {
+          "title": "Amaryllis — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Amaryllis",
+          "revision": "19462",
+          "revision_url": "https://pacg.fandom.com/wiki/Amaryllis?oldid=19462",
+          "retrieved_at": "2026-10-19T16:53:55.755536+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Amiri": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Amiri is a fierce tribal warrior from the rugged clans of the north. She claimed her oversized bastard sword as a trophy after single-handedly wiping out a band of frost giants. When she returned to her people, she discovered her raid had been meant to be a suicide mission—a punishment for consistently one-upping her tribe's male warriors in battle. In a rage she slaughtered her traitorous comrades, then forsook her homeland to make her own place in the world."
+        ],
+        "source": {
+          "title": "Amiri — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Amiri",
+          "revision": "17229",
+          "revision_url": "https://pacg.fandom.com/wiki/Amiri?oldid=17229",
+          "retrieved_at": "2026-10-19T16:53:55.755536+00:00"
+        }
+      },
+      "expanded_background": {
+        "paragraphs": [
+          "Amiri grew up among the Six Bears in the Realm of the Mammoth Lords, where her strength and independence challenged the roles her tribe imposed on women. Her efforts to outdo its hunters made her a target for elders who arranged a giant-hunting expedition they expected her not to survive.",
+          "After returning with an enormous sword, she overheard the hunters celebrating her presumed death. She killed them in a rage, then left the tribe rather than remain bound by its traditions. Her sword became an emblem of the independent life she chose."
+        ],
+        "sources": [
+          {
+            "title": "Meet the Iconics: Amiri",
+            "author": "James Jacobs",
+            "date": "2008-03-31",
+            "url": "https://paizo.com/blog/meet-the-iconics-amiri"
+          }
+        ]
+      }
+    },
+    "Amli": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "As Koldukar the Sky citadel threatened to fall, its last king, Durlak II, entrusted the dwarven Oathkeepers of Gerduhm with a sacred duty: protecting his daughter and the Prophecy of Ascendance. For many years, Amli Faldar oversaw the day-to-day operation of Gerduhm, maintaining its mundane and magical defenses and disguises. Amli, who worships torag's son Kols, is also one of the descendants of King Taargick's daughter, and because of this, has only recently left the hidden fortress. Now freed from her duties, she seeks others of her kind to spread the Prophecy.\""
+        ],
+        "source": {
+          "title": "Amli — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Amli",
+          "revision": "17843",
+          "revision_url": "https://pacg.fandom.com/wiki/Amli?oldid=17843",
+          "retrieved_at": "2026-10-19T16:53:55.755536+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Angban": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Angban hails from the Sky Citadel of Dongun Hold, the dwarven fortress that invented firearms. At a young age, he learned the instability of black powder; as he grew older, he valued the stability it brought. At the Battle of the Warrens, he was decorated for scattering the ratfolk gunners seeking to loosen the dwarven grasp on Dongun. Through the hole in Angban's tower shield, those ratfolk would see a solitary eye, then a muzzle flash, then - if they were very lucky - a solitary eye again."
+        ],
+        "source": {
+          "title": "Angban — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Angban",
+          "revision": "10815",
+          "revision_url": "https://pacg.fandom.com/wiki/Angban?oldid=10815",
+          "retrieved_at": "2026-10-19T16:53:56.694386+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Arabundi": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "To Arabundi, being a man of nature means being opposed to the arcane. After a wizards' duel ignited a forest fire that destroyed a sacred grove, this Fangwood ranger rallied the creatures of the earth against any evil mages who would despoil the land. He's still willing to work with sorcerers and wizards, but only if they agree to respect the world around them—and he keeps a sharp eye out for violations of his strict code."
+        ],
+        "source": {
+          "title": "Arabundi — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Arabundi",
+          "revision": "19476",
+          "revision_url": "https://pacg.fandom.com/wiki/Arabundi?oldid=19476",
+          "retrieved_at": "2026-10-19T16:53:56.694386+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Aric": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "The revolution-ridden land of Galt quiets many a breath, yet few so tragically as Aric of Halvon. His parents were viciously slain by the nameless executioners known as the Grey Gardeners, all within eyeshot of young Aric. The revolution having taken his destiny, Aric apprenticed to the bandit leader Thanarus, only to watch him cut down by the Gardeners' blades. The tattered scarlet cloaks of Thanarus would not go to waste. By day, Aric maintained a sham existence as a dandy agitator, but by night...",
+          "Aric donned the slain bandit chieftain's scarlet mask and laid waste to the revolution's Council of Skulls. Each Grey Gardener he met, he left bleeding out in a gutter. If the revolution wanted blood, blood it would have. Yet the Red Raven, as the hope-starved townsfolk dubbed the cowled avenger, was as much a quandary as a beacon. If he led a revolution against the revolution, what exactly was he fighting for? For now, the promise of a better day would have to do. After just one more dark night."
+        ],
+        "source": {
+          "title": "Aric — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Aric",
+          "revision": "20384",
+          "revision_url": "https://pacg.fandom.com/wiki/Aric?oldid=20384",
+          "retrieved_at": "2026-10-19T16:53:57.377764+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Arueshalae": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "After tempting a priestess, Arueshalae gained the forbidden power to dream, and Desna opened her eyes. Struggling to stay on the straight and narrow, this succubus fled to the Worldwound and the rest of the Abyss followed after her. Trapped in the Demon's Redoubt, beset by demons and crusaders alike, Arueshalae seeks allies that can guide her on her chosen path. With luck, she will not betray their trust."
+        ],
+        "source": {
+          "title": "Arueshalae — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Arueshalae",
+          "revision": "19512",
+          "revision_url": "https://pacg.fandom.com/wiki/Arueshalae?oldid=19512",
+          "retrieved_at": "2026-10-19T16:53:57.377764+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Athnul": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Athnul's journey from Tian Xia began inauspiciously. She washed up on the shores of Jalmeray three years ago, apparently the sole survivor of a shipwreck. After finding a home in the Monastery of the Untwisting Iron, she progressed through the ranks at a prodigious rate. The masters at the monastery praised Athnul's pursuit of physical and mental perfection, but expressed a slight nervousness over her unorthodox technique. Forever stoic, Athnul continues to practice her kata as she makes her way in the world."
+        ],
+        "source": {
+          "title": "Athnul — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Athnul",
+          "revision": "10813",
+          "revision_url": "https://pacg.fandom.com/wiki/Athnul?oldid=10813",
+          "retrieved_at": "2026-10-19T16:53:58.007588+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Balazar": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Balazar was taken from his family at a young age. To fulfill an esoteric prophecy, he was put to work studying magic in an arcane academy. After pulling off too many glorious pranks, his instructors exiled him to the fleshforges and forced him to literally stare into the Abyss. As he contemplated his demise, Balazar made contact with an eidolon who offered aid in exchange for a solid form. Now Balazar roams the world, learning new things and causing trouble."
+        ],
+        "source": {
+          "title": "Balazar — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Balazar",
+          "revision": "17779",
+          "revision_url": "https://pacg.fandom.com/wiki/Balazar?oldid=17779",
+          "retrieved_at": "2026-10-19T16:53:58.605273+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Bekah": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Bekah's tribe is in constant struggle with her neighbors for control of the scant resources the deserts of Katapesh have to offer. A nomadic lifestyle makes keeping a social group together difficult, but Bekah's brash and resolute demeanor draws battered clansmen to her side. When she's leading others, she's very direct about the dangers they'll face, but she happily offers the survivors full shares of the riches they plunder. For Bekah, taking big risks earns big rewards."
+        ],
+        "source": {
+          "title": "Bekah — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Bekah",
+          "revision": "17782",
+          "revision_url": "https://pacg.fandom.com/wiki/Bekah?oldid=17782",
+          "retrieved_at": "2026-10-19T16:53:59.899772+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Brielle": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "In the city of Egorian, halflings keep to the underworld. The disdainful Chelaxians call halflings \"slips,\" much to the halflings' dismay. In the shadows, Brielle built a mountain out of her resentment against the Chelish citizens, bashing together weapons out of whatever scraps they foolishly threw at her. Now free from her unpalatable masters, Brielle ventures into the world with a chip on her shoulder. For most people, that chip is right at waist level."
+        ],
+        "source": {
+          "title": "Brielle — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Brielle",
+          "revision": "19453",
+          "revision_url": "https://pacg.fandom.com/wiki/Brielle?oldid=19453",
+          "retrieved_at": "2026-10-19T16:54:04.537560+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Celeste": {
+      "card_background": null,
+      "expanded_background": null
+    },
+    "Channa Ti": {
+      "card_background": null,
+      "expanded_background": null
+    },
+    "Chuffy": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Chuffy's face might make you sick,\nBut Chuffy's knife is awful quick.\nAnd if you are his stabby pick—\nThen knife goes in you, stick stick stick!",
+          "Lickwound clanmates always knowed\nThat Chuffy's pals sometimes explode\nBut not that Chuffy! He's bestowed\nWith lucky luck from lucky toad!"
+        ],
+        "source": {
+          "title": "Chuffy — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Chuffy",
+          "revision": "20650",
+          "revision_url": "https://pacg.fandom.com/wiki/Chuffy?oldid=20650",
+          "retrieved_at": "2026-10-19T16:54:08.595665+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Cogsnap": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "The tinkerer Cogsnap is a tragic sort of gnome known as a bleachling lunatic. The bleaching is a process gnomes go through when deprived of stimulation; they slowly whiten and die if not exposed to massive reinvigoration. An explosion in Cogsnap's family's fireworks factory brought him back to health. Now he dedicates himself to the improvement of people's lives through detonative chemistry. His whizbang pursuit of mechanical reinvention has come at the cost of a few toes, though not his own."
+        ],
+        "source": {
+          "title": "Cogsnap — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Cogsnap",
+          "revision": "14770",
+          "revision_url": "https://pacg.fandom.com/wiki/Cogsnap?oldid=14770",
+          "retrieved_at": "2026-10-19T16:54:09.257321+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Crowe": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Born into a nomadic tribe of horse trainers and sellers, Crowe proved he was physically gifted at an early age. Unfortunately, his occasional blackouts, which seemed to always coincide with violent outbursts, earned him few friends among his people. After a terrible incident left his entire family and their horses dead, Crowe fled his people in disgrace. Now he fights for coin with a mixture of ferocious strikes and the chaotic magic that seethes in his blood."
+        ],
+        "source": {
+          "title": "Crowe — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Crowe",
+          "revision": "19501",
+          "revision_url": "https://pacg.fandom.com/wiki/Crowe?oldid=19501",
+          "retrieved_at": "2026-10-19T16:54:10.533531+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Damiel": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "The possibilities of alchemy have always fascinated the alchemist Damiel. Delving deep into the ancient elixirs and formulas of Kyonin, his research took a daring turn when he started using himself as a test subject. Following a spate of unsolved crimes, Damiel was banished from his elven homeland. Wandering the world has only deepened his thirst for knowledge, giving him ample opportunities to fuel his addiction to even-greater secrets."
+        ],
+        "source": {
+          "title": "Damiel — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Damiel",
+          "revision": "19557",
+          "revision_url": "https://pacg.fandom.com/wiki/Damiel?oldid=19557",
+          "retrieved_at": "2026-10-19T16:54:11.768746+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Darago": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "The power of the dead courses through Darago's thin veins. It's a rare wizard who can traffic with the unliving and retain most of his soul, but so far, Darago has resisted the baser desires of most necromancers. Still, his chilling voice and devilish sense of humor will surprise even the most hardened adventurers. After all, he will happily battle at the side of any adventurer while she lives... and perhaps for a short time thereafter."
+        ],
+        "source": {
+          "title": "Darago — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Darago",
+          "revision": "7161",
+          "revision_url": "https://pacg.fandom.com/wiki/Darago?oldid=7161",
+          "retrieved_at": "2026-10-19T16:54:11.768746+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Drelm": {
+      "card_background": null,
+      "expanded_background": null
+    },
+    "Ekkie": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "\"I got Plarg's skull, and he told me:\nEkkie takes what Ekkie sees!\nOne man's trash, another's meat.\nIt's all the same for me to eat.",
+          "I take your pack! I take your lunch!\nI take your kittens all to munch!\nI take the kit and the caboodle!\nBut you can keep that mangy poodle!\"—Ekkie's song"
+        ],
+        "source": {
+          "title": "Ekkie — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Ekkie",
+          "revision": "20184",
+          "revision_url": "https://pacg.fandom.com/wiki/Ekkie?oldid=20184",
+          "retrieved_at": "2026-10-19T16:54:16.262361+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Emil": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "As his differently hued eyes emanated red smoke, Emil's parents hid him away from their high society compatriots in Andaran. Once exposed as agents of House Thune, the Kovkorins fled, leaving the pitborn child to an uncertain life. Adopted by a wealthy and duplicitous merchant, Emil learned the trade of the assassin, ending the lives of many an Andoran citezen--including his own adopted father. Joyous at the blood he leaves in his wake, Emil is a true scion of the Hells below."
+        ],
+        "source": {
+          "title": "Emil — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Emil",
+          "revision": "19467",
+          "revision_url": "https://pacg.fandom.com/wiki/Emil?oldid=19467",
+          "retrieved_at": "2026-10-19T16:54:16.931279+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Enora": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Like many halflings, Enora is driven by a combination of curiosity and luck. Her work on artifact analysis at the Occularium has led her to the services of Nethys, god of Magic, whose worship is forbidden in her homeland. Fortunately, her love of adventure has lessened the strain of her wayfaring lifestyle. Armed with her magical training and a few good books, Enora is always on the lookout for new nuggets of esoteric lore wherever she can unearth them."
+        ],
+        "source": {
+          "title": "Enora — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Enora",
+          "revision": "19567",
+          "revision_url": "https://pacg.fandom.com/wiki/Enora?oldid=19567",
+          "retrieved_at": "2026-10-19T16:54:17.614798+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Erasmus": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "This carefree aristocrat soon learned of cares as his relatives began dying mysteriously: his uncle Balsamo killed by a spirit he summoned, his elder sister Nissa slain in a pointless duel, his younger sister Veldira choked on porridge, his brother Baylock hanged in a dark alley. All was dire, and then Erasmus began to hear their voices in his head. His remaining brother Vinn committed Erasmus to an asylum, and only possession by Nissa's spirit broke him out. Free, the highly versatile harrow reader struggles to master the sprits deep in his brain."
+        ],
+        "source": {
+          "title": "Erasmus — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Erasmus",
+          "revision": "20653",
+          "revision_url": "https://pacg.fandom.com/wiki/Erasmus?oldid=20653",
+          "retrieved_at": "2026-10-19T16:54:17.614798+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Estra": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Estra spent her youth in Isger plying the trade of a charlatan medium. Her seances were among the best, ignoring the minor detail that they were woven of lies. That changed when she met a knight named Honaire. For a time they lived an honest life, until he perished under the claws of a dragon. When she returned to the sideshow her seances became real, summoning Honaire's spirit. Now Estra atones for her wrongs by contacting the dead on their loved ones' behalf."
+        ],
+        "source": {
+          "title": "Estra — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Estra",
+          "revision": "19516",
+          "revision_url": "https://pacg.fandom.com/wiki/Estra?oldid=19516",
+          "retrieved_at": "2026-10-19T16:54:17.614798+00:00"
+        }
+      },
+      "expanded_background": {
+        "paragraphs": [
+          "Estra began as an actress in a group of fraudulent mediums in Elidir. She confessed the deception to Honaire, a knight who had sought reassurance about his mother’s death. He valued her honesty, and they married and spent decades together.",
+          "After Honaire died fighting during the events leading to the Goblinblood Wars, Estra returned to her old trade. This time his spirit truly appeared. She now uses their bond to help others face bereavement, while wondering whether his return comes from love, divine purpose, or her own guilt."
+        ],
+        "sources": [
+          {
+            "title": "Meet the Iconics: Estra",
+            "author": "Brandon Hodge and the Paizo Staff",
+            "date": "2015-06-24",
+            "url": "https://paizo.com/blog/meet-the-iconics-estra"
+          }
+        ]
+      }
+    },
+    "Ezren": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "After learning that the father whose name he'd spent most of his adult life trying to clear was indeed guilty, Ezren abandoned his former life and became a wizard. Finding no masters willing to take on an apprentice of his age, he devoted himself to unlocking the mysteries of magic alone. His studies soon revealed a true aptitude for the arcane arts, and he now seeks to explore the world he neglected for so long."
+        ],
+        "source": {
+          "title": "Ezren — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Ezren",
+          "revision": "20592",
+          "revision_url": "https://pacg.fandom.com/wiki/Ezren?oldid=20592",
+          "retrieved_at": "2026-10-19T16:54:18.274413+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Feiya": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Claimed by witches in the frozen reaches of Irrisen, young Feiya witnessed untold terrors as she learned her captors' craft. Her freedom eventually came with the help of an unlikely liberator, a wise fox who helped her elude the witches' pursuit. Now free to choose her own path, Feiya travels where she pleases, joined by her vulpine companion Daji. Although she's still baffled by some aspects of civilized life, her eerie magics help her overcome nearly any challenge."
+        ],
+        "source": {
+          "title": "Feiya — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Feiya",
+          "revision": "19782",
+          "revision_url": "https://pacg.fandom.com/wiki/Feiya?oldid=19782",
+          "retrieved_at": "2026-10-19T16:54:18.883585+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Flenta": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Flenta always wanted to be a wizard. She studied, memorized, and practiced, but she still couldn't cast spells. Now she passes herself off as a fighter with sorcerous skills, pretending to cast spells while activating magic items and performing sleight of hand. True wizards might thumb their noses at her methods, but she gets the job done. Deep down, Flenta hopes to unlock the magical potential she's sure she possesses, whatever it takes."
+        ],
+        "source": {
+          "title": "Flenta — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Flenta",
+          "revision": "19523",
+          "revision_url": "https://pacg.fandom.com/wiki/Flenta?oldid=19523",
+          "retrieved_at": "2026-10-19T16:54:20.128356+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Grazzle": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "The scalykind prowls the cataract of Oxjaw Falls, lying in wait for travelers benightedly crossing Osirion in small bands. Here, one voice decides if the omens are right for seizing upon prey. Grazzle, prophet of the reptile gods, notes the landing of a kingfisher as a propitious omen, then hacks it apart and bleaches its bones for further enlightenment. His warriors guard the altar to his cold-blooded pantheon when he embarks on visionquest, certain he will return with portents of violence and glory."
+        ],
+        "source": {
+          "title": "Grazzle — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Grazzle",
+          "revision": "13950",
+          "revision_url": "https://pacg.fandom.com/wiki/Grazzle?oldid=13950",
+          "retrieved_at": "2026-10-19T16:54:24.616930+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Gronk": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Gronk knows his name is unusual for an elf, but when a talking tree gives you a name, it's sometimes best to listen. The Mierani Forest in northwestern Varisa is not only a home for many elves, but also many pines and redwoods. By exploring ways to shift his form, Gronk learned to communicate with his forest brethren. As he grew older, he found his connection to the trees and creatures of his home wood strengthening. When his friends came to him with dire warning and portents, Gronk ventured out into the barren lands on a mission he still refuses to explain."
+        ],
+        "source": {
+          "title": "Gronk — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Gronk",
+          "revision": "10803",
+          "revision_url": "https://pacg.fandom.com/wiki/Gronk?oldid=10803",
+          "retrieved_at": "2026-10-19T16:54:24.616930+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Harsk": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Harsk has always been an unusual sort of dwarf, preferring open skies to cramped underground halls, the flexibility of a crossbow to the sturdiness of an axe, and tea to ale—it keeps his senses sharp. A gruff and driven dwarf, he left his home to fulfill a vow of justice to avenge his brother's death at the hands of raiding giants. He has since learned much of the world, its lands, its beasts, and its vast array of people and places worth protecting."
+        ],
+        "source": {
+          "title": "Harsk — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Harsk",
+          "revision": "19864",
+          "revision_url": "https://pacg.fandom.com/wiki/Harsk?oldid=19864",
+          "retrieved_at": "2026-10-19T16:54:26.440966+00:00"
+        }
+      },
+      "expanded_background": {
+        "paragraphs": [
+          "Harsk preferred the forests of southeastern Varisia to a smithy, though his family’s craftsmanship helped him build his own crossbow. He initially declined an invitation to scout for his brother Sigur’s war band, then followed it and discovered that giants had killed the entire company.",
+          "After avenging Sigur, Harsk took up his brother’s axe and devoted himself to protecting the wild places. He keeps the axe close but relies chiefly on his crossbow, stealth, and patience. Strong tea helps him stay alert on the hunt."
+        ],
+        "sources": [
+          {
+            "title": "Meet the Iconics: Harsk",
+            "author": "James Sutter",
+            "date": "2007-11-20",
+            "url": "https://paizo.com/blog/meet-the-iconics-harsk"
+          }
+        ]
+      }
+    },
+    "Hayato": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Honor will bend, say the wisest of samurai. Honor joins with steel as the mightiest of the samurai's weapons, but even it must give to fortunes's favor. So says Hayato, the great falcon of the city of Oda. He has defended nobility since his youth, though this has brought him afoul of palace intrigue more than once. His honorable murder of a usurper lord has left him without a master, yet he persists. Now one of the legendary ronin, Hayato rides his charger Jinfu across Tian Xia, seeking the next great honor."
+        ],
+        "source": {
+          "title": "Hayato — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Hayato",
+          "revision": "10797",
+          "revision_url": "https://pacg.fandom.com/wiki/Hayato?oldid=10797",
+          "retrieved_at": "2026-10-19T16:54:26.440966+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Heggal": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "On the holiday of the Harvest Feast, Heggal left his home to spread the word of the goddess Irori. Obsessed with the Master's Rebus, he set himself to learning its truths. Sadly for his studies, he did this investigation in most of the taverns of the Inner Sea. He soon learned he was better suited to the worship of Cayden Cailean, god of intoxication. On Merrymead, in the fulsome company of wild revelers, he chose a new path, and he has never looked back."
+        ],
+        "source": {
+          "title": "Heggal — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Heggal",
+          "revision": "14879",
+          "revision_url": "https://pacg.fandom.com/wiki/Heggal?oldid=14879",
+          "retrieved_at": "2026-10-19T16:54:26.440966+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Imrijka": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Half-orc orphans aren't a common sight in the church of Pharasma, goddess of fate and death. But Imrijka isn't a common half-orc. Taken in by the church's high exorcist and trained as an inquisitor, Imrijka brings judgement to all who would violate the laws of life and death, keeping close a mysterious disk that might hold the key to the truth of her parentage. Imrijka's seen it all. She faces the future with courage and faith."
+        ],
+        "source": {
+          "title": "Imrijka — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Imrijka",
+          "revision": "20591",
+          "revision_url": "https://pacg.fandom.com/wiki/Imrijka?oldid=20591",
+          "retrieved_at": "2026-10-19T16:54:29.746540+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Jirelle": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Jirelle lost everything the day her mother's ship, the Bloodcrow, sank off Tempest Cay. Surviving the wreck, she soon learned of the ship's ghostly reappearance. Now Jirelle pits her rapier and wits against the Shackles' countless dangers. Every treasure she uncovers goes into her thrice-locked chest, a trove meant to finance a ship and crew. Donning her mother's cape, the cloak of the Bloodcrow Queen, Jirelle scours eastern Garund for relics and treasure, determined to use them to uncover the mystery of the Bloodcrow."
+        ],
+        "source": {
+          "title": "Jirelle — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Jirelle",
+          "revision": "19493",
+          "revision_url": "https://pacg.fandom.com/wiki/Jirelle?oldid=19493",
+          "retrieved_at": "2026-10-19T16:54:31.080047+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Kasmir": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Witchcraft may frighten the average village-dweller, but not when it comes with a gentle hand. Kasmir is a master of the healing arts, curing the sick and needy wherever he walks. He has been forced to leave many a town in Brevoy, not because he overstayed his welcome but because the need for his services outspanned his abilities. So he wanders the countryside, fearful of turning a blind eye to suffering, but knowing there will always be more of it."
+        ],
+        "source": {
+          "title": "Kasmir — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Kasmir",
+          "revision": "19485",
+          "revision_url": "https://pacg.fandom.com/wiki/Kasmir?oldid=19485",
+          "retrieved_at": "2026-10-19T16:54:31.753658+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Koren": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "The child of two half-orc parents, Koren has always been an unusual half-orc. His parents raised him in a loving home, fostering his strong sense of responsibility and community, but witnessing the aftermath of an orc raid on a convent of Sarenrae taught him the power of hatred. He swore vengeance against his orc cousins, pledging to defend innocents and the devout from suffering. Today, Koren delivers others from pain by sharing their burdens. He channels his suffering into righteous fury."
+        ],
+        "source": {
+          "title": "Koren — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Koren",
+          "revision": "19475",
+          "revision_url": "https://pacg.fandom.com/wiki/Koren?oldid=19475",
+          "retrieved_at": "2026-10-19T16:54:33.216697+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Korundo": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Rare is the half-orc druid or ranger who seeks to preserve the fragile bond with nauture. And if left to Korundo, they would be rarer still. For him, animals are one thing: prey. They are to be hunted or enslaved if useful, eaten if not. AFter all Korundo reasons, he is but prey to them, if he allows them the upper hand. So he roams the forests of Avistan, leaving his mark on the world. Let the elves cavort with birds in the high trees. He'll be down here roasting them on a spit."
+        ],
+        "source": {
+          "title": "Korundo — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Korundo",
+          "revision": "20097",
+          "revision_url": "https://pacg.fandom.com/wiki/Korundo?oldid=20097",
+          "retrieved_at": "2026-10-19T16:54:33.216697+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Kyra": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Kyra and her family grew up near a small temple to Sarenrae, the goddess of healing, honesty, redemption, and the sun. When bandits attacked Kyra's village, Sarenrae's priestesses defended the innocent, driving off the raiders at the cost of their lives and their sanctuary. Standing in the burned ruin of the temple, young Kyra swore her life and sword arm to the goddess, promising mercy to the deserving and a quick death to those who spread in darkness."
+        ],
+        "source": {
+          "title": "Kyra — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Kyra",
+          "revision": "20615",
+          "revision_url": "https://pacg.fandom.com/wiki/Kyra?oldid=20615",
+          "retrieved_at": "2026-10-19T16:54:33.216697+00:00"
+        }
+      },
+      "expanded_background": {
+        "paragraphs": [
+          "As a child, Kyra admired the priestesses who practiced swordplay beside her village’s shrine to Sarenrae. When bandits destroyed her home and family, she dedicated herself to defending people who could not defend themselves.",
+          "Her faith combines compassion with the resolve to act when redemption fails. Rather than let loss consume her, Kyra finds purpose in preventing others from suffering as she did."
+        ],
+        "sources": [
+          {
+            "title": "Meet the Iconics: Kyra",
+            "author": "James Jacobs",
+            "date": "2007-07-30",
+            "url": "https://paizo.com/blog/meet-the-iconics-kyra"
+          }
+        ]
+      }
+    },
+    "Lazzero": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "The eldest son of a Molthuni military officer and a priest of Abadar, Lazzero Dalvera excelled in one thing only at the academies--ruining the lives of his fellow students. After washing out, he was sent to join the clergy of Abadar. Scheming to advance beyond those above him at all costs, Lazzero found his prayers answered not by Abadar, but by the Prince of Lies, Asmodeus. Now in the dark sway of the highest of archdevils, Lazzero has a new and frightful calling."
+        ],
+        "source": {
+          "title": "Lazzero — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Lazzero",
+          "revision": "17614",
+          "revision_url": "https://pacg.fandom.com/wiki/Lazzero?oldid=17614",
+          "retrieved_at": "2026-10-19T16:54:33.942258+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Lem": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Born a slave to human nobles in a land corrupted by devils, Lem was blessed with a quick wit that earned him easy work as an entertainer. He managed to escape from bondage, but he had to leave friends and family behind. Now he fights to ensure that no one else has to bear the burdens that weigh upon his memory. His greatest weapons are his easy laugh, his repertoire of inspirational music and tales, and—when need be—his quick blade."
+        ],
+        "source": {
+          "title": "Lem — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Lem",
+          "revision": "19497",
+          "revision_url": "https://pacg.fandom.com/wiki/Lem?oldid=19497",
+          "retrieved_at": "2026-10-19T16:54:33.942258+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Lesath": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Nicknamed \"The Desert Sting,\" Lesath is a troubled man who acutely feels the pain of separation from the divine. When he isn't holding a sword in his hand, troubled thoughts torment him. For him, the dance of swordplay is a means of finding peace and spiritual tranquility. Though he often springs into battle when a cause seems justified, the act of fighting is far more important to him than his reasons for doing it."
+        ],
+        "source": {
+          "title": "Lesath — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Lesath",
+          "revision": "19477",
+          "revision_url": "https://pacg.fandom.com/wiki/Lesath?oldid=19477",
+          "retrieved_at": "2026-10-19T16:54:33.942258+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Lini": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Lini has always had a way with wild creatures. More than once her enclave was threatened by some great beast, yet each time she soothed it and sent it on its way. As an adult, she chose to leave her druidic fellows behind and explore and help protect the wild places of the world. Since then, Lini has collected more than a dozen sticks, one from each of the forests she has visited. These sticks are a road map of her experiences, and each holds a wealth of memories for her."
+        ],
+        "source": {
+          "title": "Lini — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Lini",
+          "revision": "19562",
+          "revision_url": "https://pacg.fandom.com/wiki/Lini?oldid=19562",
+          "retrieved_at": "2026-10-19T16:54:34.553656+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Linxia": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "The Chelaxian Hellknights aren't born insto service. They are recruited by those who sear adherence to the law at any price. For Linxia Benzerki, that price was revealing that her parents were plotting to return the settlement of Khari to Rahadourn. Their slow deaths inspired Linxia to protect others from the dangers of sedition, even at the cost of their lives. Should she falter in her resolve, the Order of the Rack torture wheel tattooed on her forehead will remind her of her mission."
+        ],
+        "source": {
+          "title": "Linxia — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Linxia",
+          "revision": "16886",
+          "revision_url": "https://pacg.fandom.com/wiki/Linxia?oldid=16886",
+          "retrieved_at": "2026-10-19T16:54:34.553656+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Lirianne": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Lirianne always dreamed of becoming a shieldmarshal, like her father. With his help, she learned to draw schematics, engineer firearms, and quick-draw pistols. As a vigilant warden, Lirianne spent years safeguarding her homeland in Alkenstar... until a burst of wild magic blew in from the Spellscar Desert. The arcane catastrophe summoned bizarre creatures and struck down the only shieldwarden who stood against them. Wounded, she awoke on the shores of Avistan, where she now wanders a world far from home."
+        ],
+        "source": {
+          "title": "Lirianne — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Lirianne",
+          "revision": "19514",
+          "revision_url": "https://pacg.fandom.com/wiki/Lirianne?oldid=19514",
+          "retrieved_at": "2026-10-19T16:54:34.553656+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Mavaro": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Mavaro's earliest childhood memories are of the silent seclusion in the library of a Pharasmin convent deep in the Mindspin Mountains. However, his wanderlust led him to steal the abbey's treasures, releasing an ancient evil called the Thorn Priest that devoured the faithful. The dying prioress bid him to open his mind, and he gained the power to channel his thoughts into the items he held. He continues to watch for the Thorn Priest, who has stalked him since that day."
+        ],
+        "source": {
+          "title": "Mavaro — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Mavaro",
+          "revision": "20651",
+          "revision_url": "https://pacg.fandom.com/wiki/Mavaro?oldid=20651",
+          "retrieved_at": "2026-10-19T16:54:37.725426+00:00"
+        }
+      },
+      "expanded_background": {
+        "paragraphs": [
+          "Raised in an isolated Pharasmin convent, Mavaro learned about the outside world through its library. His desire for a trader’s collection of ancient objects led him to steal the silver talismans protecting the convent’s mummified guardians, releasing a presence that killed the sisters.",
+          "The skull of the founding abbess, Mother Wren, taught him to draw power from the relics around him. He escaped, but the entity he calls the Thorn Priest still pursues him. Behind his enjoyment of food, company, and entertaining stories lies a search for the scattered relics that might let him confront it."
+        ],
+        "sources": [
+          {
+            "title": "Meet the Iconics: Mavaro",
+            "author": "Brandon Hodge",
+            "date": "2015-06-17",
+            "url": "https://paizo.com/blog/meet-the-iconics-mavaro"
+          }
+        ]
+      }
+    },
+    "Maznar": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Many dwarves think of themselves as keeping to the old ways. Maznar knows better. He was born of the earth, and he will return to the earth when his time among the living ends. When his jeering brothers, full of lust for gold and treasure, banished him from his family home, Maznar wandered the wild places and found solace there. For as long as earth and sky remain, Maznar's faith will sustain him, and his forest friends will nourish and defend him. He can do no less in return."
+        ],
+        "source": {
+          "title": "Maznar — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Maznar",
+          "revision": "20624",
+          "revision_url": "https://pacg.fandom.com/wiki/Maznar?oldid=20624",
+          "retrieved_at": "2026-10-19T16:54:37.725426+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Meligaster": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Little about Meligaster's immaculate appearance reveals his upbringing as a common slave in the sliphouses of Cheliax. In the squalid conditions, Meligaster had few friends, but he quickly evinced a power to dominate the halfling slaves around him. When his half-brother Lem came calling to look after their mother, Meligaster ordered him to leave - which he did, with their mother and the freed slaves in tow. Raging for revenge, Meligaster has set out to command those of weaker will."
+        ],
+        "source": {
+          "title": "Meligaster — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Meligaster",
+          "revision": "20502",
+          "revision_url": "https://pacg.fandom.com/wiki/Meligaster?oldid=20502",
+          "retrieved_at": "2026-10-19T16:54:37.725426+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Melindra": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "In another life, the well-educated Melindra might have ended up in a reputable career as a university wizard, but when you're educated by the spymasters of Vellumis, you don't end up reputable. Melindra infiltrated the highest levels of the city's politics, becoming the power behind quite a few thrones. It's not that she's working both and against your side. When you're in your presence, you won't even know which side you're working for."
+        ],
+        "source": {
+          "title": "Melindra — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Melindra",
+          "revision": "20595",
+          "revision_url": "https://pacg.fandom.com/wiki/Melindra?oldid=20595",
+          "retrieved_at": "2026-10-19T16:54:37.725426+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Meliski": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Though Meliski usually seems half-drunk, his inebriation is only an act. His talent for deception puts opponents at ease, making them think he's an easy mark. They later discover he's led them right into his trap, usually after he's taken all their gold. Meliski knows all the tricks to spot when someone else is cheating, especially while he's busy cheating. He typically plays cards all night, or at least until the barkeep timidly begs him to leave so she can close up."
+        ],
+        "source": {
+          "title": "Meliski — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Meliski",
+          "revision": "19459",
+          "revision_url": "https://pacg.fandom.com/wiki/Meliski?oldid=19459",
+          "retrieved_at": "2026-10-19T16:54:38.402638+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Merisiel": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Orphaned at a young age and raised by humans in the slums, the elf Merisiel saw many friends grow old and die in the decades it took her to become an adult. Unfettered by responsibilities, she now travels where her curiosity takes her, wandering the world with those she calls friends at the time. Merisiel believes in experiencing life to the fullest—you never know when you'll meet an unexpected end—and that there are few problems a dagger can't solve."
+        ],
+        "source": {
+          "title": "Merisiel — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Merisiel",
+          "revision": "20489",
+          "revision_url": "https://pacg.fandom.com/wiki/Merisiel?oldid=20489",
+          "retrieved_at": "2026-10-19T16:54:38.402638+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Mogmurch": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Things go boom when Mogmurch throws,\nMuch more fun than using bows.\nSometimes where the boom boom blows\nIs not my fault - that's how it goes.",
+          "Mixing things makes potions bubble.\nLongshanks buildings turn to rubble.\nMogmurch best at causing trouble!\nIf he won't do, no other scrub'll."
+        ],
+        "source": {
+          "title": "Mogmurch — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Mogmurch",
+          "revision": "20646",
+          "revision_url": "https://pacg.fandom.com/wiki/Mogmurch?oldid=20646",
+          "retrieved_at": "2026-10-19T16:54:39.068529+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Mother Myrtle": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "The caves of the Mindspin Mountains host a wide variety of fungi and creatures that skittle among them. These are the essential ingredients of Mother Myrtle's brews and pastes, all reeking of earth and decay. For those that can stomach a goldbelly stingbug and puffball roux, deep knowledge and power await. Her concoctions can make you very ill or much healthier, often in that order. Take heed: if Mother Myrtle offers you some mushrooms, you should eat your mushrooms."
+        ],
+        "source": {
+          "title": "Mother Myrtle — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Mother_Myrtle",
+          "revision": "20625",
+          "revision_url": "https://pacg.fandom.com/wiki/Mother_Myrtle?oldid=20625",
+          "retrieved_at": "2026-10-19T16:54:39.781554+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Nok-Nok": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "\"Lamashtu's chosen Nok-Nok be\nThat's why his eyes number three\nMiddle eye is not real... yet\nBut soon will be, on that you bet!",
+          "Stupid gobs want Nok-Nok dead\nBang a drum beat on his head\nHis loyalty, it knows no end\nNok-Nok longshanks' bestest friend!\"—Nok-Nok's song"
+        ],
+        "source": {
+          "title": "Nok-Nok — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Nok-Nok",
+          "revision": "20597",
+          "revision_url": "https://pacg.fandom.com/wiki/Nok-Nok?oldid=20597",
+          "retrieved_at": "2026-10-19T16:54:41.007984+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Nyctessa": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "In Nyctessa's homeland of Geb, the dead far outnumber the living—ah, that's true everywhere, but here they rule. Nyctessa is neither dead nor living, as she is a dhampir, the offspring of a human mother and a vampire father. That father is one of the Blood Lords, the dead necromancers in Geb's aristocracy. Nyctessa bears her birthright, but is yet unready to embrace death. Bearing a staff forged from her mother's spine, she has set out among the living—to learn, to adventure, and—of course—to feed."
+        ],
+        "source": {
+          "title": "Nyctessa — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Nyctessa",
+          "revision": "17861",
+          "revision_url": "https://pacg.fandom.com/wiki/Nyctessa?oldid=17861",
+          "retrieved_at": "2026-10-19T16:54:41.007984+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Olenjack": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Olenjack worked his way up through the ranks of a guild he now runs with a firm hand. He is patient and deliberate, able to keep multiple schemes and long-term plans in mind simultaneously. Olenjack never lets his acolytes forget that his dwarven lifespan is longer than that of his human enemies. Despite his formidable nature, he remains a pillar of his community, highly respected even by those who suspect his criminal ties."
+        ],
+        "source": {
+          "title": "Olenjack — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Olenjack",
+          "revision": "19479",
+          "revision_url": "https://pacg.fandom.com/wiki/Olenjack?oldid=19479",
+          "retrieved_at": "2026-10-19T16:54:42.478527+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Oloch": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Oloch was always told his parents were slaves who died in Blisterwell's mines. He grew up in the gladiatorial pits, and before long, he was channeling Gorum's power under the priests' direction. When he learned the truth—that he had been stolen from a human adventurer—he killed his masters and left. Though he managed to track down his mother, she shunned him for his savagery. Now he seeks to learn more of the world, following Gorum's guidance as he hopes to discover who he was truly meant to be."
+        ],
+        "source": {
+          "title": "Oloch — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Oloch",
+          "revision": "20511",
+          "revision_url": "https://pacg.fandom.com/wiki/Oloch?oldid=20511",
+          "retrieved_at": "2026-10-19T16:54:42.478527+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Ostog": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "The Streaming Sea crashed with thunder the night Ostog the Unslain betrayed Girt Bear-Wearer and was thrown into the tumultuous waters. Surviving dozens of knife penetrations and the bludgeoning of the relentless surf, he emerged ready to cut a swath through the bawdyhouses of Sandpoint. Refusing to wear armor - which he refers to as \"the cloak of cowards\" - Ostog rages into the infinite. The gods might slay him one day, though to do so would limit their joy at his scandalous behavior."
+        ],
+        "source": {
+          "title": "Ostog — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Ostog",
+          "revision": "20626",
+          "revision_url": "https://pacg.fandom.com/wiki/Ostog?oldid=20626",
+          "retrieved_at": "2026-10-19T16:54:42.478527+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Poog": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Poog say Zarongel is the best,\nHe help burn things and heal the rest.\nZarongel's favor makes Poog blessed.\nAnd Poog also stab you with knife if you make\n fun of how he isn't good at riding animals.",
+          "Soory, Poog is best at rhyming.\nMaster of poetic timing.\nDo you hear the words which I'm ing-\nLoriously... ingratious... ingrown... Blasted\nwords! I stab you with knife too!\""
+        ],
+        "source": {
+          "title": "Poog — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Poog",
+          "revision": "20647",
+          "revision_url": "https://pacg.fandom.com/wiki/Poog?oldid=20647",
+          "retrieved_at": "2026-10-19T16:54:45.265171+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Qualzar": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Qualzar's heritage includes mischievous fey who tie shoelaces together, curdle milk, and make nuisances of themselves. He claims to not understand why others find his humor malicious, but in truth, he doesn't care. He's willing to hurt others for the sake of a pun or punch line, and he's got a book of plucked fairy wings to prove it. He mostly inflicts his whimsy on evil monsters, but he's willing to assume everyone's evil until proven otherwise."
+        ],
+        "source": {
+          "title": "Qualzar — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Qualzar",
+          "revision": "19481",
+          "revision_url": "https://pacg.fandom.com/wiki/Qualzar?oldid=19481",
+          "retrieved_at": "2026-10-19T16:54:46.544880+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Radillo": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Bounding from one human city to another, Radillo manipulates people with sweet words and subtle promises. Possessing many spells and items that ensorcel the brain, she plays with the thoughts of others for pleasure and power. In many cities, she has contacts whose minds belong fully to her. Whenever she joins a party of adventurers, she immediately divines which companions she expects to take the fall for her."
+        ],
+        "source": {
+          "title": "Radillo — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Radillo",
+          "revision": "19488",
+          "revision_url": "https://pacg.fandom.com/wiki/Radillo?oldid=19488",
+          "retrieved_at": "2026-10-19T16:54:47.183205+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Radovan": {
+      "card_background": null,
+      "expanded_background": null
+    },
+    "Raheli": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "The nation of Zi Ha is the homeland of the blue-skinned Samsarans, known for their inherent goodness and generosity. That is something Raheli is willing to take advantage of. The long-haired witch has a peculiar talent of using her hair as a weapon, gathering up all available items and flinging them with her tresses. Whose items those are is of little concern to her. She might ensorcell others to gain their mission, or just bonk them unconscious with their own stuff and move on."
+        ],
+        "source": {
+          "title": "Raheli — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Raheli",
+          "revision": "20601",
+          "revision_url": "https://pacg.fandom.com/wiki/Raheli?oldid=20601",
+          "retrieved_at": "2026-10-19T16:54:47.183205+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Ramexes": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "In Kaer Maga, the City on the Cliff, the line between monsters and people is crudely drawn. Deep in Downmarket, those hunting answers they’d hide from their closest friends will routinely find themselves at the booth of Ramexes. This devil-touched seer claims, not without merit, to be able to see the worst things that will befall his customers. That has not slowed their tide. One man’s peril is another’s fortune, and Ramexes will happily take the coins of both."
+        ],
+        "source": {
+          "title": "Ramexes — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Ramexes",
+          "revision": "20602",
+          "revision_url": "https://pacg.fandom.com/wiki/Ramexes?oldid=20602",
+          "retrieved_at": "2026-10-19T16:54:47.183205+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Ranzak": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "\"Goblins fight and goblins bleed,\nRanzak takes what Ranzak needs.\nFollow orders! Don't give guff!\nFight for Ranzak! He needs stuff!",
+          "Ranzak wrote this clever verse.\nRanzak's smart, so you go first!\nCome on pirates! Do your duty!\nRanzak's ready for some booty!\"—Ranzak's song"
+        ],
+        "source": {
+          "title": "Ranzak — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Ranzak",
+          "revision": "20623",
+          "revision_url": "https://pacg.fandom.com/wiki/Ranzak?oldid=20623",
+          "retrieved_at": "2026-10-19T16:54:47.183205+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Raz": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Raz is the only gnome paladin she’s ever met. Therefore, she’s clearly the best gnome paladin there ever was. At an early age, Raz decided she wanted to be different from her mischievous kin. She did so by kicking bad guy butt and protecting the good guys. Sometimes bigger paladins try to tell Raz that she looks silly on her canine mount or that gnomes can’t wield lances. When this happens, Raz just smiles and charges into the fray. Somebody’s got to be the best. For Raz, today is the day to prove it."
+        ],
+        "source": {
+          "title": "Raz — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Raz",
+          "revision": "17188",
+          "revision_url": "https://pacg.fandom.com/wiki/Raz?oldid=17188",
+          "retrieved_at": "2026-10-19T16:54:47.850122+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Reepazo": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "\"Buggy wuggy, creepy crawler,\nCutey sluggy bites a brawler.\nSkitter, jitter, hurry scurry,\nIn a fit of buggy fury.",
+          "Shower folk in worms exotic\nIn a joke so arthropodic.\nHa! The bigguns leapin' so\nWhen 'ere comes a Reepazo!\"—Reepazo's song"
+        ],
+        "source": {
+          "title": "Reepazo — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Reepazo",
+          "revision": "20509",
+          "revision_url": "https://pacg.fandom.com/wiki/Reepazo?oldid=20509",
+          "retrieved_at": "2026-10-19T16:54:48.491070+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Reiko": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "The reputation of the ninja is of a merciless killer allied with the darkest of forces. Reiko shows there is another edge of the silent blade. She learned the art from her mother, a master ninja who sabotaged the grand designs of a slavelord noble. Like all who stood against the rulers of Minkai, Reiko's parents eventually fell under the swords of higher men. But not before Reiko gave truth to the name her mother bestowed on her: \"Little Spider\". She would skitter, and her fangs would drip venom. And then she'd be gone."
+        ],
+        "source": {
+          "title": "Reiko — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Reiko",
+          "revision": "20603",
+          "revision_url": "https://pacg.fandom.com/wiki/Reiko?oldid=20603",
+          "retrieved_at": "2026-10-19T16:54:48.491070+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Reta": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Reta chop and Reta bite!\nReta slay and Reta fight!\nReta stab and Reta smite!\nReta kills it all just right!",
+          "Reta in command of troop!\nObey her or you're in the soup!\nDon't you be a nincompoop\nOr she will sword you—zoop zoop zooop"
+        ],
+        "source": {
+          "title": "Reta — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Reta",
+          "revision": "20649",
+          "revision_url": "https://pacg.fandom.com/wiki/Reta?oldid=20649",
+          "retrieved_at": "2026-10-19T16:54:48.491070+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Rivani": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Called before the rishis of the Rajah of Vudra's court, a young Rivani masterfully navigated the Trial of the White Lotus. So masterful was she that the rishis sent her away lest her visions lay bare their secrets. Proclaimed a mahatma reborn, Rivani was dispatched to the monasteries at the Isle of Jandelay. But their pale teachings could not challenge the all-seeing girl, so she embarked on her own. She remains fixated on the next stop on her journey, and all the wonders beyond."
+        ],
+        "source": {
+          "title": "Rivani — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Rivani",
+          "revision": "17822",
+          "revision_url": "https://pacg.fandom.com/wiki/Rivani?oldid=17822",
+          "retrieved_at": "2026-10-19T16:54:49.748445+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Rooboo": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Rooboo attracts stares wherever she goes. The good folk of Golarion aren't used to seeing tengus at all, much less a bird-woman in mixed company wielding exotic weaponry. If the attention bothers Rooboo, she doesn't show it. No one seems to know where such a creature learned the monastic arts, and Rooboo isn't exactly forthcoming. When you're a bird that walks around with a pair of sais, you don't have to answer many questions."
+        ],
+        "source": {
+          "title": "Rooboo — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Rooboo",
+          "revision": "20627",
+          "revision_url": "https://pacg.fandom.com/wiki/Rooboo?oldid=20627",
+          "retrieved_at": "2026-10-19T16:54:49.748445+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Sajan": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Born into a warrior caste in a far-off land, Sajan turned his back on his duties to search for his twin sister, a fellow martial artist taken from their land by a distant lord. Under sentence of death in his homeland for desertion, he obsessively seeks clues that could reunite him with his twin. Sajan has travelled many lands and has been slow to trust the impulsive natives of those realms, but offers insight and skill to any whom he deems worthy of joining him on his quest."
+        ],
+        "source": {
+          "title": "Sajan — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Sajan",
+          "revision": "20633",
+          "revision_url": "https://pacg.fandom.com/wiki/Sajan?oldid=20633",
+          "retrieved_at": "2026-10-19T16:54:51.071863+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Salim": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Salim Ghadafar was originally an officer in Rahadoum's Pure Legion, purging any traces of religion from the nation's shores, until tragedy led him to swear fealty to Pharasma. Watched over by the psychopomp usher Ceyanan, Salim now travels the planes as an unwilling inquisitor for the Lady of Graves, tracking down souls that have gone missing and bringing the death goddess's justice to those who would cheat her."
+        ],
+        "source": {
+          "title": "Salim — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Salim",
+          "revision": "20628",
+          "revision_url": "https://pacg.fandom.com/wiki/Salim?oldid=20628",
+          "retrieved_at": "2026-10-19T16:54:51.071863+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Seelah": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "As a starving young orphan, Seelah encountered a paladin and became fascinated by her shining helm. She stole the helmet, an act that led to the paladin's death in a subsequent battle. In the aftermath, the guilt-stricken girl climbed onto the holy warrior's pyre, only to be saved by the other paladins, who took her in and made her one of them. At first, Seelah fought to atone for her deeds, but since she has become a full and devout champion of Iomedae, goddess of justice."
+        ],
+        "source": {
+          "title": "Seelah — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Seelah",
+          "revision": "20635",
+          "revision_url": "https://pacg.fandom.com/wiki/Seelah?oldid=20635",
+          "retrieved_at": "2026-10-19T16:54:53.030926+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Seltyiel": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "The bastard son of a Chelish noble woman and an elven outlaw, Seltyiel was raised by his abusive stepfather. As a teenager, he fled his home to seek out his true father, a painful search that ended in rejection and, ultimately, imprisonment by Hellknight manhunters. In the depths of a Chelish dungeon, his magic awoke, a voice spurring him on to power and revenge. Arcane ambition has driven him ever since, a passion that won't be sated until both his fathers are dead."
+        ],
+        "source": {
+          "title": "Seltyiel — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Seltyiel",
+          "revision": "19540",
+          "revision_url": "https://pacg.fandom.com/wiki/Seltyiel?oldid=19540",
+          "retrieved_at": "2026-10-19T16:54:53.751567+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Seoni": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Born into a clan of nomadic wanderers, Seoni wears dozens of runic tattoos that tell the ancient stories of her people and aid her in drawing upon their arcane powers. Quick thinking and with a plan for every situation, she proudly exhibits the marks of her people and endlessly seeks new understanding of her magical abilities. She travels the world, dispelling myths that her people are nothing more than liars and thieves by righting injustices wherever she finds them."
+        ],
+        "source": {
+          "title": "Seoni — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Seoni",
+          "revision": "20636",
+          "revision_url": "https://pacg.fandom.com/wiki/Seoni?oldid=20636",
+          "retrieved_at": "2026-10-19T16:54:53.751567+00:00"
+        }
+      },
+      "expanded_background": {
+        "paragraphs": [
+          "Seoni’s Varisian tattoos express both her magical power and her standing among her people. Her clothing repeats their patterns, carrying that heritage into her travels. Strange dreams and hints of an inhuman ancestor drive her to investigate the source of her abilities.",
+          "She prefers careful plans to improvisation and rarely explains the personal rules she follows. Although her companions can find her reserved and demanding, she repeatedly stands by them when their adventures become dangerous."
+        ],
+        "sources": [
+          {
+            "title": "Meet the Iconics: Seoni",
+            "author": "James Sutter",
+            "date": "2007-05-10",
+            "url": "https://paizo.com/blog/meet-the-iconics-seoni"
+          }
+        ]
+      }
+    },
+    "Shardra": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Shardra forged the truth of her identity through suffering and study. After narrowly avoiding death in an accidental fall, she learned to accept the spirits whose voices called her from safety. The spirits' knowledge allowed Shardra to bring her mind and body into harmony. Now she speaks with creatures of fire and rock. The crag tuatara Kolo travels on her shoulders. Together, they explore the world's mysteries, discovering the true faces of the entities they encounter."
+        ],
+        "source": {
+          "title": "Shardra — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Shardra",
+          "revision": "19509",
+          "revision_url": "https://pacg.fandom.com/wiki/Shardra?oldid=19509",
+          "retrieved_at": "2026-10-19T16:54:53.751567+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Simoun": {
+      "card_background": null,
+      "expanded_background": null
+    },
+    "Siwar": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Graceful, talented, and beautiful, Siwar has ingratiated herself into the highest courts of the River Kingdoms. She is knowledgeable in topics ranging from art to politics and is highly schooled in etiquette. Though she has a reputation for maintaining her associates' discretion, Siwar secretly trades information. Two criminal and political groups protect her. Both keep her indiscretions secret—though neither one realizes Siwar works for anyone else."
+        ],
+        "source": {
+          "title": "Siwar — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Siwar",
+          "revision": "19460",
+          "revision_url": "https://pacg.fandom.com/wiki/Siwar?oldid=19460",
+          "retrieved_at": "2026-10-19T16:54:56.324905+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Skizza": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Skizza has earned a stellar set of decorations for his actions under Dongun Hold. He was awarded the Tin Fishbone for bravely fleeing his post at the Battle of the Warrens as the rest of his clutchmates were slaughtered by the vicious dwarves. Then, he gains the Splotched Tuin for courageously burying only half his company when he brough the ceiling down upon the dwarves as he vacated the Kharbur Tunnel. Through his heroic actions, Skizza has taught the other ratfolk the value of making the most of their stunningly brief time on Golarion."
+        ],
+        "source": {
+          "title": "Skizza — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Skizza",
+          "revision": "20629",
+          "revision_url": "https://pacg.fandom.com/wiki/Skizza?oldid=20629",
+          "retrieved_at": "2026-10-19T16:54:56.324905+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Talitha": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "The People's Council's primary purpose is to safeguard the interests of every single citizen of Andoran. No wonder, then, that the town of Piren's Bluff elected the watchtower guardian Talitha to the council. She held an endless vigil overlooking Aspodell Pass, the conduit to the evil nation of Chelian. One clang of her staff on the tower bell and all the citizens would take to arms. After years of selfless duty, she has now been dispatched to represent the town and champion its bravery across Golarion."
+        ],
+        "source": {
+          "title": "Talitha — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Talitha",
+          "revision": "20610",
+          "revision_url": "https://pacg.fandom.com/wiki/Talitha?oldid=20610",
+          "retrieved_at": "2026-10-19T16:55:01.349946+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Tarlin": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "As a recruit of the Eagle Knights, Tarlin has been assigned guardianship over caravans along the River Road, a path that leads to the demonically devastated Worldwound. He rallies both nobles and peasants to his side, inspiring them with the good word of Iomedae. Due to his talent with weapons, paladins consider him one of their own. Should the Light of the Sword call him to battle, he will brandish his weapon against all who stand in Iomedae's way."
+        ],
+        "source": {
+          "title": "Tarlin — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Tarlin",
+          "revision": "20611",
+          "revision_url": "https://pacg.fandom.com/wiki/Tarlin?oldid=20611",
+          "retrieved_at": "2026-10-19T16:55:01.349946+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "The Red Raven": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "The revolution-ridden land of Galt quiets many a breath, yet few so tragically as Aric of Halvon. His parents were viciously slain by the nameless executioners known as the Grey Gardeners, all within eyeshot of young Aric. The revolution having taken his destiny, Aric apprenticed to the bandit leader Thanarus, only to watch him cut down by the Gardeners' blades. The tattered scarlet cloaks of Thanarus would not go to waste. By day, Aric maintained a sham existence as a dandy agitator, but by night...",
+          "Aric donned the slain bandit chieftain's scarlet mask and laid waste to the revolution's Council of Skulls. Each Grey Gardener he met, he left bleeding out in a gutter. If the revolution wanted blood, blood it would have. Yet the Red Raven, as the hope-starved townsfolk dubbed the cowled avenger, was as much a quandary as a beacon. If he led a revolution against the revolution, what exactly was he fighting for? For now, the promise of a better day would have to do. After just one more dark night."
+        ],
+        "source": {
+          "title": "The Red Raven — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Aric",
+          "revision": "20384",
+          "revision_url": "https://pacg.fandom.com/wiki/Aric?oldid=20384",
+          "retrieved_at": "2026-10-19T16:53:57.377764+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Tontelizi": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Tontelizi's rough-and-tumble past began with a stint as an enforcer in his family's shady business. Because of his short stature, some mocked him with the nickname \"Legbreaker.\" They soon found their ability to walk severely compromised. After the health of the family patriarch failed, all other aspirants to the status of crime lord mysteriously fell from contention. Now in semi-retirement, Tontelizi brings his special skills to the world of adventure. Woe betide those who cross him."
+        ],
+        "source": {
+          "title": "Tontelizi — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Tontelizi",
+          "revision": "20612",
+          "revision_url": "https://pacg.fandom.com/wiki/Tontelizi?oldid=20612",
+          "retrieved_at": "2026-10-19T16:55:06.019716+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Tup": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "\"I be Tup! Alones I creep.\nMaster of stick-men! Rider of sheep!\nBuild a bonfire big and tall,\nFeed it! Feed it! Burn them all!",
+          "\"Tup is clothesed from head to toe.\nNot a goblin, no, no, no!\nTrust me, longshanks, you no fear.\nTup is Terr'ble! Tup is here!\"—Tup the Terrible's song"
+        ],
+        "source": {
+          "title": "Tup — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Tup",
+          "revision": "20620",
+          "revision_url": "https://pacg.fandom.com/wiki/Tup?oldid=20620",
+          "retrieved_at": "2026-10-19T16:55:07.242265+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Ukuja": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "The elves of Kyonin struggle to contain the spread of the tree-demons through the twisted swamps of the Tanglebriar. On the front lines are the Uprooters, those sharpshooters who pepper demons with magicked arrows from afar. Ujuka follows in the faint footsteps of decorated Uprooters such as Lanveral and Cecilla. But as a branch-sniper, he forges his own path. The animals of the Tanglebriar, warped as they may be, are still animals, and they will heed his call."
+        ],
+        "source": {
+          "title": "Ukuja — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Ukuja",
+          "revision": "19791",
+          "revision_url": "https://pacg.fandom.com/wiki/Ukuja?oldid=19791",
+          "retrieved_at": "2026-10-19T16:55:08.110972+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Uliah": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "The Sarenran priest Uliah runs a shop in the Wagons of Light, a mobile black market in the undead land of Geb. The market transports holy symbols, good-aligned outlaw priests, and items for wielding positive energy to the region around the city of Mechitar. Uliah's dedication to helping benevolent clergy move safely around the area has come at a price. The stern-faced priest has lost many of his brethren to the dead, but he remains a stalwart yet secretive defender of the forces of life. Should the necromancers come calling, they will discover the effectiveness of his contraband wares."
+        ],
+        "source": {
+          "title": "Uliah — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Uliah",
+          "revision": "17192",
+          "revision_url": "https://pacg.fandom.com/wiki/Uliah?oldid=17192",
+          "retrieved_at": "2026-10-19T16:55:08.110972+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Urgraz": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Among the deep dwarves, Urgraz was judged slow-witted and rebellious, traits that belied his dark craft of malice against his kin. His desire for anarchy caused him to disrupt the dwarves' slave trade with the dark elves, and led him to betray his only ally in the service of the demon lord Mazmezz. This fueled his desire for chaos, so he ascended to the land above to train and scheme. Many have learned that it is not a question as to whether Urgraz would betray them, but only how long they would suffer."
+        ],
+        "source": {
+          "title": "Urgraz — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Urgraz",
+          "revision": "20630",
+          "revision_url": "https://pacg.fandom.com/wiki/Urgraz?oldid=20630",
+          "retrieved_at": "2026-10-19T16:55:08.768120+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Valendron": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Valendron hails from the elven nation of Kyonin. When he was an infant, he and his mother were caught outside in a storm, where they were struck by a bolt of lightning. Though his mother died in the blast, he survived, and as a youth, he began to develop arcane powers. He believes that storms and natural disasters eliminate the weak, allowing the strong to survive. Now he's set out on his own to find others like himself."
+        ],
+        "source": {
+          "title": "Valendron — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Valendron",
+          "revision": "20614",
+          "revision_url": "https://pacg.fandom.com/wiki/Valendron?oldid=20614",
+          "retrieved_at": "2026-10-19T16:55:08.768120+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Valeros": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Valeros is a good-hearted former mercenary whose longing for adventure convinced him to flee an arranged betrothal to a farmer's daughter. He trained himself in swordplay and spent many years as a mercenary, but now he fights for those in need. Though noble of heart and fiercely loyal, Valeros hides such sentiments under a jaded and crass demeanor, frequently observing that there's nothing better than \"an evening of hard drinking and soft company.\""
+        ],
+        "source": {
+          "title": "Valeros — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Valeros",
+          "revision": "20613",
+          "revision_url": "https://pacg.fandom.com/wiki/Valeros?oldid=20613",
+          "retrieved_at": "2026-10-19T16:55:08.768120+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Varian": {
+      "card_background": null,
+      "expanded_background": null
+    },
+    "Varril": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Varril is a living illustration of the story of Shelyn, the goddess of beauty, and her half-brother Zon-Kuthon, god of destruction. Varril's parents lived as priests of Shelyn, raising their son as a generous servant of Absalom's people. This was all well and good until they revealed themselves as cultists of Zon-Kuthon and burned the temple to the ground. The terrible loss of life - which included his parents - has haunted Varril; he has pledged ever since to make up for their actions."
+        ],
+        "source": {
+          "title": "Varril — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Varril",
+          "revision": "19470",
+          "revision_url": "https://pacg.fandom.com/wiki/Varril?oldid=19470",
+          "retrieved_at": "2026-10-19T16:55:09.545220+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Vika": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Apprenticed to a blacksmith growing up in Greengold, Vika quit her trade for the life of an adventurer. After a cache of tomes taught her how to smelt steel and cast magic, she found that a hammer is just as effective at forging a sword as it is at forging a crevasse in an orc's skull. She hopes to retire to her shop when her adventuring days are done. Until then, the sound of metal on metal rings out through the dungeons she explores."
+        ],
+        "source": {
+          "title": "Vika — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Vika",
+          "revision": "19524",
+          "revision_url": "https://pacg.fandom.com/wiki/Vika?oldid=19524",
+          "retrieved_at": "2026-10-19T16:55:10.238183+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Wrathack": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "A half-orc through and through, Wrathack has memorized the entire collection of heroic poems called the 'Gorumskagat'. She can expound on its bloodsoaked merits in great detail. She doesn't tolerate preaching about the goodness or the benign nature of the gods. Her clothing is decorated with bloody feathers plucked from the wings of angels. These trophies serve as a warning to any who dare speak lies about hope, kindness, or salvation. Wrathack is the reason why we can't have nice things."
+        ],
+        "source": {
+          "title": "Wrathack — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Wrathack",
+          "revision": "20616",
+          "revision_url": "https://pacg.fandom.com/wiki/Wrathack?oldid=20616",
+          "retrieved_at": "2026-10-19T16:55:13.931352+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Wu Shen": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Wu Shen loves death as if it were an actual person. She speaks of death as \"her lover,\" and listeners may mistakenly believe she is referring to a mortal. Each time she brings a monster to its grisly end, she savors a moment of hope that death will acknowledge her as its favorite. To challenge herself and prove her worthiness, she often whispers specific and bizarre criteria for her kills, which onlookers mock at their peril."
+        ],
+        "source": {
+          "title": "Wu Shen — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Wu_Shen",
+          "revision": "19480",
+          "revision_url": "https://pacg.fandom.com/wiki/Wu_Shen?oldid=19480",
+          "retrieved_at": "2026-10-19T16:55:13.931352+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Yoon": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Yoon always loved fire - the warmth, the color, the brilliant blaze. With her mother missing and her father murdered, Yoon has only one reliable family member: her stuffed owl beast Gom-Gom. She and Gom-Gom travel the alleyways of Minkai and beyond, living out adventures few children ever see. Life isn't always easy for a street urchin and her owl beast. Yoon is now an expert in avoiding trouble by causing more of it; when things go south, things catch on fire."
+        ],
+        "source": {
+          "title": "Yoon — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Yoon",
+          "revision": "20652",
+          "revision_url": "https://pacg.fandom.com/wiki/Yoon?oldid=20652",
+          "retrieved_at": "2026-10-19T16:55:14.558181+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Zadim": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Born onto Qadira's influential Cult of the Dawnflower, the man known as the Shadow of Sarenrae travels the lands of the Inner Sea, seeking to bring justice to the irredeemable. Zadim provides deadly solutions to problems the church cannot resolve through diplomacy and forgiveness. He has no spells to his name, but his standing in the church is unquestioned. After all, Sarenrae's light shines the brightest in darkness."
+        ],
+        "source": {
+          "title": "Zadim — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Zadim",
+          "revision": "19492",
+          "revision_url": "https://pacg.fandom.com/wiki/Zadim?oldid=19492",
+          "retrieved_at": "2026-10-19T16:55:14.558181+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Zarlova": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "In the city of Oenopion, Zarlova is a well-known professor at the Hive, an academy of wizards and clerics working in concert to discover mysteries left by the god Nethys. A master of 'The Book of Magic', Zarlova routinely ventures from the halls of academia to spread her knowledge among the unenlightened. She is willing to sacrifice just about anything to advance her understanding of the world: money, goods, animals, or even parts of herself."
+        ],
+        "source": {
+          "title": "Zarlova — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Zarlova",
+          "revision": "20632",
+          "revision_url": "https://pacg.fandom.com/wiki/Zarlova?oldid=20632",
+          "retrieved_at": "2026-10-19T16:55:14.558181+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Zelhara": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Whisked from her family by the church of Zon-Kuthon, Zelhara was subjected to rigorous training as an inflictor of pain. Quenching her desires for the screams of others, she painstakingly crafted her ministrations on subjects brought before her. By her teenage years, she learned how easily someone could transition from valued citizen to enemy of the state. Now, as a decorated inquisitor, Zelhara takes great pride in her work. Even her victims are impressed."
+        ],
+        "source": {
+          "title": "Zelhara — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Zelhara",
+          "revision": "16573",
+          "revision_url": "https://pacg.fandom.com/wiki/Zelhara?oldid=16573",
+          "retrieved_at": "2026-10-19T16:55:14.558181+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Zetha": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Trapped on the Shadow Plane, the only trace the sorcerer Meztaliz could leave was an heir. Her daughter Zetha stands between the dark of Shadow and the light of the Material, marshaling the power of her shadow Ahtez against creatures from either side. At any moment, she can access the \"space between,\" a realm where people of her kayal race can flee for an instant. Eventually, she will find a way to free her mother from the shadow prison. For now, she will walk uneasily between worlds."
+        ],
+        "source": {
+          "title": "Zetha — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Zetha",
+          "revision": "20618",
+          "revision_url": "https://pacg.fandom.com/wiki/Zetha?oldid=20618",
+          "retrieved_at": "2026-10-19T16:55:14.558181+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Zibini": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Hooba dooba! Me Zibini,\nSorcerous like magic genie!\nReads your organs teeny-weeny,\nTells a fortune awfully spleeny.",
+          "Watch me put on purply robe\nAnd gaze into big glassy globe.\nInto your future Z will probe-\nUnless you is a gobliphobe."
+        ],
+        "source": {
+          "title": "Zibini — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Zibini",
+          "revision": "20645",
+          "revision_url": "https://pacg.fandom.com/wiki/Zibini?oldid=20645",
+          "retrieved_at": "2026-10-19T16:55:14.558181+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Zova": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "The harsh Cinderlands were no home for a child gripped by wanderlust. Out there, beyond the wastes, was a world of green where animals roamed free. Zova departed from the Clan of the Moon, more than once letting her curiosity lead her to near-deadly hazards. When beset by a pack of ravenous wolves, Zova knew she'd come too far-- until she suddenly manifested talons and feathers. Tearing into the wolf pack, she then learned where her destiny lies: out here, beyond the wastes, in a world of green.\""
+        ],
+        "source": {
+          "title": "Zova — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Zova",
+          "revision": "17198",
+          "revision_url": "https://pacg.fandom.com/wiki/Zova?oldid=17198",
+          "retrieved_at": "2026-10-19T16:55:14.558181+00:00"
+        }
+      },
+      "expanded_background": null
+    },
+    "Zvarbel": {
+      "card_background": {
+        "kind": "wiki_transcription",
+        "paragraphs": [
+          "Some hearth-protectors guard their clans by establishing a solid defensive bulwark inside the narrow halls of their keep. Not Zvarbel. This spell-tossing magus brings the defensive measures to the enemy's house, trapping them within their own borders. Many an orc has fallen prey to one of her traps within the hold of Belkzen and, orcs being orcs, has then blamed another of his warlike race. If you hear of strife within the ranks of the tribes, blame an enterprising young trapper with a hammer of steel."
+        ],
+        "source": {
+          "title": "Zvarbel — Pathfinder ACG Wiki",
+          "url": "https://pacg.fandom.com/wiki/Zvarbel",
+          "revision": "20621",
+          "revision_url": "https://pacg.fandom.com/wiki/Zvarbel?oldid=20621",
+          "retrieved_at": "2026-10-19T16:55:14.558181+00:00"
+        }
+      },
+      "expanded_background": null
+    }
+  }
+}

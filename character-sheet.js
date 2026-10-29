@@ -81,17 +81,17 @@
     let storage;
     try { storage = root.localStorage; } catch { storage = null; }
     const store = new SheetStore(storage);
-    const mobilePortrait = root.matchMedia('(max-width:900px)');
-    mobilePortrait.addEventListener('change', event => {
-      const panel = cards.querySelector('.sheet-portrait');
-      if (panel) panel.open = !event.matches;
-    });
-    let catalog, pending, portraitCatalog, portraitPending, selectedId, request = 0;
+    const expanded = {portrait:false,backstory:false};
+    let catalog, pending, portraitCatalog, portraitPending, loreCatalog, lorePending, selectedId, request = 0;
     let matches = [], activeResult = -1;
     const loadPortraits = () => portraitPending ||= fetch('./character-portraits.json')
       .then(response => { if (!response.ok) throw new Error('Portrait catalog unavailable'); return response.json(); })
       .then(value => { portraitCatalog = value; })
       .catch(() => { portraitPending = null; }); // Character sheets remain usable if artwork is unavailable.
+    const loadLore = () => lorePending ||= fetch('./character-lore.json')
+      .then(response => { if (!response.ok) throw new Error('Backstory catalog unavailable'); return response.json(); })
+      .then(value => { loreCatalog = value; })
+      .catch(() => { lorePending = null; });
     const details = new Map();
     const element = (tag,className,text) => {
       const node = document.createElement(tag);
@@ -223,9 +223,7 @@
       return panel;
     }
     function portraitPanel(character, portrait) {
-      const panel = element('details','sheet-portrait');
-      panel.open = !mobilePortrait.matches;
-      const summary = element('summary','','Character portrait');
+      const panel = expandable('portrait','Character portrait','sheet-portrait');
       const figure = element('figure','sheet-portrait-figure');
       const image = element('img','sheet-portrait-image');
       image.src = './' + portrait.file;
@@ -243,10 +241,53 @@
       sourceLink.rel = 'noopener noreferrer';
       credit.append(sourceLink);
       figure.append(image,credit);
-      panel.append(summary,figure);
+      panel.append(figure);
       image.addEventListener('error', () => {
         figure.replaceChildren(element('p','source-note','Portrait unavailable.'));
       });
+      return panel;
+    }
+    function expandable(key,title,className) {
+      const panel = element('details','sheet-expandable ' + className);
+      panel.open = expanded[key];
+      panel.append(element('summary','',title));
+      panel.addEventListener('toggle',() => { expanded[key] = panel.open; });
+      return panel;
+    }
+    function sourceLink(source) {
+      const link = element('a','',source.title);
+      link.href = source.revision_url || source.url;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      return link;
+    }
+    function backstoryPanel(character) {
+      const panel = expandable('backstory','Backstory','sheet-backstory');
+      const body = element('div','sheet-backstory-body');
+      const lore = loreCatalog?.characters[character.name];
+      if (lore?.card_background) {
+        const section = element('section','sheet-background');
+        section.append(element('h3','','Card background'));
+        const quote = element('blockquote','sheet-background-text');
+        for (const paragraph of lore.card_background.paragraphs) quote.append(element('p','',paragraph));
+        const citation = element('p','sheet-lore-source');
+        citation.append(document.createTextNode('Wiki transcription · '),sourceLink(lore.card_background.source));
+        section.append(quote,citation);
+        body.append(section);
+      }
+      if (lore?.expanded_background) {
+        const section = element('section','sheet-expanded-background');
+        section.append(element('h3','','Expanded background'),element('p','sheet-lore-label','Summary of official Paizo material'));
+        for (const paragraph of lore.expanded_background.paragraphs) section.append(element('p','',paragraph));
+        for (const source of lore.expanded_background.sources) {
+          const citation = element('p','sheet-lore-source');
+          citation.append(sourceLink(source),document.createTextNode(` · ${source.author} · ${source.date}`));
+          section.append(citation);
+        }
+        body.append(section);
+      }
+      if (!body.children.length) body.append(element('p','source-note',loreCatalog ? 'No backstory is recorded for this character yet.' : 'Backstory is currently unavailable.'));
+      panel.append(body);
       return panel;
     }
     async function init() {
@@ -277,18 +318,16 @@
         if (selectedId === id && cards.querySelector('.pacg-card')) return;
         cards.replaceChildren(element('p','source-note','Loading character and roles…'));
         const roles = matchingRoles(summary,catalog.roles);
-        const [records] = await Promise.all([Promise.all([detail(id),...roles.map(role => detail(role.id))]),loadPortraits()]);
+        const [records] = await Promise.all([Promise.all([detail(id),...roles.map(role => detail(role.id))]),loadPortraits(),loadLore()]);
         if (version !== request) return;
         selectedId = id;
         renderSuggestions();
         const panels = records.map(card => cardPanel(card,id));
         const portrait = portraitCatalog?.portraits[summary.name];
-        cards.classList.toggle('has-portrait',!!portrait);
-        if (portrait) {
-          const pair = element('div','sheet-character-pair');
-          pair.append(panels[0],portraitPanel(records[0],portrait));
-          cards.replaceChildren(pair,...panels.slice(1));
-        } else cards.replaceChildren(...panels);
+        const extras = element('div','sheet-extras');
+        if (portrait) extras.append(portraitPanel(records[0],portrait));
+        extras.append(backstoryPanel(records[0]));
+        cards.replaceChildren(extras,...panels);
         if (!roles.length) cards.append(element('p','source-note','No matching role card is recorded for this character and set.'));
         store.remember(id);
         savedMessage();

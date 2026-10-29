@@ -21,6 +21,14 @@ Our adaptations include structured extraction, text normalization, separation of
 rules from flavor text, and reviewed original/errata variants. The master
 rulebook reorganizes the four original-edition rulebooks and groups variations.
 
+Character backgrounds are an explicit, separately presented exception to the
+rules-only card export. `character-lore.json` contains introductory character
+backgrounds transcribed by the PACG Wiki, with source revision links, and our
+summaries of cited official Paizo articles. Original passages retain Paizo’s
+rights; applicable wiki contribution terms remain in force. Each expanded
+summary identifies the original work, author, publication date, and source URL.
+Other card flavor text remains excluded from the public card data.
+
 The [Credits & licensing page](web/credits.html) contains the Community Use
 notice, creator acknowledgments, source links, and contact information. The
 Adventure map includes full-atlas vector terrain and factual place coordinates
