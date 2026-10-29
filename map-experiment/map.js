@@ -47,7 +47,7 @@
   }
   if(typeof module!=='undefined'&&module.exports){module.exports={adventureFor,offsets,atlasStyle,scenarioRules,labelPlacement};return;}
   const $=id=>document.getElementById(id),node=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text!=null)n.textContent=text;return n;};
-  let map,data,current,popup,markers=[],labels=[],places=[],selected='',enabled=new Set();
+  let map,data,current,popup,markers=[],labels=[],places=[],selected='',enabled=new Set(),routes;
   const controls=$('map-controls'),cardCache=new Map();
   const artworkCatalog=fetch('./artwork.json?v=4d8a8793f0fd').then(response=>{
     if(!response.ok)throw Error('Illustration credits could not be loaded.');
@@ -62,7 +62,7 @@
   const reduced=matchMedia('(prefers-reduced-motion:reduce)').matches;
   const themeButton=$('theme-toggle');
   function updateThemeButton(){const light=root.PACGTheme.get()==='dark';themeButton.textContent=light?'Light mode':'Dark mode';themeButton.setAttribute('aria-label',`Switch to ${light?'light':'dark'} mode`);}
-  function paint(){if(!map?.isStyleLoaded())return;for(const layer of atlasStyle(root.PACGTheme.get()).layers)for(const [property,value] of Object.entries(layer.paint))map.setPaintProperty(layer.id,property,value);}
+  function paint(){if(!map)return;if(!map.isStyleLoaded()){map.once('idle',paint);return;}for(const layer of atlasStyle(root.PACGTheme.get()).layers)for(const [property,value] of Object.entries(layer.paint))map.setPaintProperty(layer.id,property,value);}
   themeButton.addEventListener('click',()=>{root.PACGTheme.toggle();updateThemeButton();paint();});updateThemeButton();
   const credits=$('map-credits');$('map-credits-open').addEventListener('click',()=>credits.showModal());$('map-credits-close').addEventListener('click',()=>credits.close());credits.addEventListener('close',()=>$('map-credits-open').focus());
   function fit(){
@@ -75,6 +75,30 @@
     map.fitBounds(bounds,{padding:{top,left:60,right:60,bottom:Math.max(100,stack+30)},maxZoom:13.5,duration:reduced?0:650});
   }
   function world(){popup?.remove();$('map-status').hidden=true;map.fitBounds([[data.bounds[0],data.bounds[1]],[data.bounds[2],data.bounds[3]]],{padding:{top:85,left:22,right:22,bottom:85},maxZoom:2,duration:reduced?0:700});}
+  const svgNode=(tag,attributes={})=>{const element=document.createElementNS('http://www.w3.org/2000/svg',tag);for(const [key,value] of Object.entries(attributes))element.setAttribute(key,value);return element;};
+  function updateRoutes(){
+    if(!routes||!current)return;
+    const positions=offsets(current.scenarios),scenarios=new Map(current.scenarios.map(s=>[s.number,s]));
+    const radius=matchMedia('(any-pointer:coarse)').matches?24:21,paths=[];
+    for(const edge of root.PACGMapProgression.connections(current)){
+      const from=scenarios.get(edge.from),to=scenarios.get(edge.to);
+      // Never bridge across missing/off-world coordinates or invent extra anchors.
+      if(!from?.coordinates||!to?.coordinates)continue;
+      const screen=scenario=>{const p=map.project(scenario.coordinates),offset=positions.get(scenario.number);return {x:p.x+offset[0],y:p.y+offset[1]};};
+      const geometry=root.PACGMapProgression.routeGeometry(screen(from),screen(to),{...edge,radius,sameLocation:coordinateKey(from.coordinates)===coordinateKey(to.coordinates)});
+      if(!geometry)continue;
+      const group=svgNode('g',{'data-from':edge.from,'data-to':edge.to,'data-kind':edge.kind});
+      group.append(svgNode('path',{d:geometry.d,class:'scenario-route-halo'}),svgNode('path',{d:geometry.d,class:'scenario-route-line',...(edge.kind==='required'?{'marker-end':'url(#scenario-route-arrow)'}:{})}));paths.push(group);
+    }
+    routes.querySelector('.scenario-route-paths').replaceChildren(...paths);
+  }
+  function createRoutes(){
+    routes=svgNode('svg',{class:'scenario-routes','aria-hidden':'true',focusable:'false'});
+    const definitions=svgNode('defs'),marker=svgNode('marker',{id:'scenario-route-arrow',viewBox:'0 0 10 10',refX:'8',refY:'5',markerWidth:'10',markerHeight:'10',markerUnits:'userSpaceOnUse',orient:'auto'});
+    marker.append(svgNode('path',{d:'M 1 1 L 8 5 L 1 9 Z',class:'scenario-route-arrow'}));definitions.append(marker);
+    routes.append(definitions,svgNode('g',{class:'scenario-route-paths'}));map.getCanvasContainer().append(routes);
+    map.on('move',updateRoutes);map.on('resize',updateRoutes);
+  }
   function updateLabels(){
     if(!map||!places.length)return;
     labels.forEach(label=>label.remove());labels=[];
@@ -199,6 +223,9 @@
       for(const adventure of data.adventures.filter(a=>a.path===current.path)){const option=node('option','',`${adventure.deck} · ${adventure.title}`);option.value=adventure.id;choice.append(option);}
     }
     choice.value=current.id;choice.title=current.title;
+    $('adventure-progression').textContent=current.progression?.summary||'Play scenarios in listed order.';
+    $('adventure-progression-key').hidden=!root.PACGMapProgression.connections(current).length;
+    $('progression-any-order').hidden=!current.progression?.stages.some(stage=>stage.length>1);
     const unmapped=current.scenarios.filter(s=>!s.coordinates).length;
     $('adventure-fit').disabled=unmapped===current.scenarios.length;
     $('scenario-index-label').textContent=`${current.scenarios.length} scenario${current.scenarios.length===1?'':'s'}${unmapped?' · '+unmapped+' off-map':''}`;$('scenario-index').replaceChildren();$('scenario-index-label').parentElement.open=unmapped===current.scenarios.length;
@@ -215,7 +242,7 @@
     const url=new URL(location.href);url.searchParams.set('adventure',current.id);url.searchParams.delete('scenario');history[push?'pushState':'replaceState']({},'',url);
     document.title=`${current.title} · PACG map experiment`;$('map-status').hidden=true;
     if(fitMap){if(markers.length)fit();else world();}
-    updateLabels();
+    updateRoutes();updateLabels();
   }
   $('adventure-path-choice').addEventListener('change',()=>show(data.adventures.find(a=>a.path===$('adventure-path-choice').value).id,{push:true}));
   $('adventure-choice').addEventListener('change',()=>{closeControls({focus:true});show($('adventure-choice').value,{push:true});});
@@ -224,7 +251,7 @@
   window.addEventListener('popstate',()=>{if(data&&map?.isStyleLoaded())show(new URL(location.href).searchParams.get('adventure'));});
   async function start(){
     try{
-      const response=await fetch('./adventures.json?v=2244710aed0c');if(!response.ok)throw Error('The adventure index could not be loaded.');data=await response.json();
+      const response=await fetch('./adventures.json?v=e179c607c8fc');if(!response.ok)throw Error('The adventure index could not be loaded.');data=await response.json();
       if(data.schema_version!==1)throw Error('This adventure index is not supported.');
       if(typeof root.maplibregl?.Map!=='function')throw Error('The map library could not be loaded. Reload this map preview to retry.');
       maplibregl.setWorkerUrl(new URL('./vendor/maplibre-worker.js',location.href).href);
@@ -232,6 +259,7 @@
       map.addControl(new maplibregl.NavigationControl({showCompass:false}),'top-right');
       map.on('error',event=>{console.error('Map rendering:',event.error);$('map-status').textContent='Part of the map could not be loaded. Reload this map preview to retry.';$('map-status').hidden=false;});
       map.once('load',async()=>{
+        createRoutes();
         const choice=$('adventure-path-choice');choice.replaceChildren();
         for(const path of [...new Set(data.adventures.map(a=>a.path))]){
           const option=node('option','',path);option.value=path;choice.append(option);

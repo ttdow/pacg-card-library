@@ -12,11 +12,12 @@
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="../feedback.css">
   <link rel="stylesheet" href="./vendor/maplibre.css">
-  <link rel="stylesheet" href="./map.css?v=8d61837741ad">
+  <link rel="stylesheet" href="./map.css?v=c6dfcd217a0e">
   <script src="./vendor/maplibre.js" defer></script>
   <script src="../library-data.js" defer></script>
   <script src="../card-history.js" defer></script>
-  <script src="./map.js?v=b4abb707421f" defer></script>
+  <script src="./map-progression.js?v=8b11406291f3" defer></script>
+  <script src="./map.js?v=b56336f8687f" defer></script>
   <script src="../feedback.js" defer></script>
 </head>
 <body class="map-experiment-page">
@@ -36,6 +37,8 @@
         <label for="adventure-choice">Adventure</label>
         <select id="adventure-choice" disabled><option>Loading adventures…</option></select>
         <div class="map-adventure-actions"><button id="adventure-fit" type="button" aria-label="Center adventure locations" disabled>Center</button><button id="map-world" type="button" aria-label="Show full world map" disabled>World</button></div>
+        <p id="adventure-progression" class="adventure-progression"></p>
+        <div id="adventure-progression-key" class="adventure-progression-key"><span><i aria-hidden="true">⋯→</i> Required order</span><span id="progression-any-order" hidden><i aria-hidden="true">⋯</i> Any order</span></div>
         <details class="map-scenario-index"><summary id="scenario-index-label">Scenarios</summary><div id="scenario-index"></div></details>
         <details class="map-layer-options"><summary>Map layers</summary><div id="map-layers"></div></details>
         </div>
@@ -54,6 +57,7 @@
     <p><a href="./MAP-LICENSING.txt">Map licensing details</a> · Map rendering uses MapLibre GL JS 5.6.2. <a href="./vendor/LICENSE.txt">Third-party license notices</a> · <a href="./sources.json">Map source register</a></p>
     <p>PACG scenario names and card transcriptions: <a href="https://pacg.fandom.com/wiki/Pathfinder_Adventure_Card_Game_Wiki">Pathfinder Adventure Card Game Wiki</a>. Source links and retained revisions accompany every scenario. Scenario popups use the library's rules-only card text and Original/Errata versions; flavour text, article prose, and raster map artwork are excluded.</p>
     <p>The catalog covers the four original boxed campaigns: 28 adventures and 140 scenarios, including the two printed bonuses. Regional markers show broad context, and entrance markers identify access to extradimensional settings. Off-world and unverified settings remain selectable without invented Golarion coordinates. All 935 source cities and 1,803 source points of interest are retained. Their point markers are available at every zoom, without clustering or sampling; text labels adapt to zoom and overlap.</p>
+    <p>Dotted paths show scenario progression rather than roads or exact travel routes. Arrowheads indicate required order. Groups without arrows may be completed in any order; all group members must be completed before their directed finale. Progression follows the adventure scenario lists and retained order instructions, recorded with source revisions in the adventure catalog. Off-map scenarios remain in the list without invented map connections.</p>
     <p>Thank you to Paizo and the wonderful artists whose illustrations bring these adventures to life! Every scenario has an accompanying illustration selected from publicly posted Paizo Blog artwork. Artists, publisher sources, copyright notices, and exact crops are recorded in our <a href="./artwork.json">scenario artwork register</a>. Shared or contextual illustrations are identified in their captions; they do not always depict the exact scenario.</p>
     <p>Illustrations remain Paizo copyrighted material used under the <a href="https://paizo.com/licenses/communityuse">Paizo Community Use Policy</a>. These separate terms apply to the artwork; the code license and geographic data license do not apply to it.</p>
     <p>This website uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This website is not published, endorsed, or specifically approved by Paizo. For more information about Paizo Inc. and Paizo products, visit <a href="https://paizo.com">paizo.com</a>.</p>
