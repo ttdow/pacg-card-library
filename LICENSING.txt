@@ -28,7 +28,7 @@ from the PathfinderWiki Mapping Project and its Kart data repository, with
 warm thanks to their contributors, John Mechalas, and Oznogon. The adapted
 geographic datasets retain CC BY-NC-SA 4.0; source credits, license links, and
 modifications are recorded in the map's Credits panel and map/MAP-LICENSING.txt.
-MapLibre retains the notices in map/vendor/LICENSE.txt. The 52 accompanying
+MapLibre retains the notices in map/vendor/LICENSE.txt. The accompanying
 scenario illustrations retain their individual Paizo copyrights and Community
 Use terms, with artist credits, publisher links, and ordinary crop bounds in
 map/artwork.json. No original raster map artwork is included. These materials

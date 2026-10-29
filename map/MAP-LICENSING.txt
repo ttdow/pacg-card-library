@@ -19,7 +19,7 @@ and ../credits.html give notices and source credits.
 
 SCENARIO ILLUSTRATIONS
 With warm thanks to Paizo and the talented artists who bring Golarion to life.
-These 52 illustrations accompany 140 scenarios and retain their individual
+These 83 illustrations accompany 140 scenarios and retain their individual
 Paizo copyright notices. They are used under the Paizo Community Use Policy:
 https://paizo.com/licenses/communityuse
 See artwork.json for individual artist credits, original publisher links,

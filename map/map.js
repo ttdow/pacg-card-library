@@ -52,7 +52,7 @@
   const notifyHost=message=>{if(embedded)parent.postMessage(message,location.origin);};
   let map,data,current,popup,markers=[],labels=[],places=[],selected='',enabled=new Set(),routes;
   const controls=$('map-controls'),cardCache=new Map();
-  const artworkCatalog=fetch('./artwork.json?v=4d8a8793f0fd').then(response=>{
+  const artworkCatalog=fetch('./artwork.json?v=ceac3ddbc06e').then(response=>{
     if(!response.ok)throw Error('Illustration credits could not be loaded.');
     return response.json();
   }).then(catalog=>{
